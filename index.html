@@ -25,6 +25,47 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
+  <!-- Custom Brand Colors for Honvax -->
+  <style>
+    :root {
+      --accent-color: #10558C !important; /* 工业蓝：主色调 */
+      --heading-color: #003366 !important; /* 深邃蓝：用于大标题 */
+      --gold-accent: #C5A059; /* 质感金：用于点缀 */
+    }
+
+    /* 调整所有主按钮颜色 */
+    .btn-primary, .submit-btn {
+      background-color: var(--accent-color) !important;
+      border-color: var(--accent-color) !important;
+    }
+
+    /* 调整小标题（Subtitle）颜色为金色 */
+    .section-title .subtitle {
+      color: var(--gold-accent) !important;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    /* 调整导航栏激活状态和悬停颜色 */
+    .navmenu a:hover, .navmenu .active {
+      color: var(--accent-color) !important;
+    }
+
+    /* 调整服务图标和列表图标颜色 */
+    .service-item .service-icon i, .about .content ul i {
+      color: var(--accent-color) !important;
+    }
+
+    /* 增加 Logo 文字的阴影感，呼应 Logo 图片的质感 */
+    .sitename {
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* 调整页脚背景，使其更深邃专业 */
+    .footer {
+      background-color: #001a33 !important;
+    }
+  </style>
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
