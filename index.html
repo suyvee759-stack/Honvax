@@ -32,6 +32,40 @@
       --heading-color: #003366 !important; /* 深邃蓝：用于大标题 */
       --gold-accent: #C5A059; /* 质感金：用于点缀 */
     }
+    /* --- 优化首屏文字大小与协调度 --- */
+    #hero h1 {
+      font-size: 2.8rem !important; /* 减小大标题字号，原先可能接近 4rem */
+      line-height: 1.2 !important;
+      margin-bottom: 1.5rem !important;
+      font-weight: 800;
+    }
+
+    #hero .lead {
+      font-size: 1.05rem !important; /* 减小描述文字大小 */
+      max-width: 90%; /* 限制宽度，防止文字铺得太满 */
+      line-height: 1.6 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    /* 调整按钮大小，使其不显突兀 */
+    #hero .btn-lg {
+      padding: 10px 25px !important;
+      font-size: 1rem !important;
+    }
+
+    /* 针对小屏幕（手机端）的适配 */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2.2rem !important;
+      }
+      #hero .hero-content {
+        text-align: center;
+        padding-right: 0;
+      }
+      #hero .lead {
+        max-width: 100%;
+      }
+    }
 
     /* 调整所有主按钮颜色 */
     .btn-primary, .submit-btn {
