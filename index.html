@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Honvax | Reliable Engineering Supplies & Power Solutions South Africa</title>
-  <meta name="description" content="Honvax specializes in high-quality mechanical spare parts, used heavy equipment, customized generators, and solar PV solutions for Africa's power and infrastructure sectors.">
-  <meta name="keywords" content="Honvax, South Africa, Solar PV, Generators, Construction Equipment, Mechanical Spare Parts, BEE Compliant, Pan-African Logistics">
+  <meta name="description" content="Honvax specializes in high-quality mechanical spare parts, used heavy equipment, customized generators, and solar PV solutions for South Africa's power and infrastructure sectors.">
+  <meta name="keywords" content="Honvax, South Africa, Solar PV, Power Construction, Mechanical Spare Parts, Used Equipment, Eskom Compliance, Generators">
 
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
@@ -25,6 +25,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
+  <!-- Custom Brand Colors for Honvax -->
   <style>
     :root {
       --accent-color: #10558C !important; /* 工业蓝：主色调 */
@@ -32,28 +33,15 @@
       --gold-accent: #C5A059; /* 质感金：用于点缀 */
     }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--heading-color);
-    }
-
     /* 调整所有主按钮颜色 */
     .btn-primary, .submit-btn {
       background-color: var(--accent-color) !important;
       border-color: var(--accent-color) !important;
-      padding: 10px 24px;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: all 0.3s ease;
     }
-
     .btn-primary:hover {
       background-color: var(--heading-color) !important;
       transform: translateY(-2px);
+      transition: all 0.3s ease;
     }
 
     /* 调整小标题（Subtitle）颜色为金色 */
@@ -62,17 +50,18 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 5px;
     }
 
-    /* 导航栏 */
+    /* 调整导航栏激活状态和悬停颜色 */
     .navmenu a:hover, .navmenu .active {
       color: var(--accent-color) !important;
     }
 
-    /* 服务图标 */
+    /* 调整服务图标和列表图标颜色 */
+    .service-item .service-icon i, .about .content ul i {
+      color: var(--accent-color) !important;
+    }
+    
     .service-item {
       padding: 30px;
       border-radius: 8px;
@@ -86,25 +75,22 @@
       transform: translateY(-5px);
     }
     .service-item .service-icon i {
-      color: var(--accent-color) !important;
       font-size: 40px;
       margin-bottom: 20px;
       display: inline-block;
     }
 
-    /* Logo 设计 */
+    /* 增加 Logo 文字的阴影感，呼应 Logo 图片的质感 */
     .sitename {
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     
-    /* 页脚 */
+    /* 调整页脚背景，使其更深邃专业 */
     .footer {
       background-color: #001a33 !important;
-      color: #fff;
-      padding: 30px 0;
     }
 
-    /* 视频容器 (移动端自适应) */
+    /* 新增：视频容器样式 */
     .video-container {
       position: relative;
       border-radius: 10px;
@@ -131,27 +117,23 @@
       font-weight: 600;
       letter-spacing: 1px;
     }
-
-    /* 移动端优化：增加点击热区，调整间距 */
-    @media (max-width: 768px) {
-      .hero { padding-top: 120px; text-align: center; }
-      .hero-cta { justify-content: center; }
-      .stat-item { margin-bottom: 20px; }
-      .video-container { margin-bottom: 15px; }
-    }
   </style>
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- 请确保 assets/img/logo.png 存在 -->
+        <!-- 1. 确保 assets/img/logo.png 存在 -->
         <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 55px; width: auto; margin-right:15px;">
-        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px;">Honvax</h1>
+        <!-- 2. 保留名字 -->
+        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
       </a>
 
+      <!-- 严格保留原有的导航结构，避免 CSS 失效 -->
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
@@ -161,40 +143,41 @@
           <li><a href="#logistics">Logistics</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list fs-1"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
     </div>
   </header>
 
-  <main class="main" style="margin-top: 80px;">
+  <main class="main">
 
     <!-- Hero Section (集成双视频) -->
-    <section id="hero" class="hero section light-background py-5">
+    <section id="hero" class="hero section light-background py-5" style="margin-top: 60px;">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="hero-content">
               <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
-              <h1 data-aos="fade-up" data-aos-delay="200" class="display-4 fw-bold mb-4">Empowering Africa's Engineering & Energy Future</h1>
+              <h1 data-aos="fade-up" data-aos-delay="200" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Empowering Africa's Engineering & Energy Future</h1>
               <p class="lead mb-4" data-aos="fade-up" data-aos-delay="300">Honvax provides heavy-duty mechanical spare parts, customized power solutions, and utility-scale solar PV equipment tailored for the extreme demands of the African market.</p>
               
               <div class="hero-cta d-flex gap-3 mb-5" data-aos="fade-up" data-aos-delay="400">
-                <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
-                <a href="#services" class="btn btn-outline-dark btn-lg">View Products</a>
+                <a href="#contact" class="btn btn-primary btn-lg" style="padding: 10px 24px;">Request a Quote</a>
+                <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px;">View Products</a>
               </div>
 
-              <div class="row text-center text-lg-start" data-aos="fade-up" data-aos-delay="500">
-                <div class="col-4">
-                  <h3 class="fw-bold text-primary mb-0">SABS</h3>
-                  <small class="text-muted fw-bold">Standard Ready</small>
+              <div class="hero-stats row text-center text-lg-start" data-aos="fade-up" data-aos-delay="500">
+                <div class="stat-item col-4">
+                  <div class="stat-number fs-3 fw-bold text-primary mb-0">SABS</div>
+                  <div class="stat-label text-muted fw-bold">Standard Ready</div>
                 </div>
-                <div class="col-4">
-                  <h3 class="fw-bold text-primary mb-0">BEE</h3>
-                  <small class="text-muted fw-bold">Local Partners</small>
+                <div class="stat-item col-4">
+                  <div class="stat-number fs-3 fw-bold text-primary mb-0">BEE</div>
+                  <div class="stat-label text-muted fw-bold">Local Partners</div>
                 </div>
-                <div class="col-4">
-                  <h3 class="fw-bold text-primary mb-0">24/7</h3>
-                  <small class="text-muted fw-bold">Response</small>
+                <div class="stat-item col-4">
+                  <div class="stat-number fs-3 fw-bold text-primary mb-0">24/7</div>
+                  <div class="stat-label text-muted fw-bold">Response</div>
                 </div>
               </div>
             </div>
@@ -205,17 +188,16 @@
             <div class="row" data-aos="fade-left" data-aos-delay="300">
               <div class="col-sm-6">
                 <div class="video-container">
-                  <!-- 替换为你的红土地作业实拍视频 -->
+                  <!-- 请确保视频文件放在此路径下 -->
                   <video autoplay loop muted playsinline>
                     <source src="assets/videos/earthmoving-africa.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                   </video>
                   <div class="video-label"><i class="bi bi-cone-striped me-1"></i> Heavy Machinery</div>
                 </div>
               </div>
-              <div class="col-sm-6 mt-4 mt-sm-0 pt-sm-4"> <!-- 错落排版产生设计感 -->
+              <div class="col-sm-6 mt-4 mt-sm-0 pt-sm-4">
                 <div class="video-container">
-                  <!-- 替换为你的光伏阵列强烈阳光视频 -->
+                  <!-- 请确保视频文件放在此路径下 -->
                   <video autoplay loop muted playsinline>
                     <source src="assets/videos/solar-array-sunlight.mp4" type="video/mp4">
                   </video>
@@ -228,52 +210,57 @@
       </div>
     </section>
 
-    <!-- About / Trust Endorsement Section -->
+    <!-- About Section (本地化合规与技术背书) -->
     <section id="about" class="about section py-5">
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <span class="subtitle">Why Partner With Us</span>
-        <h2>Bridging Global Supply with Local Compliance</h2>
+        <h2 style="font-family: 'Montserrat', sans-serif;">Bridging Global Supply with Local Compliance</h2>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4">
-            <h3 class="fw-bold mb-3">Your Gateway to Compliant Procurement</h3>
-            <p class="text-muted">At Honvax, we understand that doing business in South Africa requires more than just good products. It requires an understanding of local regulatory frameworks and grid demands.</p>
-            <ul class="list-unstyled mt-4">
-              <li class="d-flex mb-3">
-                <i class="bi bi-shield-check fs-3 text-primary me-3"></i>
-                <div>
-                  <h5 class="fw-bold mb-1">Empowering Local Growth (BEE Support)</h5>
-                  <p class="text-muted small">Through deep integration with accredited local partners, we assist our buyers in meeting complex B-BBEE procurement guidelines and localization criteria seamlessly.</p>
-                </div>
-              </li>
-              <li class="d-flex mb-3">
-                <i class="bi bi-lightning fs-3 text-primary me-3"></i>
-                <div>
-                  <h5 class="fw-bold mb-1">Grid Code Technical Alignment</h5>
-                  <p class="text-muted small">Our energy products are curated to meet rigorous standards, ensuring smooth integration with Eskom requirements for utility and commercial projects.</p>
-                </div>
-              </li>
-            </ul>
+            <div class="content">
+              <h3 class="fw-bold mb-3">Your Gateway to Compliant Procurement</h3>
+              <p class="text-muted">At Honvax, we understand that doing business in South Africa requires more than just good products. It requires an understanding of local regulatory frameworks and grid demands.</p>
+              <ul class="list-unstyled mt-4">
+                <li class="d-flex mb-3">
+                  <i class="bi bi-shield-check fs-3 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-bold mb-1">Empowering Local Growth (BEE Support)</h5>
+                    <p class="text-muted small">Through deep integration with accredited local partners, we assist our buyers in meeting complex B-BBEE procurement guidelines and localization criteria seamlessly.</p>
+                  </div>
+                </li>
+                <li class="d-flex mb-3">
+                  <i class="bi bi-lightning fs-3 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-bold mb-1">Grid Code Technical Alignment</h5>
+                    <p class="text-muted small">Our energy products are curated to meet rigorous standards, ensuring smooth integration with Eskom requirements for utility and commercial projects.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="col-lg-6">
-            <img src="assets/img/about-business.webp" alt="Local Partnership" class="img-fluid rounded shadow-lg">
+            <div class="image-wrapper">
+              <!-- 建议替换为您的高清合规/项目图片 -->
+              <img src="assets/img/about-business.webp" alt="Local Partnership" class="img-fluid rounded shadow-lg">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section (4 Columns) -->
+    <!-- Services / Products Section (增加发电机定制，4列布局) -->
     <section id="services" class="services section light-background py-5">
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <span class="subtitle">Our Catalog</span>
-        <h2>Specialized Product Categories</h2>
+        <h2 style="font-family: 'Montserrat', sans-serif;">Specialized Product Categories</h2>
       </div>
 
       <div class="container">
         <div class="row gy-4">
-          <!-- Item 1: Machinery -->
+          <!-- Item 1: Used Equipment -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item text-center">
               <div class="service-icon"><i class="bi bi-truck-flatbed"></i></div>
@@ -297,7 +284,7 @@
               <p class="text-muted small">Tier-1 modules, high-durability mounting structures, and BESS solutions designed for extreme UV environments.</p>
             </div>
           </div>
-          <!-- Item 4: Custom Generators (NEW) -->
+          <!-- Item 4: Custom Generators (新增) -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item text-center">
               <div class="service-icon"><i class="bi bi-ev-station"></i></div>
@@ -309,40 +296,40 @@
       </div>
     </section>
 
-    <!-- Core Team Expertise / Track Record Section (Replacing fake cases) -->
+    <!-- Expertise Section (原 Portfolio，替换为专业履历背书) -->
     <section id="expertise" class="portfolio section py-5">
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <span class="subtitle">Our DNA</span>
-        <h2>Supply Chain Track Record & Expertise</h2>
+        <h2 style="font-family: 'Montserrat', sans-serif;">Supply Chain Track Record & Expertise</h2>
         <p class="text-muted mt-2">We don't just supply equipment; we analyze, optimize, and deliver technical solutions.</p>
       </div>
 
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card h-100 border-0 shadow-sm">
+            <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
               <div class="card-body p-4">
                 <div class="mb-3"><i class="bi bi-file-earmark-text text-primary fs-2"></i></div>
                 <h5 class="fw-bold mb-3">Utility-Scale Solar Tenders</h5>
-                <p class="text-muted">Our core team possesses deep technical analysis capabilities, evidenced by comprehensive bidding document reviews for major grid-tied developments like the <strong>InstaToll Mokgatle 64MWac Solar PV Plant</strong> in the North West province. We understand precisely what EPCs demand.</p>
+                <p class="text-muted small">Our core team possesses deep technical analysis capabilities, evidenced by comprehensive bidding document reviews for major grid-tied developments like the <strong>InstaToll Mokgatle 64MWac Solar PV Plant</strong> in the North West province.</p>
               </div>
             </div>
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card h-100 border-0 shadow-sm">
+            <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
               <div class="card-body p-4">
                 <div class="mb-3"><i class="bi bi-recycle text-primary fs-2"></i></div>
                 <h5 class="fw-bold mb-3">Complex Municipal Projects</h5>
-                <p class="text-muted">We navigate stringent performance requirements. Our technical team has actively engaged in evaluating the complex mechanical and operational prerequisites for large-scale municipal infrastructure, including the <strong>Johannesburg Alternative Waste Treatment Technology (AWTT)</strong> facility.</p>
+                <p class="text-muted small">We navigate stringent performance requirements. Our technical team has actively engaged in evaluating the complex mechanical prerequisites for large-scale municipal infrastructure, including the <strong>Johannesburg AWTT</strong> facility.</p>
               </div>
             </div>
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card h-100 border-0 shadow-sm">
+            <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
               <div class="card-body p-4">
                 <div class="mb-3"><i class="bi bi-tools text-primary fs-2"></i></div>
                 <h5 class="fw-bold mb-3">Local O&M Coordination</h5>
-                <p class="text-muted">Ensuring post-installation success is vital. We structure procurement strategies that facilitate smooth handovers to local Operations & Maintenance teams, drawing from our targeted analysis for large regional integrations like the <strong>Limpopo 100MW PV project</strong> connecting to Eskom infrastructure.</p>
+                <p class="text-muted small">Ensuring post-installation success is vital. We structure procurement strategies that facilitate smooth handovers to local O&M teams, drawing from our targeted analysis for regional integrations like the <strong>Limpopo 100MW PV project</strong>.</p>
               </div>
             </div>
           </div>
@@ -350,13 +337,13 @@
       </div>
     </section>
 
-    <!-- Pan-African Logistics Section -->
+    <!-- Logistics Section (新增：全非物流网络) -->
     <section id="logistics" class="section light-background py-5 border-top">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5 mb-4" data-aos="fade-right">
             <span class="subtitle">Delivery Certainty</span>
-            <h2 class="fw-bold mb-4">Pan-African Logistics Network</h2>
+            <h2 class="fw-bold mb-4" style="font-family: 'Montserrat', sans-serif;">Pan-African Logistics Network</h2>
             <p class="text-muted mb-4">From factory floor to your site. We manage the complexities of cross-border trade, customs clearance, and heavy-haul transportation across the continent's major economic hubs.</p>
             <ul class="list-unstyled fw-bold text-dark">
               <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> South Africa: Durban, Port Elizabeth, Cape Town</li>
@@ -378,47 +365,36 @@
     <section id="contact" class="contact section py-5">
       <div class="container section-title text-center mb-5">
         <span class="subtitle">Inquiry</span>
-        <h2>Start Your Procurement Today</h2>
+        <h2 style="font-family: 'Montserrat', sans-serif;">Get a Quote</h2>
       </div>
 
       <div class="container">
-        <div class="row gy-4 bg-white p-4 p-md-5 rounded shadow-sm">
-          <div class="col-lg-5 pe-lg-5">
-            <h4 class="fw-bold mb-4">Contact Information</h4>
-            <div class="info-item d-flex mb-4">
+        <div class="row gy-4">
+          <div class="col-lg-5">
+            <div class="info-item d-flex align-items-center mb-4 p-4 shadow-sm rounded bg-white">
               <i class="bi bi-envelope fs-3 text-primary me-3"></i>
               <div>
-                <h5 class="fw-bold mb-1">Email Us</h5>
+                <h4 class="fw-bold mb-1 fs-5">Email Us</h4>
                 <p class="mb-0 text-muted">sales@honvax.com</p>
               </div>
             </div>
-            <div class="info-item d-flex mb-4">
+            <div class="info-item d-flex align-items-center p-4 shadow-sm rounded bg-white">
               <i class="bi bi-geo-alt fs-3 text-primary me-3"></i>
               <div>
-                <h5 class="fw-bold mb-1">Regional Hub</h5>
-                <p class="mb-0 text-muted">Kyalami, Johannesburg, Gauteng<br>South Africa</p>
+                <h4 class="fw-bold mb-1 fs-5">Location</h4>
+                <p class="mb-0 text-muted">Kyalami, JHB, Gauteng<br>South Africa Regional Hub</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-7 border-start-lg ps-lg-5">
-            <form action="forms/contact.php" method="post" class="php-email-form">
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form bg-white p-4 shadow-sm rounded">
               <div class="row">
-                <div class="col-md-6 mb-3">
-                  <input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required>
-                </div>
+                <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
+                <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required></div>
               </div>
-              <div class="form-group mb-3">
-                <input type="text" name="subject" class="form-control p-3 bg-light border-0" placeholder="Product Interest (e.g. 500kVA Generator, Excavator Parts)" required>
-              </div>
-              <div class="form-group mb-4">
-                <textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Tell us about your project or equipment needs..." required></textarea>
-              </div>
-              <div class="text-start">
-                <button type="submit" class="btn btn-primary px-5 py-3">Send Inquiry</button>
-              </div>
+              <div class="form-group mb-3"><input type="text" name="subject" class="form-control p-3 bg-light border-0" placeholder="Product Interest (e.g. Spare Parts, Generators)" required></div>
+              <div class="form-group mb-4"><textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Inquiry Details" required></textarea></div>
+              <div class="text-start"><button type="submit" class="btn btn-primary px-4 py-2">Send Message</button></div>
             </form>
           </div>
         </div>
@@ -428,17 +404,11 @@
   </main>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center">
-      <p class="mb-2">© <span>Copyright</span> <strong class="px-1 sitename">Honvax</strong> <span>All Rights Reserved</span></p>
+    <div class="container copyright text-center mt-4 pb-4">
+      <p class="mb-1">© <span>Copyright</span> <strong class="px-1 sitename">Honvax</strong> <span>All Rights Reserved</span></p>
       <div class="credits text-white-50 small">Designed by Honvax Media Team</div>
     </div>
   </footer>
-
-  <!-- WhatsApp 悬浮按钮 (已做移动端防误触优化) -->
-  <a href="https://wa.me/+27836113703" target="_blank" class="d-flex align-items-center justify-content-center" 
-     style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background-color: #25d366; color: white; border-radius: 50%; font-size: 32px; z-index: 9999; box-shadow: 0 4px 15px rgba(37,211,102,0.4); transition: transform 0.3s ease;">
-    <i class="bi bi-whatsapp"></i>
-  </a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -447,5 +417,12 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
+  <!-- WhatsApp 悬浮按钮，已移入 body 内确保语法正确 -->
+  <a href="https://wa.me/+27836113703" target="_blank" class="d-flex align-items-center justify-content-center" 
+     style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; font-size: 30px; z-index: 9999; box-shadow: 2px 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s;">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
 </body>
 </html>
+```</Kyalami...>
