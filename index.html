@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Honvax | Reliable Engineering Supplies & Power Solutions South Africa</title>
-  <meta name="description" content="Honvax specializes in high-quality mechanical spare parts, used heavy equipment, and solar PV solutions for South Africa's power and infrastructure sectors.">
-  <meta name="keywords" content="Honvax, South Africa, Solar PV, Power Construction, Mechanical Spare Parts, Used Equipment, Eskom Compliance">
+  <meta name="description" content="Honvax specializes in high-quality mechanical spare parts, used heavy equipment, customized generators, and solar PV solutions for Africa's power and infrastructure sectors.">
+  <meta name="keywords" content="Honvax, South Africa, Solar PV, Generators, Construction Equipment, Mechanical Spare Parts, BEE Compliant, Pan-African Logistics">
 
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,6 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <!-- Custom Brand Colors for Honvax -->
   <style>
     :root {
       --accent-color: #10558C !important; /* 工业蓝：主色调 */
@@ -33,246 +32,393 @@
       --gold-accent: #C5A059; /* 质感金：用于点缀 */
     }
 
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--heading-color);
+    }
+
     /* 调整所有主按钮颜色 */
     .btn-primary, .submit-btn {
       background-color: var(--accent-color) !important;
       border-color: var(--accent-color) !important;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--heading-color) !important;
+      transform: translateY(-2px);
     }
 
     /* 调整小标题（Subtitle）颜色为金色 */
     .section-title .subtitle {
       color: var(--gold-accent) !important;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
     }
 
-    /* 调整导航栏激活状态和悬停颜色 */
+    /* 导航栏 */
     .navmenu a:hover, .navmenu .active {
       color: var(--accent-color) !important;
     }
 
-    /* 调整服务图标和列表图标颜色 */
-    .service-item .service-icon i, .about .content ul i {
+    /* 服务图标 */
+    .service-item {
+      padding: 30px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      height: 100%;
+    }
+    .service-item:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+    .service-item .service-icon i {
       color: var(--accent-color) !important;
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: inline-block;
     }
 
-    /* 增加 Logo 文字的阴影感，呼应 Logo 图片的质感 */
+    /* Logo 设计 */
     .sitename {
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     
-    /* 调整页脚背景，使其更深邃专业 */
+    /* 页脚 */
     .footer {
       background-color: #001a33 !important;
+      color: #fff;
+      padding: 30px 0;
+    }
+
+    /* 视频容器 (移动端自适应) */
+    .video-container {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      background: #000;
+      margin-bottom: 20px;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0.9;
+    }
+    .video-label {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0, 51, 102, 0.85);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* 移动端优化：增加点击热区，调整间距 */
+    @media (max-width: 768px) {
+      .hero { padding-top: 120px; text-align: center; }
+      .hero-cta { justify-content: center; }
+      .stat-item { margin-bottom: 20px; }
+      .video-container { margin-bottom: 15px; }
     }
   </style>
-  <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-  <!-- 1. 取消下面这一行的注释并修改路径 -->
-  <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 95px; width: auto; margin-right:20px;">
-  <!-- 2. 保留名字 -->
-  <h1 class="sitename" style="font-size: 38px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1.5px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
-</a>
+        <!-- 请确保 assets/img/logo.png 存在 -->
+        <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 55px; width: auto; margin-right:15px;">
+        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px;">Honvax</h1>
+      </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#services">Products</a></li>
-          <li><a href="#portfolio">Equipment</a></li>
+          <li><a href="#expertise">Track Record</a></li>
+          <li><a href="#logistics">Logistics</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list fs-1"></i>
       </nav>
-
     </div>
   </header>
 
-  <main class="main">
+  <main class="main" style="margin-top: 80px;">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+    <!-- Hero Section (集成双视频) -->
+    <section id="hero" class="hero section light-background py-5">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="hero-content">
-              <h1 data-aos="fade-up" data-aos-delay="200">Reliable Engineering Supplies for SA Infrastructure</h1>
-              <p data-aos="fade-up" data-aos-delay="300">Honvax provides high-performance mechanical spare parts and cost-effective used equipment, specifically curated for the South African power construction and renewable energy sectors.</p>
-              <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
-                <a href="#services" class="btn-primary">Browse Catalog</a>
-                <a href="https://www.youtube.com/watch?v=您的视频ID" class="btn-secondary glightbox">
-                  <i class="bi bi-play-circle"></i>
-                  Watch Demo
-                </a>
+              <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
+              <h1 data-aos="fade-up" data-aos-delay="200" class="display-4 fw-bold mb-4">Empowering Africa's Engineering & Energy Future</h1>
+              <p class="lead mb-4" data-aos="fade-up" data-aos-delay="300">Honvax provides heavy-duty mechanical spare parts, customized power solutions, and utility-scale solar PV equipment tailored for the extreme demands of the African market.</p>
+              
+              <div class="hero-cta d-flex gap-3 mb-5" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
+                <a href="#services" class="btn btn-outline-dark btn-lg">View Products</a>
               </div>
-              <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
-                <div class="stat-item">
-                  <div class="stat-number">5000+</div>
-                  <div class="stat-label">Parts in Stock</div>
+
+              <div class="row text-center text-lg-start" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-4">
+                  <h3 class="fw-bold text-primary mb-0">SABS</h3>
+                  <small class="text-muted fw-bold">Standard Ready</small>
                 </div>
-                <div class="stat-item">
-                  <div class="stat-number">100%</div>
-                  <div class="stat-label">Quality Inspected</div>
+                <div class="col-4">
+                  <h3 class="fw-bold text-primary mb-0">BEE</h3>
+                  <small class="text-muted fw-bold">Local Partners</small>
                 </div>
-                <div class="stat-item">
-                  <div class="stat-number">24/7</div>
-                  <div class="stat-label">Logistics Support</div>
+                <div class="col-4">
+                  <h3 class="fw-bold text-primary mb-0">24/7</h3>
+                  <small class="text-muted fw-bold">Response</small>
                 </div>
               </div>
             </div>
           </div>
+          
+          <!-- 双视频区域 -->
           <div class="col-lg-6">
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-              <img src="assets/img/hero-machinery.webp" alt="Engineering Equipment" class="img-fluid">
+            <div class="row" data-aos="fade-left" data-aos-delay="300">
+              <div class="col-sm-6">
+                <div class="video-container">
+                  <!-- 替换为你的红土地作业实拍视频 -->
+                  <video autoplay loop muted playsinline>
+                    <source src="assets/videos/earthmoving-africa.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-label"><i class="bi bi-cone-striped me-1"></i> Heavy Machinery</div>
+                </div>
+              </div>
+              <div class="col-sm-6 mt-4 mt-sm-0 pt-sm-4"> <!-- 错落排版产生设计感 -->
+                <div class="video-container">
+                  <!-- 替换为你的光伏阵列强烈阳光视频 -->
+                  <video autoplay loop muted playsinline>
+                    <source src="assets/videos/solar-array-sunlight.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-label"><i class="bi bi-brightness-high me-1"></i> Solar PV Systems</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Our Expertise</span>
-        <h2>About Honvax</h2>
-        <p>Your strategic partner in engineering procurement and power project support.</p>
+    <!-- About / Trust Endorsement Section -->
+    <section id="about" class="about section py-5">
+      <div class="container section-title text-center mb-5" data-aos="fade-up">
+        <span class="subtitle">Why Partner With Us</span>
+        <h2>Bridging Global Supply with Local Compliance</h2>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="content">
-              <h2>Building the Future with Professional Procurement</h2>
-              <p class="lead">Honvax combines deep industrial knowledge with local South African market insights to deliver unparalleled supply chain solutions.</p>
-              <p>With an extensive background in utility-scale solar projects and high-voltage transmission lines, we understand the critical nature of equipment reliability. Our mission is to bridge the gap between world-class engineering supplies and South Africa's growing energy needs.</p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> Eskom Grid Code Compliance Expertise.</li>
-                <li><i class="bi bi-check-circle"></i> Specialized in utility-scale PV project materials.</li>
-                <li><i class="bi bi-check-circle"></i> Global sourcing for rare mechanical components.</li>
-              </ul>
-            </div>
+          <div class="col-lg-6 mb-4">
+            <h3 class="fw-bold mb-3">Your Gateway to Compliant Procurement</h3>
+            <p class="text-muted">At Honvax, we understand that doing business in South Africa requires more than just good products. It requires an understanding of local regulatory frameworks and grid demands.</p>
+            <ul class="list-unstyled mt-4">
+              <li class="d-flex mb-3">
+                <i class="bi bi-shield-check fs-3 text-primary me-3"></i>
+                <div>
+                  <h5 class="fw-bold mb-1">Empowering Local Growth (BEE Support)</h5>
+                  <p class="text-muted small">Through deep integration with accredited local partners, we assist our buyers in meeting complex B-BBEE procurement guidelines and localization criteria seamlessly.</p>
+                </div>
+              </li>
+              <li class="d-flex mb-3">
+                <i class="bi bi-lightning fs-3 text-primary me-3"></i>
+                <div>
+                  <h5 class="fw-bold mb-1">Grid Code Technical Alignment</h5>
+                  <p class="text-muted small">Our energy products are curated to meet rigorous standards, ensuring smooth integration with Eskom requirements for utility and commercial projects.</p>
+                </div>
+              </li>
+            </ul>
           </div>
           <div class="col-lg-6">
-            <div class="image-wrapper">
-              <img src="assets/img/about-solar.webp" alt="Solar Project" class="img-fluid">
-            </div>
+            <img src="assets/img/about-business.webp" alt="Local Partnership" class="img-fluid rounded shadow-lg">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Section (Rebranded as Product Categories) -->
-    <section id="services" class="services section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">What We Offer</span>
-        <h2>Our Product Range</h2>
-      </div>
-
-      <div class="container">
-        <div class="row gy-5">
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item">
-              <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
-              <h3>Mechanical Spare Parts</h3>
-              <p>Filters, hydraulic pumps, and drive chains for leading heavy machinery brands. Minimize your project downtime.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item">
-              <div class="service-icon"><i class="bi bi-truck"></i></div>
-              <h3>Used Heavy Equipment</h3>
-              <p>Quality-assured excavators, loaders, and diesel generators at highly competitive price points.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item">
-              <div class="service-icon"><i class="bi bi-sun"></i></div>
-              <h3>Solar PV Components</h3>
-              <p>Tier-1 PV modules and mounting systems designed for solar farms.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio Section (Equipment Showcase) -->
-    <section id="portfolio" class="portfolio section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">Inventory</span>
-        <h2>Featured Equipment</h2>
+    <!-- Products Section (4 Columns) -->
+    <section id="services" class="services section light-background py-5">
+      <div class="container section-title text-center mb-5" data-aos="fade-up">
+        <span class="subtitle">Our Catalog</span>
+        <h2>Specialized Product Categories</h2>
       </div>
 
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-4 col-md-6">
-            <div class="portfolio-item">
-              <img src="assets/img/part-1.webp" class="img-fluid" alt="Spare Part">
-              <div class="portfolio-info">
-                <h4>Hydraulic Components</h4>
-                <p>High-pressure resistance</p>
+          <!-- Item 1: Machinery -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item text-center">
+              <div class="service-icon"><i class="bi bi-truck-flatbed"></i></div>
+              <h4 class="fw-bold">Used Heavy Equipment</h4>
+              <p class="text-muted small">Rigorous quality-assured excavators, loaders, and road construction machinery built for African terrain.</p>
+            </div>
+          </div>
+          <!-- Item 2: Spare Parts -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item text-center">
+              <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
+              <h4 class="fw-bold">Mechanical Spare Parts</h4>
+              <p class="text-muted small">Genuine and OEM filters, hydraulic pumps, and undercarriage parts to minimize project downtime.</p>
+            </div>
+          </div>
+          <!-- Item 3: Solar PV -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item text-center">
+              <div class="service-icon"><i class="bi bi-sun"></i></div>
+              <h4 class="fw-bold">Solar PV Systems</h4>
+              <p class="text-muted small">Tier-1 modules, high-durability mounting structures, and BESS solutions designed for extreme UV environments.</p>
+            </div>
+          </div>
+          <!-- Item 4: Custom Generators (NEW) -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item text-center">
+              <div class="service-icon"><i class="bi bi-ev-station"></i></div>
+              <h4 class="fw-bold">Customized Generators</h4>
+              <p class="text-muted small">Silent & containerized diesel/gas generator sets with smart ATS panels, specifically engineered for load shedding mitigation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Team Expertise / Track Record Section (Replacing fake cases) -->
+    <section id="expertise" class="portfolio section py-5">
+      <div class="container section-title text-center mb-5" data-aos="fade-up">
+        <span class="subtitle">Our DNA</span>
+        <h2>Supply Chain Track Record & Expertise</h2>
+        <p class="text-muted mt-2">We don't just supply equipment; we analyze, optimize, and deliver technical solutions.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="bi bi-file-earmark-text text-primary fs-2"></i></div>
+                <h5 class="fw-bold mb-3">Utility-Scale Solar Tenders</h5>
+                <p class="text-muted">Our core team possesses deep technical analysis capabilities, evidenced by comprehensive bidding document reviews for major grid-tied developments like the <strong>InstaToll Mokgatle 64MWac Solar PV Plant</strong> in the North West province. We understand precisely what EPCs demand.</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="portfolio-item">
-              <img src="assets/img/machine-1.webp" class="img-fluid" alt="Excavator">
-              <div class="portfolio-info">
-                <h4>Refurbished Excavator</h4>
-                <p>Brand A - 2022 Model</p>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="bi bi-recycle text-primary fs-2"></i></div>
+                <h5 class="fw-bold mb-3">Complex Municipal Projects</h5>
+                <p class="text-muted">We navigate stringent performance requirements. Our technical team has actively engaged in evaluating the complex mechanical and operational prerequisites for large-scale municipal infrastructure, including the <strong>Johannesburg Alternative Waste Treatment Technology (AWTT)</strong> facility.</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="portfolio-item">
-              <img src="assets/img/solar-1.webp" class="img-fluid" alt="Solar Module">
-              <div class="portfolio-info">
-                <h4>PV Mounting System</h4>
-                <p>Hot-dip galvanized</p>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="bi bi-tools text-primary fs-2"></i></div>
+                <h5 class="fw-bold mb-3">Local O&M Coordination</h5>
+                <p class="text-muted">Ensuring post-installation success is vital. We structure procurement strategies that facilitate smooth handovers to local Operations & Maintenance teams, drawing from our targeted analysis for large regional integrations like the <strong>Limpopo 100MW PV project</strong> connecting to Eskom infrastructure.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pan-African Logistics Section -->
+    <section id="logistics" class="section light-background py-5 border-top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4" data-aos="fade-right">
+            <span class="subtitle">Delivery Certainty</span>
+            <h2 class="fw-bold mb-4">Pan-African Logistics Network</h2>
+            <p class="text-muted mb-4">From factory floor to your site. We manage the complexities of cross-border trade, customs clearance, and heavy-haul transportation across the continent's major economic hubs.</p>
+            <ul class="list-unstyled fw-bold text-dark">
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> South Africa: Durban, Port Elizabeth, Cape Town</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Kenya: Mombasa</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Tanzania: Dar es Salaam</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Nigeria: Lagos / Apapa</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Djibouti Port</li>
+            </ul>
+          </div>
+          <div class="col-lg-7 text-center" data-aos="fade-left">
+            <!-- 建议放一张带有航线/港口节点的非洲地图 -->
+            <img src="assets/img/africa-logistics-map.webp" alt="Africa Logistics Map" class="img-fluid rounded shadow" style="border: 4px solid #fff;">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section light-background">
-      <div class="container section-title">
+    <section id="contact" class="contact section py-5">
+      <div class="container section-title text-center mb-5">
         <span class="subtitle">Inquiry</span>
-        <h2>Get a Quote</h2>
+        <h2>Start Your Procurement Today</h2>
       </div>
 
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-            <div class="info-item">
-              <i class="bi bi-envelope"></i>
-              <h4>Email Us</h4>
-              <p>sales@honvax.com</p>
+        <div class="row gy-4 bg-white p-4 p-md-5 rounded shadow-sm">
+          <div class="col-lg-5 pe-lg-5">
+            <h4 class="fw-bold mb-4">Contact Information</h4>
+            <div class="info-item d-flex mb-4">
+              <i class="bi bi-envelope fs-3 text-primary me-3"></i>
+              <div>
+                <h5 class="fw-bold mb-1">Email Us</h5>
+                <p class="mb-0 text-muted">sales@honvax.com</p>
+              </div>
             </div>
-            <div class="info-item">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location</h4>
-              <Kyalami,JHB, Gauteng>
-              <p>South Africa Regional Hub</p>
+            <div class="info-item d-flex mb-4">
+              <i class="bi bi-geo-alt fs-3 text-primary me-3"></i>
+              <div>
+                <h5 class="fw-bold mb-1">Regional Hub</h5>
+                <p class="mb-0 text-muted">Kyalami, Johannesburg, Gauteng<br>South Africa</p>
+              </div>
             </div>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-7 border-start-lg ps-lg-5">
             <form action="forms/contact.php" method="post" class="php-email-form">
               <div class="row">
-                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
-                <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
+                <div class="col-md-6 mb-3">
+                  <input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required>
+                </div>
               </div>
-              <div class="form-group mt-3"><input type="text" name="subject" class="form-control" placeholder="Product Interest (e.g. Spare Parts)" required></div>
-              <div class="form-group mt-3"><textarea name="message" class="form-control" rows="5" placeholder="Inquiry Details" required></textarea></div>
-              <div class="text-center mt-3"><button type="submit" class="btn btn-primary">Send Message</button></div>
+              <div class="form-group mb-3">
+                <input type="text" name="subject" class="form-control p-3 bg-light border-0" placeholder="Product Interest (e.g. 500kVA Generator, Excavator Parts)" required>
+              </div>
+              <div class="form-group mb-4">
+                <textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Tell us about your project or equipment needs..." required></textarea>
+              </div>
+              <div class="text-start">
+                <button type="submit" class="btn btn-primary px-5 py-3">Send Inquiry</button>
+              </div>
             </form>
           </div>
         </div>
@@ -282,11 +428,17 @@
   </main>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Honvax</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">Designed by Honvax Media Team</div>
+    <div class="container copyright text-center">
+      <p class="mb-2">© <span>Copyright</span> <strong class="px-1 sitename">Honvax</strong> <span>All Rights Reserved</span></p>
+      <div class="credits text-white-50 small">Designed by Honvax Media Team</div>
     </div>
   </footer>
+
+  <!-- WhatsApp 悬浮按钮 (已做移动端防误触优化) -->
+  <a href="https://wa.me/+27836113703" target="_blank" class="d-flex align-items-center justify-content-center" 
+     style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background-color: #25d366; color: white; border-radius: 50%; font-size: 32px; z-index: 9999; box-shadow: 0 4px 15px rgba(37,211,102,0.4); transition: transform 0.3s ease;">
+    <i class="bi bi-whatsapp"></i>
+  </a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -297,8 +449,3 @@
 
 </body>
 </html>
-<!-- 在页面末尾粘贴此按钮代码 -->
-<a href="https://wa.me/+27836113703" class="d-flex align-items-center justify-content-center" 
-   style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; font-size: 30px; z-index: 9999; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);">
-  <i class="bi bi-whatsapp"></i>
-</a>
