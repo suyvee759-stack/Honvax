@@ -223,13 +223,13 @@
 
   <main class="main">
 
-<!-- Hero Section (智能响应：电脑端左文右图，手机端文字在上、四宫格在下) -->
+<!-- Hero Section (彻底修复版：原生顺序排版，移动端完美适配) -->
     <section id="hero" class="hero section light-background py-5" style="margin-top: 60px;">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
 
-          <!-- 1. 文字部分（通过 order-1 确保在手机上永远排在最上面） -->
-          <div class="col-lg-6 mb-4 mb-lg-0 order-1">
+          <!-- 1. 文字部分（放在代码最前面，手机上自然在最上方，电脑上在左侧） -->
+          <div class="col-12 col-lg-6 mb-5 mb-lg-0">
             <div class="hero-content pe-lg-4">
               <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
               <h1 data-aos="fade-up" data-aos-delay="200" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Empowering Africa's Engineering & Energy Future</h1>
@@ -240,7 +240,7 @@
                 <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px;">View Products</a>
               </div>
 
-              <div class="hero-stats row text-center text-lg-start" data-aos="fade-up" data-aos-delay="500">
+              <div class="hero-stats row text-center text-md-start" data-aos="fade-up" data-aos-delay="500">
                 <div class="stat-item col-6 col-md-4 mb-3">
                   <div class="stat-number fs-3 fw-bold text-primary mb-0">SABS</div>
                   <div class="stat-label text-muted fw-bold">Standard Ready</div>
@@ -253,11 +253,12 @@
             </div>
           </div>
           
-          <!-- 2. 核心图片部分（通过 order-2 确保在手机上在文字下面，并保持 2x2 宫格） -->
-          <div class="col-lg-6 order-2 mt-4 mt-lg-0">
+          <!-- 2. 图片部分（放在代码后面，手机上自然在下方，电脑上在右侧） -->
+          <div class="col-12 col-lg-6">
+            <!-- 核心：这个 class="row" 决定了里面的图片能不能并排！千万不能漏掉 -->
             <div class="row g-2 g-lg-3" data-aos="fade-left" data-aos-delay="300">
               
-              <!-- 左边一列：挖掘机 + 技术服务 -->
+              <!-- 左边一列：挖掘机 + 技术服务 (col-6 保证在手机上占屏幕一半) -->
               <div class="col-6">
                 <div class="video-container mb-2 mb-lg-3">
                   <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
@@ -269,7 +270,7 @@
                 </div>
               </div>
 
-              <!-- 右边一列：光伏 + 发电机 -->
+              <!-- 右边一列：光伏 + 发电机 (col-6 保证在手机上占另一半) -->
               <div class="col-6 pt-3 pt-lg-4">
                 <div class="video-container mb-2 mb-lg-3">
                   <img src="assets/img/hero-solar.jpg" alt="Solar PV" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
