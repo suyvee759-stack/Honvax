@@ -151,6 +151,23 @@
       font-weight: 600;
       letter-spacing: 1px;
     }
+    /* 极简矢量卡片悬浮效果 */
+    .product-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; /* 带有工业蓝倾向的隐约阴影 */
+    }
+    .product-card .icon-wrapper i {
+      transition: all 0.3s ease;
+    }
+    .product-card:hover .icon-wrapper i {
+      color: var(--gold-accent) !important; /* 鼠标悬浮时图标变为金色，呼应您的 Logo 色调 */
+      transform: scale(1.1);
+      display: inline-block;
+    }
   </style>
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
@@ -307,47 +324,61 @@
       </div>
     </section>
 
-    <!-- Services / Products Section (增加发电机定制，4列布局) -->
-    <section id="services" class="services section light-background py-5">
+<!-- Services / Products Section (极简矢量卡片版) -->
+    <section id="services" class="services section light-background py-4">
       <div class="container section-title text-center mb-5" data-aos="fade-up">
-        <span class="subtitle">Our Catalog</span>
-        <h2 style="font-family: 'Montserrat', sans-serif;">Specialized Product Categories</h2>
+        <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Catalog</span>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">Specialized Product Categories</h2>
       </div>
 
       <div class="container">
         <div class="row gy-4">
+          
           <!-- Item 1: Used Equipment -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item text-center">
-              <div class="service-icon"><i class="bi bi-truck-flatbed"></i></div>
-              <h4 class="fw-bold">Used Heavy Equipment</h4>
-              <p class="text-muted small">Rigorous quality-assured excavators, loaders, and road construction machinery built for African terrain.</p>
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4">
+                <!-- 这里使用的是内置矢量图标，您可以随时替换为自己的 SVG 图片 -->
+                <i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+              </div>
+              <h4 class="fw-bold mb-3 fs-5">Used Heavy Equipment</h4>
+              <p class="text-muted small mb-0">Quality-assured excavators, loaders, and road machinery built for African terrain.</p>
             </div>
           </div>
+
           <!-- Item 2: Spare Parts -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item text-center">
-              <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
-              <h4 class="fw-bold">Mechanical Spare Parts</h4>
-              <p class="text-muted small">Genuine and OEM filters, hydraulic pumps, and undercarriage parts to minimize project downtime.</p>
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4">
+                <i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+              </div>
+              <h4 class="fw-bold mb-3 fs-5">Mechanical Spare Parts</h4>
+              <p class="text-muted small mb-0">OEM filters, hydraulic pumps, and undercarriage parts to minimize downtime.</p>
             </div>
           </div>
+
           <!-- Item 3: Solar PV -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item text-center">
-              <div class="service-icon"><i class="bi bi-sun"></i></div>
-              <h4 class="fw-bold">Solar PV Systems</h4>
-              <p class="text-muted small">Tier-1 modules, high-durability mounting structures, and BESS solutions designed for extreme UV environments.</p>
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4">
+                <i class="bi bi-brightness-high" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+              </div>
+              <h4 class="fw-bold mb-3 fs-5">Solar PV Systems</h4>
+              <p class="text-muted small mb-0">Tier-1 modules, mounting structures, and BESS designed for extreme UV environments.</p>
             </div>
           </div>
-          <!-- Item 4: Custom Generators (新增) -->
+
+          <!-- Item 4: Custom Generators -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item text-center">
-              <div class="service-icon"><i class="bi bi-ev-station"></i></div>
-              <h4 class="fw-bold">Customized Generators</h4>
-              <p class="text-muted small">Silent & containerized diesel/gas generator sets with smart ATS panels, specifically engineered for load shedding mitigation.</p>
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4">
+                <i class="bi bi-ev-station" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+              </div>
+              <h4 class="fw-bold mb-3 fs-5">Customized Generators</h4>
+              <p class="text-muted small mb-0">Silent diesel/gas generator sets with smart ATS panels for load shedding mitigation.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
