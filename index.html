@@ -223,59 +223,63 @@
 
   <main class="main">
 
-<!-- Hero Section (智能响应：电脑端左文右图，手机端文字在上、四宫格在下) -->
+<!-- Hero Section (强制优化了手机端排版和先后顺序) -->
     <section id="hero" class="hero section light-background py-5" style="margin-top: 60px;">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
 
-          <!-- 1. 文字部分（通过 order-1 确保在手机上永远排在最上面） -->
-          <div class="col-lg-6 mb-4 mb-lg-0 order-1">
+          <!-- 1. 文字部分（通过 order-1 强制要求在手机端排在第一位/最上面） -->
+          <div class="col-lg-6 mb-5 mb-lg-0 order-1">
             <div class="hero-content pe-lg-4">
               <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
               <h1 data-aos="fade-up" data-aos-delay="200" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Empowering Africa's Engineering & Energy Future</h1>
               <p class="lead mb-4" data-aos="fade-up" data-aos-delay="300">Honvax provides heavy-duty mechanical spare parts, customized power solutions, and utility-scale solar PV equipment tailored for the extreme demands of the African market.</p>
               
-              <div class="hero-cta d-flex gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="hero-cta d-flex gap-3 mb-5" data-aos="fade-up" data-aos-delay="400">
                 <a href="#contact" class="btn btn-primary btn-lg" style="padding: 10px 24px;">Request a Quote</a>
                 <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px;">View Products</a>
               </div>
 
               <div class="hero-stats row text-center text-lg-start" data-aos="fade-up" data-aos-delay="500">
-                <div class="stat-item col-6 col-md-4 mb-3">
+                <div class="stat-item col-4">
                   <div class="stat-number fs-3 fw-bold text-primary mb-0">SABS</div>
                   <div class="stat-label text-muted fw-bold">Standard Ready</div>
                 </div>
-                <div class="stat-item col-6 col-md-4 mb-3">
+                <div class="stat-item col-4">
                   <div class="stat-number fs-3 fw-bold text-primary mb-0">BEE</div>
                   <div class="stat-label text-muted fw-bold">Local Partners</div>
+                </div>
+                <div class="stat-item col-4">
+                  <div class="stat-number fs-3 fw-bold text-primary mb-0">24/7</div>
+                  <div class="stat-label text-muted fw-bold">Response</div>
                 </div>
               </div>
             </div>
           </div>
           
-          <!-- 2. 核心图片部分（通过 order-2 确保在手机上在文字下面，并保持 2x2 宫格） -->
-          <div class="col-lg-6 order-2 mt-4 mt-lg-0">
-            <div class="row g-2 g-lg-3" data-aos="fade-left" data-aos-delay="300">
+          <!-- 2. 核心图片部分（通过 order-2 强制要求在手机端排在第二位/最下面） -->
+          <div class="col-lg-6 order-2">
+            <div class="row g-2 g-lg-3 w-100 m-0" data-aos="fade-left" data-aos-delay="300">
               
               <!-- 左边一列：挖掘机 + 技术服务 -->
-              <div class="col-6">
-                <div class="video-container mb-2 mb-lg-3">
+              <div class="col-6 px-1">
+                <div class="video-container mb-2 mb-lg-3 w-100">
                   <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
                   <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-cone-striped"></i> <span class="d-none d-sm-inline">Machinery</span></div>
                 </div>
-                <div class="video-container">
+                <div class="video-container w-100">
                   <img src="assets/img/hero-service.jpg" alt="Technical Service" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
                   <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-tools"></i> <span class="d-none d-sm-inline">O&M Support</span></div>
                 </div>
               </div>
 
               <!-- 右边一列：光伏 + 发电机 -->
-              <div class="col-6 pt-3 pt-lg-4">
-                <div class="video-container mb-2 mb-lg-3">
+              <div class="col-6 px-1 pt-3 pt-lg-4">
+                <div class="video-container mb-2 mb-lg-3 w-100">
                   <img src="assets/img/hero-solar.jpg" alt="Solar PV" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
                   <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-brightness-high"></i> <span class="d-none d-sm-inline">Solar PV</span></div>
                 </div>
-                <div class="video-container">
+                <div class="video-container w-100">
                   <img src="assets/img/hero-generator.jpg" alt="Custom Generators" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
                   <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-ev-station"></i> <span class="d-none d-sm-inline">Power</span></div>
                 </div>
