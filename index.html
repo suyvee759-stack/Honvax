@@ -25,33 +25,33 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <!-- Custom Brand Colors for Honvax -->
   <style>
     :root {
       --accent-color: #10558C !important; /* 工业蓝：主色调 */
       --heading-color: #003366 !important; /* 深邃蓝：用于大标题 */
       --gold-accent: #C5A059; /* 质感金：用于点缀 */
     }
+
     /* --- 优化首屏文字大小与协调度 --- */
     #hero h1 {
-      font-size: 2.5rem !important; /* 减小大标题字号，原先可能接近 4rem */
+      font-size: 2.5rem !important; 
       line-height: 1.2 !important;
       margin-bottom: 1.5rem !important;
       font-weight: 800;
     }
 
     #hero .lead {
-      font-size: 1.05rem !important; /* 减小描述文字大小 */
-      max-width: 90%; /* 限制宽度，防止文字铺得太满 */
+      font-size: 1.05rem !important; 
+      max-width: 90%; 
       line-height: 1.6 !important;
       margin-bottom: 2rem !important;
     }
 
-    /* 调整按钮大小，使其不显突兀 */
     #hero .btn-lg {
       padding: 10px 25px !important;
       font-size: 1rem !important;
     }
+
     /* 调整所有主按钮颜色 */
     .btn-primary, .submit-btn {
       background-color: var(--accent-color) !important;
@@ -71,12 +71,10 @@
       text-transform: uppercase;
     }
 
-    /* 调整导航栏激活状态和悬停颜色 */
     .navmenu a:hover, .navmenu .active {
       color: var(--accent-color) !important;
     }
 
-    /* 调整服务图标和列表图标颜色 */
     .service-item .service-icon i, .about .content ul i {
       color: var(--accent-color) !important;
     }
@@ -99,17 +97,15 @@
       display: inline-block;
     }
 
-    /* 增加 Logo 文字的阴影感，呼应 Logo 图片的质感 */
     .sitename {
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     
-    /* 调整页脚背景，使其更深邃专业 */
     .footer {
       background-color: #001a33 !important;
     }
 
-    /* 新增：视频容器样式 */
+    /* 视频/图片容器样式 */
     .video-container {
       position: relative;
       border-radius: 10px;
@@ -118,11 +114,13 @@
       background: #000;
       margin-bottom: 20px;
     }
-    .video-container video {
+    .video-container img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
       opacity: 0.9;
+      object-fit: cover;
+      aspect-ratio: 4/3; /* 统一图片比例 */
     }
     .video-label {
       position: absolute;
@@ -136,6 +134,7 @@
       font-weight: 600;
       letter-spacing: 1px;
     }
+
     /* 极简矢量卡片悬浮效果 */
     .product-card {
       transition: all 0.3s ease;
@@ -143,50 +142,39 @@
     }
     .product-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; /* 带有工业蓝倾向的隐约阴影 */
+      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; 
     }
     .product-card .icon-wrapper i {
       transition: all 0.3s ease;
     }
     .product-card:hover .icon-wrapper i {
-      color: var(--gold-accent) !important; /* 鼠标悬浮时图标变为金色，呼应您的 Logo 色调 */
+      color: var(--gold-accent) !important; 
       transform: scale(1.1);
       display: inline-block;
     }
-    /* 针对手机端强制并排的字体缩小优化 */
+
+    /* 手机端专用优化 */
     @media (max-width: 768px) {
       #hero h1 {
-        font-size: 1.2rem !important; /* 大幅缩小标题 */
+        font-size: 2.2rem !important; 
         line-height: 1.3 !important;
-        margin-bottom: 0.8rem !important;
-      }
-      .mobile-badge {
-        font-size: 0.55rem !important;
-        padding: 4px 6px !important;
-      }
-      .mobile-lead {
-        font-size: 0.75rem !important;
-        line-height: 1.4 !important;
         margin-bottom: 1rem !important;
       }
-      .mobile-btn {
-        font-size: 0.65rem !important;
-        padding: 6px 10px !important;
+      #hero .hero-content {
+        padding-right: 0 !important;
       }
-      .mobile-stat-num {
+      #hero .lead {
+        max-width: 100%;
         font-size: 1rem !important;
       }
-      .mobile-stat-text {
-        font-size: 0.65rem !important;
-      }
-      .mobile-label {
-        font-size: 0.5rem !important;
-        padding: 2px 4px !important;
-        bottom: 5px !important;
-        left: 5px !important;
-      }
       .video-container {
-        border-radius: 6px !important; /* 手机上圆角小一点更精致 */
+        border-radius: 8px !important; 
+        margin-bottom: 10px !important;
+      }
+      .video-label {
+        bottom: 8px !important;
+        left: 8px !important;
+        padding: 3px 8px !important;
       }
     }
   </style>
@@ -197,15 +185,11 @@
 
   <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- 1. 确保 assets/img/logo.png 存在 -->
         <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 55px; width: auto; margin-right:15px;">
-        <!-- 2. 保留名字 -->
         <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
       </a>
 
-      <!-- 严格保留原有的导航结构，避免 CSS 失效 -->
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
@@ -217,24 +201,25 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
     </div>
   </header>
 
   <main class="main">
-<!-- Hero Section (彻底修复版：原生顺序排版，移动端完美适配) -->
+
+    <!-- Hero Section (强制防弹版：彻底解决手机端错位) -->
     <section id="hero" class="hero section light-background py-5" style="margin-top: 60px;">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-center">
+        <!-- 强制正向排列机制 -->
+        <div class="row align-items-center" style="display: flex !important; flex-wrap: wrap !important; flex-direction: row !important;">
 
-          <!-- 1. 文字部分（放在代码最前面，手机上自然在最上方，电脑上在左侧） -->
-          <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+          <!-- 1. 文字部分（强制定为第 1 顺位） -->
+          <div class="col-12 col-lg-6 mb-4 mb-lg-0" style="order: 1 !important;">
             <div class="hero-content pe-lg-4">
               <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
               <h1 data-aos="fade-up" data-aos-delay="200" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Empowering Africa's Engineering & Energy Future</h1>
               <p class="lead mb-4" data-aos="fade-up" data-aos-delay="300">Honvax provides heavy-duty mechanical spare parts, customized power solutions, and utility-scale solar PV equipment tailored for the extreme demands of the African market.</p>
               
-              <div class="hero-cta d-flex gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="hero-cta d-flex flex-wrap gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
                 <a href="#contact" class="btn btn-primary btn-lg" style="padding: 10px 24px;">Request a Quote</a>
                 <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px;">View Products</a>
               </div>
@@ -248,7 +233,7 @@
                   <div class="stat-number fs-3 fw-bold text-primary mb-0">BEE</div>
                   <div class="stat-label text-muted fw-bold">Local Partners</div>
                 </div>
-                <div class="stat-item col-4">
+                <div class="stat-item col-12 col-md-4">
                   <div class="stat-number fs-3 fw-bold text-primary mb-0">24/7</div>
                   <div class="stat-label text-muted fw-bold">Response</div>
                 </div>
@@ -256,32 +241,32 @@
             </div>
           </div>
           
-          <!-- 2. 图片部分（放在代码后面，手机上自然在下方，电脑上在右侧） -->
-          <div class="col-12 col-lg-6">
-            <!-- 核心：这个 class="row" 决定了里面的图片能不能并排！千万不能漏掉 -->
-            <div class="row g-2 g-lg-3" data-aos="fade-left" data-aos-delay="300">
+          <!-- 2. 图片部分（强制定为第 2 顺位） -->
+          <div class="col-12 col-lg-6 mt-3 mt-lg-0" style="order: 2 !important;">
+            <!-- 强制图片矩阵横向排布 -->
+            <div class="row g-2 w-100 m-0" data-aos="fade-left" data-aos-delay="300" style="display: flex !important; flex-wrap: wrap !important; flex-direction: row !important;">
               
-              <!-- 左边一列：挖掘机 + 技术服务 (col-6 保证在手机上占屏幕一半) -->
-              <div class="col-6">
-                <div class="video-container mb-2 mb-lg-3">
-                  <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
-                  <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-cone-striped"></i> <span class="d-none d-sm-inline">Machinery</span></div>
-                </div>
+              <!-- 左边一列：挖掘机 + 技术服务 -->
+              <div class="col-6 px-1">
                 <div class="video-container">
-                  <img src="assets/img/hero-service.jpg" alt="Technical Service" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
-                  <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-tools"></i> <span class="d-none d-sm-inline">O&M Support</span></div>
+                  <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-cone-striped"></i> <span class="d-none d-sm-inline">Machinery</span></div>
+                </div>
+                <div class="video-container mb-0">
+                  <img src="assets/img/hero-service.jpg" alt="Technical Service">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-tools"></i> <span class="d-none d-sm-inline">O&M Support</span></div>
                 </div>
               </div>
 
-              <!-- 右边一列：光伏 + 发电机 (col-6 保证在手机上占另一半) -->
-              <div class="col-6 pt-3 pt-lg-4">
-                <div class="video-container mb-2 mb-lg-3">
-                  <img src="assets/img/hero-solar.jpg" alt="Solar PV" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
-                  <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-brightness-high"></i> <span class="d-none d-sm-inline">Solar PV</span></div>
-                </div>
+              <!-- 右边一列：光伏 + 发电机 (下沉形成错落感) -->
+              <div class="col-6 px-1 pt-3 pt-lg-4">
                 <div class="video-container">
-                  <img src="assets/img/hero-generator.jpg" alt="Custom Generators" class="img-fluid w-100" style="object-fit: cover; height: 100%;">
-                  <div class="video-label" style="font-size: 0.7rem;"><i class="bi bi-ev-station"></i> <span class="d-none d-sm-inline">Power</span></div>
+                  <img src="assets/img/hero-solar.jpg" alt="Solar PV">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-brightness-high"></i> <span class="d-none d-sm-inline">Solar PV</span></div>
+                </div>
+                <div class="video-container mb-0">
+                  <img src="assets/img/hero-generator.jpg" alt="Custom Generators">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-ev-station"></i> <span class="d-none d-sm-inline">Power</span></div>
                 </div>
               </div>
 
@@ -292,8 +277,7 @@
       </div>
     </section>
 
-
-<!-- About Section (本地化合规与技术背书 - 已优化高度与间距) -->
+    <!-- About Section -->
     <section id="about" class="about section py-4">
       <div class="container section-title text-center mb-4" data-aos="fade-up">
         <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Why Partner With Us</span>
@@ -302,13 +286,10 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
-          
-          <!-- 左侧：文字内容 -->
-          <div class="col-lg-6 mb-3 mb-lg-0">
+          <div class="col-lg-6 mb-4 mb-lg-0">
             <div class="content pe-lg-4">
               <h3 class="fw-bold mb-3 fs-4">Your Gateway to Compliant Procurement</h3>
               <p class="text-muted small mb-4">At Honvax, we understand that doing business in South Africa requires more than just good products. It requires an understanding of local regulatory frameworks and grid demands.</p>
-              
               <ul class="list-unstyled">
                 <li class="d-flex mb-3">
                   <i class="bi bi-shield-check fs-4 text-primary me-3 mt-1"></i>
@@ -328,13 +309,9 @@
             </div>
           </div>
 
-          <!-- 右侧：合作图片 -->
           <div class="col-lg-6">
             <div class="image-wrapper position-relative">
-              <!-- 这里已经改成了 .jpg 后缀，请确保您的图片名字完全对应 -->
               <img src="assets/img/about-business.jpg" alt="Local Partnership and BEE Compliance" class="img-fluid rounded shadow-sm w-100" style="object-fit: cover; max-height: 400px;">
-              
-              <!-- 增加一个悬浮的专业小标牌，填补死角，增加设计感 -->
               <div class="position-absolute bottom-0 start-0 bg-white p-3 shadow-sm rounded-top-end" style="border-top-right-radius: 12px;">
                 <div class="d-flex align-items-center">
                   <i class="bi bi-check-circle-fill text-success fs-3 me-2"></i>
@@ -343,12 +320,11 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </section>
 
-<!-- Services / Products Section (极简矢量卡片版) -->
+    <!-- Services / Products Section -->
     <section id="services" class="services section light-background py-4">
       <div class="container section-title text-center" data-aos="fade-up" style="margin-bottom: 1.5rem !important; padding-bottom: 0 !important;">
         <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Catalog</span>
@@ -357,12 +333,9 @@
 
       <div class="container">
         <div class="row gy-4">
-          
-          <!-- Item 1: Used Equipment -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
               <div class="icon-wrapper mb-4">
-                <!-- 这里使用的是内置矢量图标，您可以随时替换为自己的 SVG 图片 -->
                 <i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i>
               </div>
               <h4 class="fw-bold mb-3 fs-5">Used Heavy Equipment</h4>
@@ -370,7 +343,6 @@
             </div>
           </div>
 
-          <!-- Item 2: Spare Parts -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
               <div class="icon-wrapper mb-4">
@@ -381,7 +353,6 @@
             </div>
           </div>
 
-          <!-- Item 3: Solar PV -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
               <div class="icon-wrapper mb-4">
@@ -392,7 +363,6 @@
             </div>
           </div>
 
-          <!-- Item 4: Custom Generators -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
               <div class="icon-wrapper mb-4">
@@ -402,12 +372,11 @@
               <p class="text-muted small mb-0">Silent diesel/gas generator sets with smart ATS panels for load shedding mitigation.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Expertise Section (原 Portfolio，替换为专业履历背书) -->
+    <!-- Expertise Section -->
     <section id="expertise" class="portfolio section py-5">
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <span class="subtitle">Our DNA</span>
@@ -448,7 +417,7 @@
       </div>
     </section>
 
-    <!-- Logistics Section (新增：全非物流网络) -->
+    <!-- Logistics Section -->
     <section id="logistics" class="section light-background py-5 border-top">
       <div class="container">
         <div class="row align-items-center">
@@ -465,7 +434,6 @@
             </ul>
           </div>
           <div class="col-lg-7 text-center" data-aos="fade-left">
-            <!-- 建议放一张带有航线/港口节点的非洲地图 -->
             <img src="assets/img/africa-map.jpg" alt="Pan-African Logistics Map" class="img-fluid rounded shadow" style="border: 4px solid #fff;">
           </div>
         </div>
@@ -528,7 +496,6 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- WhatsApp 悬浮按钮，已移入 body 内确保语法正确 -->
   <a href="https://wa.me/+27836113703" target="_blank" class="d-flex align-items-center justify-content-center" 
      style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; font-size: 30px; z-index: 9999; box-shadow: 2px 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s;">
     <i class="bi bi-whatsapp"></i>
@@ -536,4 +503,3 @@
 
 </body>
 </html>
-```</Kyalami...>
