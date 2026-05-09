@@ -28,7 +28,6 @@
       --gold-accent: #C5A059; /* 质感金：用于点缀 */
     }
 
-    /* --- 优化首屏文字大小与协调度 --- */
     #hero h1 {
       font-size: 2.5rem !important; 
       line-height: 1.2 !important;
@@ -43,12 +42,6 @@
       margin-bottom: 2rem !important;
     }
 
-    #hero .btn-lg {
-      padding: 10px 25px !important;
-      font-size: 1rem !important;
-    }
-
-    /* 调整所有主按钮颜色 */
     .btn-primary, .submit-btn {
       background-color: var(--accent-color) !important;
       border-color: var(--accent-color) !important;
@@ -59,7 +52,6 @@
       transition: all 0.3s ease;
     }
 
-    /* 调整小标题（Subtitle）颜色为金色 */
     .section-title .subtitle {
       color: var(--gold-accent) !important;
       font-weight: 700;
@@ -69,28 +61,6 @@
 
     .navmenu a:hover, .navmenu .active {
       color: var(--accent-color) !important;
-    }
-
-    .service-item .service-icon i, .about .content ul i {
-      color: var(--accent-color) !important;
-    }
-    
-    .service-item {
-      padding: 30px;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: 0.3s;
-      height: 100%;
-    }
-    .service-item:hover {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      transform: translateY(-5px);
-    }
-    .service-item .service-icon i {
-      font-size: 40px;
-      margin-bottom: 20px;
-      display: inline-block;
     }
 
     .sitename {
@@ -116,7 +86,7 @@
       display: block;
       opacity: 0.9;
       object-fit: cover;
-      aspect-ratio: 4/3; /* 统一图片比例 */
+      aspect-ratio: 4/3; 
     }
     .video-label {
       position: absolute;
@@ -149,29 +119,30 @@
       display: inline-block;
     }
 
-    /* 手机端专用优化 */
+    /* Lead Magnet / PDF 按钮动效 */
+    .btn-lead-magnet {
+      border: 2px solid var(--gold-accent);
+      color: var(--heading-color);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+    .btn-lead-magnet:hover {
+      background: var(--gold-accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
+    }
+
     @media (max-width: 768px) {
       #hero h1 {
         font-size: 2.2rem !important; 
         line-height: 1.3 !important;
         margin-bottom: 1rem !important;
       }
-      #hero .hero-content {
-        padding-right: 0 !important;
-      }
-      #hero .lead {
-        max-width: 100%;
-        font-size: 1rem !important;
-      }
-      .video-container {
-        border-radius: 8px !important; 
-        margin-bottom: 10px !important;
-      }
-      .video-label {
-        bottom: 8px !important;
-        left: 8px !important;
-        padding: 3px 8px !important;
-      }
+      #hero .hero-content { padding-right: 0 !important; }
+      #hero .lead { max-width: 100%; font-size: 1rem !important; }
+      .video-container { border-radius: 8px !important; margin-bottom: 10px !important; }
+      .video-label { bottom: 8px !important; left: 8px !important; padding: 3px 8px !important; }
     }
   </style>
   <link href="assets/css/main.css" rel="stylesheet">
@@ -218,29 +189,24 @@
               </div>
 
               <div class="hero-stats w-100" data-aos="fade-up" data-aos-delay="500" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; margin-top: 15px; margin-bottom: 20px;">
-                
                 <div class="stat-item text-center" style="flex: 1;">
                   <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">SABS</div>
                   <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Standard Ready</div>
                 </div>
-                
                 <div class="stat-item text-center" style="flex: 1; border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6;">
-                  <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">BEE</div>
-                  <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Local Partners</div>
+                  <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">B-BBEE</div>
+                  <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Local Multipliers</div>
                 </div>
-                
                 <div class="stat-item text-center" style="flex: 1;">
                   <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">24/7</div>
                   <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Response</div>
                 </div>
-
               </div>
             </div>
           </div>
           
           <div class="col-12 col-lg-6 mt-3 mt-lg-0" style="order: 2 !important;">
             <div class="row g-2 w-100 m-0" data-aos="fade-left" data-aos-delay="300" style="display: flex !important; flex-wrap: wrap !important; flex-direction: row !important;">
-              
               <div class="col-6 px-1">
                 <div class="video-container">
                   <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery">
@@ -251,7 +217,6 @@
                   <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-tools"></i> <span class="d-none d-sm-inline">Engineering</span></div>
                 </div>
               </div>
-
               <div class="col-6 px-1 pt-3 pt-lg-4">
                 <div class="video-container">
                   <img src="assets/img/hero-solar.jpg" alt="Power Infrastructure">
@@ -262,10 +227,8 @@
                   <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-ev-station"></i> <span class="d-none d-sm-inline">Power Units</span></div>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -281,20 +244,27 @@
           <div class="col-lg-6 mb-4 mb-lg-0">
             <div class="content pe-lg-4">
               <h3 class="fw-bold mb-3 fs-4">Your Gateway to Compliant Procurement</h3>
-              <p class="text-muted small mb-4">At Honvax, we understand that doing business in South Africa requires more than just good products. It requires a profound understanding of local regulatory frameworks and grid demands.</p>
+              <p class="text-muted small mb-4">We solve the risks of direct-importing. Backed by deep expertise in power construction procurement, we act as your technical bridge, ensuring every part meets your exact site requirements.</p>
               <ul class="list-unstyled">
                 <li class="d-flex mb-3">
-                  <i class="bi bi-shield-check fs-4 text-primary me-3 mt-1"></i>
+                  <i class="bi bi-file-spreadsheet fs-4 text-primary me-3 mt-1"></i>
                   <div>
-                    <h5 class="fw-bold mb-1 fs-6">Empowering Local Growth (BEE Support)</h5>
-                    <p class="text-muted small mb-0">Through deep integration with accredited local partners, we assist our buyers in meeting complex B-BBEE procurement guidelines and localization criteria seamlessly.</p>
+                    <h5 class="fw-bold mb-1 fs-6">From Spec-Sheet to Site (Our Approach)</h5>
+                    <p class="text-muted small mb-0">We don't just take orders. We translate your complex Excel technical parameters and tender documents into precise procurement lists, eliminating costly errors.</p>
+                  </div>
+                </li>
+                <li class="d-flex mb-3">
+                  <i class="bi bi-briefcase fs-4 text-primary me-3 mt-1"></i>
+                  <div>
+                    <h5 class="fw-bold mb-1 fs-6">B-BBEE Multiplier Localization</h5>
+                    <p class="text-muted small mb-0">Through deep integration with Level-1 & Level-2 accredited local partners, we offer flexible commercial terms and multiplier solutions to meet your procurement targets.</p>
                   </div>
                 </li>
                 <li class="d-flex">
-                  <i class="bi bi-lightning fs-4 text-primary me-3 mt-1"></i>
+                  <i class="bi bi-shield-check fs-4 text-primary me-3 mt-1"></i>
                   <div>
-                    <h5 class="fw-bold mb-1 fs-6">Grid Code Technical Alignment</h5>
-                    <p class="text-muted small mb-0">Our energy products and infrastructure hardware are curated to meet rigorous standards, ensuring smooth integration with Eskom requirements for utility and commercial projects.</p>
+                    <h5 class="fw-bold mb-1 fs-6">Warranty & Technical Support</h5>
+                    <p class="text-muted small mb-0">All new equipment is backed by a robust 12-month factory warranty. We provide dedicated online technical guidance and rapid spare parts dispatch.</p>
                   </div>
                 </li>
               </ul>
@@ -316,68 +286,65 @@
       </div>
     </section>
 
-<section id="services" class="services section light-background py-5">
-  <div class="container section-title text-center" data-aos="fade-up" style="margin-bottom: 2rem !important;">
-    <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Core Solutions</span>
-    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">End-to-End Infrastructure Supply</h2>
-  </div>
-
-  <div class="container">
-    <div class="row gy-4 justify-content-center mb-lg-4">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-          <div class="icon-wrapper mb-4">
-            <i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--accent-color);"></i>
-          </div>
-          <h4 class="fw-bold mb-3 fs-5">Mechanical Spare Parts</h4>
-          <p class="text-muted small mb-0">OEM-quality filters, hydraulic pumps, control valves, and undercarriage components engineered for zero downtime on heavy machinery.</p>
-        </div>
+    <section id="services" class="services section light-background py-5">
+      <div class="container section-title text-center" data-aos="fade-up" style="margin-bottom: 2rem !important;">
+        <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Core Solutions</span>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">End-to-End Infrastructure Supply</h2>
       </div>
 
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-          <div class="icon-wrapper mb-4">
-            <i class="bi bi-lightning-charge" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+      <div class="container">
+        <div class="row gy-4 justify-content-center mb-lg-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4"><i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+              <h4 class="fw-bold mb-3 fs-5">Mechanical Spare Parts</h4>
+              <p class="text-muted small mb-0">OEM-quality filters, hydraulic pumps, and undercarriage components engineered for zero downtime on heavy machinery.</p>
+            </div>
           </div>
-          <h4 class="fw-bold mb-3 fs-5">Power Infrastructure Supplies</h4>
-          <p class="text-muted small mb-0">SABS-compliant transmission line hardware, PV mounting fasteners, and advanced earthing materials for renewable and grid projects.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4"><i class="bi bi-lightning-charge" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+              <h4 class="fw-bold mb-3 fs-5">Power Infrastructure Supplies</h4>
+              <p class="text-muted small mb-0">SABS-compliant transmission line hardware, PV mounting fasteners, and advanced earthing materials for grid projects.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4"><i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+              <h4 class="fw-bold mb-3 fs-5">Vetted Used Equipment</h4>
+              <p class="text-muted small mb-0">Strategic sourcing of high-performance cranes, drilling rigs, and earthmoving machinery, verified through rigorous technical assessments.</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-          <div class="icon-wrapper mb-4">
-            <i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+              <div class="icon-wrapper mb-4"><i class="bi bi-ev-station" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+              <h4 class="fw-bold mb-3 fs-5">Industrial Power Units</h4>
+              <p class="text-muted small mb-0">Bespoke silent diesel and gas generators designed for remote construction hubs and industrial load shedding mitigation.</p>
+            </div>
           </div>
-          <h4 class="fw-bold mb-3 fs-5">Vetted Used Equipment</h4>
-          <p class="text-muted small mb-0">Strategic sourcing of high-performance cranes, drilling rigs, and earthmoving machinery, verified through rigorous technical assessments.</p>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff; border: 2px solid var(--accent-color) !important;">
+              <div class="icon-wrapper mb-4"><i class="bi bi-person-check" style="font-size: 3.5rem; color: var(--gold-accent);"></i></div>
+              <h4 class="fw-bold mb-3 fs-5" style="color: var(--heading-color);">Consulting & Procurement</h4>
+              <p class="text-muted small mb-0">Tender document analysis, SABS/Eskom technical alignment, and professional factory vetting for seamless China-to-SA trade.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row gy-4 justify-content-center">
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-          <div class="icon-wrapper mb-4">
-            <i class="bi bi-ev-station" style="font-size: 3.5rem; color: var(--accent-color);"></i>
+        <div class="row mt-5 pt-3" data-aos="fade-up" data-aos-delay="600">
+          <div class="col-12 text-center">
+            <a href="#contact" class="btn btn-lead-magnet btn-lg px-4 py-3 rounded-pill">
+              <i class="bi bi-file-earmark-pdf-fill me-2 text-danger"></i> Request Our 2026 Procurement Guide & Spec Sheets
+            </a>
+            <p class="text-muted small mt-2">Get detailed specifications on generators, hardware, and lead times.</p>
           </div>
-          <h4 class="fw-bold mb-3 fs-5">Industrial Power Units</h4>
-          <p class="text-muted small mb-0">Bespoke silent diesel and gas generators designed for remote construction hubs and industrial load shedding mitigation.</p>
         </div>
-      </div>
 
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-        <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff; border: 2px solid var(--accent-color) !important;">
-          <div class="icon-wrapper mb-4">
-            <i class="bi bi-person-check" style="font-size: 3.5rem; color: var(--gold-accent);"></i>
-          </div>
-          <h4 class="fw-bold mb-3 fs-5" style="color: var(--heading-color);">Consulting & Procurement</h4>
-          <p class="text-muted small mb-0">Tender document analysis, SABS/Eskom technical alignment, and professional factory vetting for seamless China-to-SA trade.</p>
-        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section id="expertise" class="portfolio section py-5">
       <div class="container section-title text-center mb-5" data-aos="fade-up">
@@ -392,8 +359,8 @@
             <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
               <div class="card-body p-4">
                 <div class="mb-3"><i class="bi bi-file-earmark-text text-primary fs-2"></i></div>
-                <h5 class="fw-bold mb-3">Tender Technical Audit</h5>
-                <p class="text-muted small">We conduct comprehensive analysis of complex mechanical and electrical specifications in EPC bids to de-risk your procurement process and ensure feasibility.</p>
+                <h5 class="fw-bold mb-3">Tender Technical Support</h5>
+                <p class="text-muted small">Provided technical specification alignment and procurement support for complex bids, including materials mapping for 64MWac Solar PV plant developments.</p>
               </div>
             </div>
           </div>
@@ -402,7 +369,7 @@
               <div class="card-body p-4">
                 <div class="mb-3"><i class="bi bi-shield-check text-primary fs-2"></i></div>
                 <h5 class="fw-bold mb-3">Compliance Alignment</h5>
-                <p class="text-muted small">Deep involvement in sourcing materials that stringently meet Eskom Grid Code and SABS standards for large-scale utility and municipal projects.</p>
+                <p class="text-muted small">Deep involvement in sourcing power infrastructure materials that stringently meet Eskom Grid Code and SABS standards for large-scale utility and municipal projects.</p>
               </div>
             </div>
           </div>
@@ -411,7 +378,7 @@
               <div class="card-body p-4">
                 <div class="mb-3"><i class="bi bi-search text-primary fs-2"></i></div>
                 <h5 class="fw-bold mb-3">Factory Vetting & QA</h5>
-                <p class="text-muted small">Direct oversight of the China-to-SA supply chain, focusing on pre-shipment video inspections and rigorous factory production capability assessments.</p>
+                <p class="text-muted small">Direct oversight of the China-to-SA supply chain, ensuring technical fidelity through pre-shipment video inspections and rigorous factory production capability assessments.</p>
               </div>
             </div>
           </div>
@@ -426,12 +393,19 @@
             <span class="subtitle">Direct-Shipping Workflow</span>
             <h2 class="fw-bold mb-4" style="font-family: 'Montserrat', sans-serif;">China to Your Site: A Transparent Journey</h2>
             <p class="text-muted mb-4">We manage the complexities of cross-border trade, from technical scoping and factory selection to heavy-haul transportation across major African economic hubs.</p>
-            <ul class="list-unstyled fw-bold text-dark">
-              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> South Africa: Durban, Port Elizabeth, Cape Town</li>
-              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Kenya: Mombasa</li>
-              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Tanzania: Dar es Salaam</li>
-              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Nigeria: Lagos / Apapa</li>
-              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Djibouti Port</li>
+            
+            <div class="bg-white p-3 rounded shadow-sm border-start border-4 border-primary mb-4">
+              <h6 class="fw-bold mb-2">Estimated Lead Times:</h6>
+              <ul class="list-unstyled text-dark small mb-0">
+                <li class="mb-1"><i class="bi bi-airplane text-primary me-2"></i> <strong>Emergency Air Freight:</strong> 5-7 Days (Ideal for critical spare parts)</li>
+                <li><i class="bi bi-ship text-primary me-2"></i> <strong>Standard Sea Freight:</strong> 30-45 Days (Bulk machinery & hardware)</li>
+              </ul>
+            </div>
+
+            <ul class="list-unstyled fw-bold text-dark small">
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Port Access: Durban, Port Elizabeth, Cape Town</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Inland Hub: Johannesburg Regional Distribution</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Sub-Saharan Reach: Kenya, Tanzania, Nigeria</li>
             </ul>
           </div>
           <div class="col-lg-7 text-center" data-aos="fade-left">
@@ -471,9 +445,18 @@
                 <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
                 <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required></div>
               </div>
-              <div class="form-group mb-3"><input type="text" name="subject" class="form-control p-3 bg-light border-0" placeholder="Product Interest (e.g. Spare Parts, Hardware, Generators)" required></div>
+              <div class="form-group mb-3">
+                <select name="subject" class="form-select p-3 bg-light border-0" required>
+                  <option value="" disabled selected>Select an Interest...</option>
+                  <option value="Spare Parts">Mechanical Spare Parts</option>
+                  <option value="Generators">Industrial Power Units / Generators</option>
+                  <option value="Hardware">Power Infrastructure Supplies</option>
+                  <option value="Used Equipment">Vetted Used Equipment</option>
+                  <option value="PDF Request">Request 2026 PDF Brochure</option>
+                </select>
+              </div>
               <div class="form-group mb-4"><textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Project Details & Specifications" required></textarea></div>
-              <div class="text-start"><button type="submit" class="btn btn-primary px-4 py-2">Request a Quote</button></div>
+              <div class="text-start"><button type="submit" class="btn btn-primary px-4 py-2">Submit Request</button></div>
             </form>
           </div>
         </div>
