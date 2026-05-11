@@ -280,7 +280,39 @@
             </div>
           </div>
           <div class="col-lg-7" data-aos="fade-left">
-            <form action="forms/contact.php" method="post" class="bg-white p-4 shadow rounded">
+<form id="honvaxContactForm" action="https://formsubmit.co/sales@honvax.com" method="POST" class="bg-white p-4 shadow-sm rounded">
+  
+  <input type="hidden" name="_subject" value="🔥 New Inquiry from Honvax Website!">
+  <input type="hidden" name="_next" value="https://suyvee759-stack.github.io">
+  <input type="hidden" name="_captcha" value="false">
+
+  <div class="row">
+    <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
+    <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required></div>
+  </div>
+  <div class="form-group mb-3">
+    <select name="subject" class="form-select p-3 bg-light border-0" required>
+      <option value="" disabled selected>Select an Interest...</option>
+      <option value="Spare Parts">Mechanical Spare Parts</option>
+      <option value="Generators">Industrial Power Units / Generators</option>
+      <option value="Hardware">Power Infrastructure Supplies</option>
+      <option value="Used Equipment">Vetted Used Equipment</option>
+      <option value="PDF Request">Request 2026 PDF Brochure</option>
+    </select>
+  </div>
+  <div class="form-group mb-4"><textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Project Details & Specifications" required></textarea></div>
+  
+  <div class="text-start">
+    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">Submit Request</button>
+  </div>
+</form>
+
+<script>
+  document.getElementById('honvaxContactForm').addEventListener('submit', function(e) {
+    // 停止模板脚本的所有拦截行为
+    e.stopPropagation();
+  }, false);
+</script>
               <h4 class="fw-bold mb-4 text-dark">Submit a Sourcing Request</h4>
               <div class="row">
                 <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
