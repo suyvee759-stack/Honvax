@@ -4,10 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Honvax | Technical Engineering Supplies & Procurement Consulting South Africa</title>
-  <meta name="description" content="Honvax provides factory-direct engineering supplies, vetted used equipment, and customized power solutions from China to South Africa. Expert-led technical alignment and SABS/Eskom compliance.">
-  <meta name="keywords" content="Honvax, South Africa, Power Infrastructure, Mechanical Spare Parts, Technical Consulting, SABS Compliance, Eskom Standards, Used Equipment, Generators">
-
+  <title>Honvax | Engineering Supplies & Procurement Consulting South Africa</title>
+  <meta name="description" content="Honvax provides factory-direct engineering supplies and customized power solutions from China to South Africa.">
+  
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -19,123 +18,91 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <style>
-    :root {
-      --accent-color: #10558C !important; 
-      --heading-color: #003366 !important; 
-      --gold-accent: #C5A059; 
-    }
+    :root { --accent-color: #10558C !important; --heading-color: #003366 !important; --gold-accent: #C5A059; }
 
-    #hero h1 { font-size: 2.5rem !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; font-weight: 800; }
-    #hero .lead { font-size: 1.05rem !important; max-width: 90%; line-height: 1.6 !important; margin-bottom: 2rem !important; }
-
-    .btn-primary, .submit-btn { background-color: var(--accent-color) !important; border-color: var(--accent-color) !important; }
-    .btn-primary:hover { background-color: var(--heading-color) !important; transform: translateY(-2px); transition: all 0.3s ease; }
-
-    .section-title .subtitle { color: var(--gold-accent) !important; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    /* Header & Navigation Fixes */
+    .header { transition: all 0.5s; z-index: 997; padding: 15px 0; background-color: #fff; }
+    .navmenu ul { margin: 0; padding: 0; display: flex; list-style: none; align-items: center; }
+    .navmenu li { position: relative; }
+    .navmenu a { color: var(--heading-color); padding: 10px 15px; font-size: 15px; font-weight: 500; font-family: 'Montserrat', sans-serif; text-decoration: none; }
     .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
 
-    .sitename { text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-    .footer { background-color: #001a33 !important; }
-
-    .video-container { position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; margin-bottom: 20px; }
-    .video-container img { width: 100%; height: 100%; display: block; opacity: 0.9; object-fit: cover; aspect-ratio: 4/3; }
-    .video-label { position: absolute; bottom: 15px; left: 15px; background: rgba(0, 51, 102, 0.85); color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
-
-    .product-card { transition: all 0.3s ease; border-radius: 12px; text-decoration: none !important; color: inherit; }
-    .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; }
-    .product-card .icon-wrapper i { transition: all 0.3s ease; }
-    .product-card:hover .icon-wrapper i { color: var(--gold-accent) !important; transform: scale(1.1); display: inline-block; }
-
-    .btn-lead-magnet { border: 2px solid var(--gold-accent); color: var(--heading-color); font-weight: 600; transition: all 0.3s ease; background: transparent; text-decoration: none; }
-    .btn-lead-magnet:hover { background: var(--gold-accent); color: #fff; box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3); }
-
-    @media (max-width: 768px) {
-      #hero h1 { font-size: 2.2rem !important; line-height: 1.3 !important; }
-      #hero .lead { max-width: 100%; font-size: 1rem !important; }
+    /* Mobile Nav Styles */
+    @media (max-width: 1199px) {
+      .mobile-nav-toggle { display: block; font-size: 28px; cursor: pointer; color: var(--heading-color); margin-left: 20px; }
+      .navmenu { position: fixed; top: 0; right: -100%; width: 100%; bottom: 0; transition: 0.3s; z-index: 9997; background: rgba(255, 255, 255, 0.95); overflow-y: auto; }
+      .navmenu ul { display: block; position: absolute; top: 60px; right: 15px; bottom: 15px; left: 15px; padding: 10px 0; background-color: #fff; border: 1px solid #eee; }
+      .mobile-nav-active { overflow: hidden; }
+      .mobile-nav-active .navmenu { right: 0; }
+      .mobile-nav-active .mobile-nav-toggle { color: var(--accent-color); position: fixed; right: 15px; top: 15px; z-index: 9999; }
     }
+
+    /* Hero & Global Adjustments */
+    #hero h1 { font-size: 2.5rem !important; font-weight: 800; line-height: 1.2; }
+    .video-container { position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000; margin-bottom: 20px; }
+    .video-container img { width: 100%; aspect-ratio: 4/3; object-fit: cover; opacity: 0.9; }
+    .video-label { position: absolute; bottom: 10px; left: 10px; background: rgba(0, 51, 102, 0.85); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11px; }
+    
+    .product-card { transition: 0.3s; border-radius: 12px; text-decoration: none !important; color: inherit; display: block; height: 100%; }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16,85,140,0.1) !important; }
+    
+    .footer { background-color: #001a33; color: #fff; padding: 30px 0; }
   </style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <header id="header" class="header d-flex align-items-center fixed-top shadow-sm">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 55px; width: auto; margin-right:15px;">
-        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+        <img src="assets/img/logo.png" alt="Honvax" style="max-height: 45px; margin-right:10px;">
+        <h1 style="font-size: 28px; font-weight: 800; color: #003366; margin: 0;">Honvax</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero" class="active">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services">Solutions</a></li>
-          <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#logistics">Supply Chain</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Solutions</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#logistics">Supply Chain</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </div>
   </header>
 
   <main class="main">
 
-    <section id="hero" class="hero section light-background py-5" style="margin-top: 60px;">
+    <section id="hero" class="hero section light-background py-5" style="margin-top: 70px;">
       <div class="container" data-aos="fade-up">
         <div class="row align-items-center">
-          <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-            <div class="hero-content pe-lg-4">
-              <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
-              <h1>Engineering the Future of Africa's Infrastructure</h1>
-              <p class="lead">Honvax delivers factory-direct engineering supplies and heavy equipment from China to South Africa. We bridge global manufacturing with local project requirements through expert-led technical alignment and SABS/Eskom compliance.</p>
-              
-              <div class="hero-cta d-flex flex-wrap gap-3 mb-4">
-                <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
-                <a href="#services" class="btn btn-outline-dark btn-lg">View Solutions</a>
-              </div>
-
-              <div class="hero-stats w-100 d-flex justify-content-between align-items-center">
-                <div class="stat-item text-center flex-fill">
-                  <div class="fw-bold text-primary" style="font-size: 1.25rem;">SABS</div>
-                  <div class="text-muted fw-bold" style="font-size: 0.7rem;">Standard Ready</div>
-                </div>
-                <div class="stat-item text-center flex-fill border-start border-end">
-                  <div class="fw-bold text-primary" style="font-size: 1.25rem;">B-BBEE</div>
-                  <div class="text-muted fw-bold" style="font-size: 0.7rem;">Local Multipliers</div>
-                </div>
-                <div class="stat-item text-center flex-fill">
-                  <div class="fw-bold text-primary" style="font-size: 1.25rem;">24/7</div>
-                  <div class="text-muted fw-bold" style="font-size: 0.7rem;">Response</div>
-                </div>
-              </div>
+          <div class="col-lg-6">
+            <span class="badge bg-warning text-dark mb-3">China Quality, African Durability</span>
+            <h1>Engineering the Future of Africa's Infrastructure</h1>
+            <p class="lead mb-4">Factory-direct engineering supplies and heavy equipment from China to South Africa. Vetted, Compliant, Reliable.</p>
+            <div class="d-flex gap-3 mb-4">
+              <a href="#contact" class="btn btn-primary btn-lg px-4">Request a Quote</a>
+              <a href="#services" class="btn btn-outline-dark btn-lg px-4">View Solutions</a>
+            </div>
+            <div class="row text-center g-0 border-top pt-3">
+              <div class="col-4"><strong>SABS</strong><div class="small text-muted">Ready</div></div>
+              <div class="col-4 border-start"><strong>B-BBEE</strong><div class="small text-muted">Multipliers</div></div>
+              <div class="col-4 border-start"><strong>24/7</strong><div class="small text-muted">Response</div></div>
             </div>
           </div>
-          
-          <div class="col-12 col-lg-6 mt-3 mt-lg-0">
+          <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="row g-2">
               <div class="col-6">
-                <div class="video-container">
-                  <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery">
-                  <div class="video-label"><i class="bi bi-cone-striped"></i> Machinery</div>
-                </div>
-                <div class="video-container mb-0">
-                  <img src="assets/img/hero-service.jpg" alt="Technical Service">
-                  <div class="video-label"><i class="bi bi-tools"></i> Engineering</div>
-                </div>
+                <div class="video-container"><img src="assets/img/hero-machinery.jpg" alt="Machinery"><div class="video-label">Machinery</div></div>
+                <div class="video-container"><img src="assets/img/hero-service.jpg" alt="Engineering"><div class="video-label">Engineering</div></div>
               </div>
-              <div class="col-6 pt-3 pt-lg-4">
-                <div class="video-container">
-                  <img src="assets/img/hero-solar.jpg" alt="Power Infrastructure">
-                  <div class="video-label"><i class="bi bi-lightning-charge"></i> Infrastructure</div>
-                </div>
-                <div class="video-container mb-0">
-                  <img src="assets/img/hero-generator.jpg" alt="Custom Generators">
-                  <div class="video-label"><i class="bi bi-ev-station"></i> Power Units</div>
-                </div>
+              <div class="col-6 pt-lg-4">
+                <div class="video-container"><img src="assets/img/hero-solar.jpg" alt="Infrastructure"><div class="video-label">Infrastructure</div></div>
+                <div class="video-container"><img src="assets/img/hero-generator.jpg" alt="Power Units"><div class="video-label">Power Units</div></div>
               </div>
             </div>
           </div>
@@ -143,113 +110,78 @@
       </div>
     </section>
 
-    <section id="services" class="services section light-background py-5">
-      <div class="container section-title text-center" data-aos="fade-up">
-        <span class="subtitle">Our Core Solutions</span>
-        <h2>End-to-End Infrastructure Supply</h2>
-      </div>
-
-      <div class="container">
-        <div class="row gy-4 justify-content-center mb-lg-4">
-          <div class="col-lg-4 col-md-6">
-            <a href="spare-parts.html" class="product-card d-block h-100">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div class="icon-wrapper mb-4"><i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Mechanical Spare Parts</h4>
-                <p class="text-muted small">OEM-quality filters, hydraulic pumps, and undercarriage components.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a href="infrastructure-supplies.html" class="product-card d-block h-100">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div class="icon-wrapper mb-4"><i class="bi bi-lightning-charge" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Power Infrastructure Supplies</h4>
-                <p class="text-muted small">SABS-compliant transmission hardware and PV mounting fasteners.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a href="used-equipment.html" class="product-card d-block h-100">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div class="icon-wrapper mb-4"><i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Vetted Used Equipment</h4>
-                <p class="text-muted small">Rigorous technical assessment for second-hand heavy machinery.</p>
-              </div>
-            </a>
-          </div>
-        </div> <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4 col-md-6">
-            <a href="generators.html" class="product-card d-block h-100">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div class="icon-wrapper mb-4"><i class="bi bi-ev-station" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Industrial Power Units</h4>
-                <p class="text-muted small">Bespoke silent diesel generators for load shedding mitigation.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a href="consulting.html" class="product-card d-block h-100">
-              <div class="card h-100 border-0 shadow-sm text-center p-4" style="border: 2px solid var(--accent-color) !important;">
-                <div class="icon-wrapper mb-4"><i class="bi bi-person-check" style="font-size: 3.5rem; color: var(--gold-accent);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Consulting & Procurement</h4>
-                <p class="text-muted small">Tender analysis and China-to-SA technical factory vetting.</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="row mt-5 pt-3">
-          <div class="col-12 text-center">
-            <a href="#contact" class="btn btn-lead-magnet btn-lg px-4 py-3 rounded-pill">
-              <i class="bi bi-file-earmark-pdf-fill me-2 text-danger"></i> Request Our 2026 Procurement Guide
-            </a>
+    <section id="about" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="text-center mb-5"><span class="text-uppercase fw-bold text-muted small">Why Partner With Us</span><h2 class="fw-bold">Technical Gateway to China</h2></div>
+        <div class="row align-items-center">
+          <div class="col-lg-6"><img src="assets/img/about-business.jpg" alt="Honvax About" class="img-fluid rounded shadow"></div>
+          <div class="col-lg-6 ps-lg-5">
+            <h3 class="fw-bold mb-4">Bridging Global Supply with Local Compliance</h3>
+            <p class="text-muted">We eliminate the risks of direct importing. From technical specification alignment to factory vetting, we ensure every part meets site requirements.</p>
+            <div class="d-flex mb-3"><i class="bi bi-shield-check text-primary fs-3 me-3"></i><div><h6 class="fw-bold mb-0">Compliance Alignment</h6><p class="small text-muted">SABS and Eskom grid code standards.</p></div></div>
+            <div class="d-flex"><i class="bi bi-briefcase text-primary fs-3 me-3"></i><div><h6 class="fw-bold mb-0">B-BBEE Support</h6><p class="small text-muted">Flexible local multiplier solutions.</p></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact section py-5">
-      <div class="container section-title text-center mb-5">
-        <span class="subtitle">Inquiry</span>
-        <h2>Ready to De-Risk Your Procurement?</h2>
+    <section id="services" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <h2 class="text-center fw-bold mb-5">End-to-End Infrastructure Supply</h2>
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4"><a href="spare-parts.html" class="product-card"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-gear-wide-connected fs-1 text-primary mb-3"></i><h5 class="fw-bold">Mechanical Spare Parts</h5><p class="small text-muted">OEM-quality filters and hydraulic components.</p></div></a></div>
+          <div class="col-lg-4"><a href="infrastructure-supplies.html" class="product-card"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-lightning-charge fs-1 text-primary mb-3"></i><h5 class="fw-bold">Power Infrastructure</h5><p class="small text-muted">SABS-compliant hardware and PV fasteners.</p></div></a></div>
+          <div class="col-lg-4"><a href="used-equipment.html" class="product-card"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-truck-flatbed fs-1 text-primary mb-3"></i><h5 class="fw-bold">Vetted Used Equipment</h5><p class="small text-muted">Technical assessments for machinery sourcing.</p></div></a></div>
+          <div class="col-lg-4"><a href="generators.html" class="product-card"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-ev-station fs-1 text-primary mb-3"></i><h5 class="fw-bold">Industrial Power Units</h5><p class="small text-muted">Silent generators for load shedding mitigation.</p></div></a></div>
+          <div class="col-lg-4"><a href="consulting.html" class="product-card"><div class="card h-100 border-0 shadow-sm text-center p-4" style="border:2px solid var(--accent-color) !important;"><i class="bi bi-person-check fs-1 text-primary mb-3"></i><h5 class="fw-bold">Consulting & Procurement</h5><p class="small text-muted">Tender analysis and factory auditing.</p></div></a></div>
+        </div>
       </div>
+    </section>
 
+    <section id="expertise" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <h2 class="text-center fw-bold mb-5">Technical Expertise in Action</h2>
+        <div class="row gy-4">
+          <div class="col-lg-4"><div class="p-4 border rounded h-100"><i class="bi bi-file-earmark-text text-primary fs-2"></i><h6 class="fw-bold mt-3">Tender Technical Support</h6><p class="small text-muted">Spec alignment for Solar PV and grid infrastructure bids.</p></div></div>
+          <div class="col-lg-4"><div class="p-4 border rounded h-100"><i class="bi bi-shield-check text-primary fs-2"></i><h6 class="fw-bold mt-3">Compliance Audits</h6><p class="small text-muted">Mapping material properties to SABS requirements.</p></div></div>
+          <div class="col-lg-4"><div class="p-4 border rounded h-100"><i class="bi bi-camera-video text-primary fs-2"></i><h6 class="fw-bold mt-3">Factory Video QA</h6><p class="small text-muted">Live pre-shipment inspections from China.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="logistics" class="py-5 bg-light">
       <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <h2 class="fw-bold mb-4">China to Your Site</h2>
+            <p class="text-muted">We manage cross-border complexities from factory to Durban Port and onward to Johannesburg.</p>
+            <ul class="list-unstyled fw-bold small">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Air Freight: 5-7 Days</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Sea Freight: 30-45 Days</li>
+            </ul>
+          </div>
+          <div class="col-lg-7 text-center"><img src="assets/img/africa-map.jpg" alt="Africa Logistics" class="img-fluid rounded shadow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-5">
+      <div class="container" data-aos="fade-up">
         <div class="row gy-4">
           <div class="col-lg-5">
-            <div class="info-item d-flex align-items-center mb-4 p-4 shadow-sm rounded bg-white">
-              <i class="bi bi-envelope fs-3 text-primary me-3"></i>
-              <div><h4 class="fw-bold mb-1 fs-5">Email Us</h4><p class="mb-0 text-muted">sales@honvax.com</p></div>
-            </div>
-            <div class="info-item d-flex align-items-center p-4 shadow-sm rounded bg-white">
-              <i class="bi bi-geo-alt fs-3 text-primary me-3"></i>
-              <div><h4 class="fw-bold mb-1 fs-5">Location</h4><p class="mb-0 text-muted">Kyalami, JHB, Gauteng</p></div>
-            </div>
+            <div class="p-4 shadow-sm bg-white rounded mb-3"><i class="bi bi-envelope fs-4 text-primary me-3"></i><strong>sales@honvax.com</strong></div>
+            <div class="p-4 shadow-sm bg-white rounded"><i class="bi bi-geo-alt fs-4 text-primary me-3"></i><strong>Kyalami, JHB, South Africa</strong></div>
           </div>
           <div class="col-lg-7">
-            <form id="honvaxContactForm" action="https://formsubmit.co/sales@honvax.com" method="POST" class="bg-white p-4 shadow-sm rounded">
-              <input type="hidden" name="_subject" value="🔥 New Inquiry from Honvax Website!">
+            <form id="honvaxForm" action="https://formsubmit.co/sales@honvax.com" method="POST" class="bg-white p-4 shadow rounded">
+              <input type="hidden" name="_subject" value="🔥 Website Inquiry!">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://suyvee759-stack.github.io">
-
-              <div class="row">
-                <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
-                <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
+              <div class="row gy-3">
+                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Name" required></div>
+                <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Email" required></div>
+                <div class="col-12"><textarea name="message" class="form-control" rows="5" placeholder="Project Details" required></textarea></div>
+                <div class="col-12"><button type="submit" class="btn btn-primary px-5 py-2">Submit Request</button></div>
               </div>
-              <div class="form-group mb-3">
-                <select name="subject" class="form-select" required>
-                  <option value="" disabled selected>Select an Interest...</option>
-                  <option value="Spare Parts">Mechanical Spare Parts</option>
-                  <option value="Generators">Industrial Power Units</option>
-                  <option value="Hardware">Power Infrastructure Supplies</option>
-                  <option value="Used Equipment">Vetted Used Equipment</option>
-                </select>
-              </div>
-              <div class="form-group mb-4">
-                <textarea name="message" class="form-control" rows="5" placeholder="Project Details" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">Submit Request</button>
             </form>
           </div>
         </div>
@@ -258,34 +190,50 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background py-4">
-    <div class="container text-center">
-      <p class="mb-1 text-white">© Copyright <strong>Honvax</strong>. All Rights Reserved</p>
-      <div class="credits text-white-50 small">Designed by Honvax Media Team</div>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container text-center"><p>© Copyright <strong>Honvax</strong>. Engineered for South Africa.</p></div></footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/js/main.js"></script>
-
+  
   <script>
-    const form = document.getElementById('honvaxContactForm');
+    // 1. 移动端导航栏 切换脚本 (彻底修复无法收回问题)
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const body = document.querySelector('body');
+    if (navToggle) {
+      navToggle.addEventListener('click', function(e) {
+        body.classList.toggle('mobile-nav-active');
+        this.classList.toggle('bi-list');
+        this.classList.toggle('bi-x');
+      });
+    }
+
+    // 2. 点击链接后自动收回 菜单
+    document.querySelectorAll('#navmenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (body.classList.contains('mobile-nav-active')) {
+          body.classList.remove('mobile-nav-active');
+          navToggle.classList.toggle('bi-list');
+          navToggle.classList.toggle('bi-x');
+        }
+      });
+    });
+
+    // 3. 表单 强力提交拦截
+    const form = document.getElementById('honvaxForm');
     if(form) {
       form.addEventListener('submit', function(e) {
-        // 强制阻断模板 main.js 的任何干扰
         e.stopImmediatePropagation();
         return true; 
-      }, true); // 捕获阶段拦截
+      }, true);
     }
-    // 初始化 AOS 动画
+
+    // 4. 初始化 动画
     window.addEventListener('load', () => { AOS.init(); });
   </script>
 
-  <a href="https://wa.me/+27836113703" target="_blank" class="d-flex align-items-center justify-content-center" 
-     style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; font-size: 30px; z-index: 9999; box-shadow: 2px 4px 15px rgba(0,0,0,0.2);">
-    <i class="bi bi-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/+27836113703" target="_blank" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 999; box-shadow: 2px 4px 15px rgba(0,0,0,0.2);">
+    <i class="bi bi-whatsapp"></i>
+  </a>
 
 </body>
 </html>
