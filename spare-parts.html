@@ -37,7 +37,6 @@
     /* Sub-page Hero Section */
     .page-header {
       padding: 120px 0 60px 0;
-      /* 这里使用了机械相关的背景图 */
       background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.95)), url('assets/img/hero-machinery.jpg') center center;
       background-size: cover;
       color: #fff;
@@ -54,16 +53,16 @@
     .trust-badge-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
 
     /* Product Matrix Cards */
-    .category-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+    .category-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; }
     .category-card:hover { box-shadow: 0 15px 35px rgba(16, 85, 140, 0.15); transform: translateY(-8px); }
-    .category-img-box { background: #e9ecef; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #adb5bd; }
+    .category-img-box { background: #e9ecef; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: #adb5bd; }
     .category-body { padding: 25px; }
     .category-list { list-style: none; padding-left: 0; margin-top: 15px; }
     .category-list li { margin-bottom: 8px; font-size: 0.9rem; color: #555; position: relative; padding-left: 20px; }
     .category-list li::before { content: "\F26A"; font-family: "bootstrap-icons"; position: absolute; left: 0; color: var(--gold-accent); font-size: 0.8rem; top: 2px; }
 
     /* Footer */
-    .footer { background-color: #001a33 !important; color: #fff; }
+    .footer { background-color: #001a33 !important; color: #fff; padding: 30px 0; }
 
     @media (max-width: 768px) {
       .page-header h1 { font-size: 2rem; }
@@ -75,17 +74,15 @@
 <body>
 
   <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+        <h1 style="font-size: 30px; font-weight: 800; color: #003366; margin: 0; font-family: 'Montserrat', sans-serif;">Honvax</h1>
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#hero">Home</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#services" class="active">Solutions</a></li>
-          <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#logistics">Supply Chain</a></li>
           <li><a href="#contact">Request Parts</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -100,12 +97,11 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-custom justify-content-center">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="index.html#services">Solutions</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Mechanical Spare Parts</li>
+            <li class="breadcrumb-item active">Mechanical Spare Parts</li>
           </ol>
         </nav>
-        <h1 class="mb-3">Zero Downtime.<br>Maximum Site Productivity.</h1>
-        <p class="lead mx-auto" style="max-width: 700px;">OEM-grade filters, hydraulic components, and undercarriage parts tailored for excavators and loaders working in rugged African terrains.</p>
+        <h1>Zero Downtime.</h1>
+        <p class="lead mx-auto" style="max-width: 700px;">OEM-grade filters, hydraulic components, and undercarriage parts tailored for rugged African terrains.</p>
         <div class="mt-4">
           <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-4">Request a Part Quote</a>
         </div>
@@ -114,26 +110,26 @@
 
     <section class="py-5 bg-white border-bottom">
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 text-center">
+          <div class="col-md-4" data-aos="fade-up">
             <div class="trust-badge-box">
               <i class="bi bi-gear-wide-connected"></i>
-              <h5 class="fw-bold">100% Fit & Performance</h5>
-              <p class="small text-muted mb-0">Cross-referenced part numbers and OEM-grade manufacturing ensure perfect compatibility with your fleet.</p>
+              <h5 class="fw-bold">100% Fit Guarantee</h5>
+              <p class="small text-muted mb-0">Cross-referenced part numbers to ensure perfect compatibility with your fleet.</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="trust-badge-box">
+              <i class="bi bi-airplane-engines"></i>
+              <h5 class="fw-bold">5-7 Days Air Freight</h5>
+              <p class="small text-muted mb-0">Urgent breakdowns handled with prioritized air shipments direct to JHB.</p>
             </div>
           </div>
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="trust-badge-box">
-              <i class="bi bi-airplane-engines"></i>
-              <h5 class="fw-bold">5-7 Days Air Freight</h5>
-              <p class="small text-muted mb-0">Urgent breakdowns require rapid response. We prioritize critical air shipments direct to JHB for immediate deployment.</p>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="trust-badge-box">
               <i class="bi bi-shield-lock"></i>
-              <h5 class="fw-bold">African Durability</h5>
-              <p class="small text-muted mb-0">Components selected specifically for high dust, high temperature, and heavy-load conditions.</p>
+              <h5 class="fw-bold">Tier-1 OEM Quality</h5>
+              <p class="small text-muted mb-0">Direct sourcing from manufacturers that supply global machinery brands.</p>
             </div>
           </div>
         </div>
@@ -142,123 +138,35 @@
 
     <section class="py-5 light-background">
       <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-          <span class="text-uppercase fw-bold" style="color: var(--gold-accent); letter-spacing: 2px; font-size: 13px;">Product Matrix</span>
-          <h2 class="fw-bold mt-2">Comprehensive Parts Categories</h2>
-        </div>
-
         <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="card category-card">
+              <div class="row g-0">
+                <div class="col-md-4 category-img-box"><i class="bi bi-funnel"></i></div>
+                <div class="col-md-8"><div class="category-body">
+                  <h4 class="fw-bold">Filtration Systems</h4>
+                  <ul class="category-list">
+                    <li>Heavy-Duty Air Filters</li>
+                    <li>Fuel/Water Separators</li>
+                    <li>Hydraulic Return Filters</li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card category-card h-100">
-              <div class="row g-0 h-100">
-                <div class="col-md-4 category-img-box">
-                  <i class="bi bi-funnel"></i>
-                </div>
-                <div class="col-md-8">
-                  <div class="category-body">
-                    <h4 class="fw-bold">Filtration Systems</h4>
-                    <p class="text-muted small">Protecting your engine and hydraulics from abrasive site dust.</p>
-                    <ul class="category-list">
-                      <li>Heavy-Duty Air Filters</li>
-                      <li>High-Efficiency Oil & Fuel Filters</li>
-                      <li>Hydraulic Return & Suction Filters</li>
-                    </ul>
-                  </div>
-                </div>
+            <div class="card category-card">
+              <div class="row g-0">
+                <div class="col-md-4 category-img-box" style="background: #e2e8f0;"><i class="bi bi-moisture"></i></div>
+                <div class="col-md-8"><div class="category-body">
+                  <h4 class="fw-bold">Hydraulics</h4>
+                  <ul class="category-list">
+                    <li>Main Pumps & Seal Kits</li>
+                    <li>Control Valves</li>
+                    <li>Boom & Bucket Cylinders</li>
+                  </ul>
+                </div></div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card category-card h-100">
-              <div class="row g-0 h-100">
-                <div class="col-md-4 category-img-box" style="background: #e2e8f0;">
-                  <i class="bi bi-moisture"></i>
-                </div>
-                <div class="col-md-8">
-                  <div class="category-body">
-                    <h4 class="fw-bold">Hydraulic Components</h4>
-                    <p class="text-muted small">The lifeblood of your excavators and lifting machinery.</p>
-                    <ul class="category-list">
-                      <li>Main Hydraulic Pumps</li>
-                      <li>Control Valves & Relief Valves</li>
-                      <li>Boom, Arm & Bucket Cylinders</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card category-card h-100">
-              <div class="row g-0 h-100">
-                <div class="col-md-4 category-img-box" style="background: #e2e8f0;">
-                  <i class="bi bi-truck-flatbed"></i>
-                </div>
-                <div class="col-md-8">
-                  <div class="category-body">
-                    <h4 class="fw-bold">Undercarriage Parts</h4>
-                    <p class="text-muted small">Built to withstand the toughest rock and soil conditions.</p>
-                    <ul class="category-list">
-                      <li>Track Rollers & Carrier Rollers</li>
-                      <li>Sprockets & Idlers</li>
-                      <li>Track Chains & Shoe Assemblies</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card category-card h-100">
-              <div class="row g-0 h-100">
-                <div class="col-md-4 category-img-box">
-                  <i class="bi bi-cone-striped"></i>
-                </div>
-                <div class="col-md-8">
-                  <div class="category-body">
-                    <h4 class="fw-bold">G.E.T. & Wear Parts</h4>
-                    <p class="text-muted small">Ground Engaging Tools forged for maximum penetration.</p>
-                    <ul class="category-list">
-                      <li>Heavy-Duty Bucket Teeth & Adapters</li>
-                      <li>Cutting Edges & End Bits</li>
-                      <li>Pins, Bushings & Retainers</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 bg-white">
-      <div class="container" data-aos="fade-up">
-        <div class="row align-items-center">
-          <div class="col-lg-5 mb-4">
-            <h3 class="fw-bold mb-4">The Honvax Quality Assurance</h3>
-            <p class="text-muted">In the heavy machinery sector, counterfeit parts can destroy an engine. We provide 100% transparency from the factory floor to your workshop.</p>
-            <div class="d-flex align-items-center mb-3">
-              <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
-              <span class="fw-bold">Part Number Cross-Verification</span>
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
-              <span class="fw-bold">Direct Sourcing from Tier-1 OEM Factories</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
-              <span class="fw-bold">Pre-shipment Visual & Dimension Audits</span>
-            </div>
-          </div>
-          <div class="col-lg-6 offset-lg-1">
-            <div class="p-4 bg-light rounded border-start border-4 border-primary">
-              <h5 class="fw-bold text-dark"><i class="bi bi-info-circle text-primary me-2"></i> Fleet Maintenance Support</h5>
-              <p class="small text-muted mb-0 mt-2">Send us your machine's Make, Model, and Serial Number (or a picture of the data plate). Our technical team will generate a precise parts catalog and preventative maintenance kit list tailored to your fleet.</p>
             </div>
           </div>
         </div>
@@ -270,87 +178,60 @@
         <div class="row align-items-center">
           <div class="col-lg-5 mb-4" data-aos="fade-right">
             <h2 class="fw-bold text-white mb-3">Get Your Machine Back to Work</h2>
-            <p class="mb-4 text-white-50">Provide your part numbers or machine details, and our technical desk will dispatch an accurate quote with expedited shipping options.</p>
-            <div class="d-flex align-items-center mb-3">
-              <i class="bi bi-envelope fs-4 text-warning me-3"></i>
-              <span>sales@honvax.com</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <i class="bi bi-whatsapp fs-4 text-success me-3"></i>
-              <span>+27 83 611 3703</span>
-            </div>
+            <p class="mb-4 text-white-50">Provide your part numbers or machine details for a technical quote.</p>
+            <div class="mb-2"><i class="bi bi-envelope text-warning me-2"></i> sales@honvax.com</div>
+            <div><i class="bi bi-whatsapp text-success me-2"></i> +27 83 611 3703</div>
           </div>
           <div class="col-lg-7" data-aos="fade-left">
-<form id="honvaxContactForm" action="https://formsubmit.co/sales@honvax.com" method="POST" class="bg-white p-4 shadow-sm rounded">
-  
-  <input type="hidden" name="_subject" value="🔥 New Inquiry from Honvax Website!">
-  <input type="hidden" name="_next" value="https://suyvee759-stack.github.io">
-  <input type="hidden" name="_captcha" value="false">
+            <div class="bg-white p-4 shadow rounded">
+              <form id="sparePartsForm" action="https://formsubmit.co/sales@honvax.com" method="POST">
+                <input type="hidden" name="_subject" value="🛠️ New Spare Parts Inquiry!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://suyvee759-stack.github.io/spare-parts.html">
 
-  <div class="row">
-    <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
-    <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required></div>
-  </div>
-  <div class="form-group mb-3">
-    <select name="subject" class="form-select p-3 bg-light border-0" required>
-      <option value="" disabled selected>Select an Interest...</option>
-      <option value="Spare Parts">Mechanical Spare Parts</option>
-      <option value="Generators">Industrial Power Units / Generators</option>
-      <option value="Hardware">Power Infrastructure Supplies</option>
-      <option value="Used Equipment">Vetted Used Equipment</option>
-      <option value="PDF Request">Request 2026 PDF Brochure</option>
-    </select>
-  </div>
-  <div class="form-group mb-4"><textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Project Details & Specifications" required></textarea></div>
-  
-  <div class="text-start">
-    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">Submit Request</button>
-  </div>
-</form>
-
-<script>
-  document.getElementById('honvaxContactForm').addEventListener('submit', function(e) {
-    // 停止模板脚本的所有拦截行为
-    e.stopPropagation();
-  }, false);
-</script>
-              <h4 class="fw-bold mb-4 text-dark">Request a Parts Quote</h4>
-              <div class="row">
-                <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
-                <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Work Email" required></div>
-              </div>
-              <div class="form-group mb-3">
-                <select name="subject" class="form-select p-3 bg-light border-0" required>
-                  <option value="" disabled selected>Select Part Category...</option>
-                  <option value="Filters & Maintenance">Filtration & Maintenance Kits</option>
-                  <option value="Hydraulics">Hydraulic Pumps / Valves</option>
-                  <option value="Undercarriage">Undercarriage Components</option>
-                  <option value="Wear Parts">Teeth, Edges & Wear Parts</option>
-                  <option value="General Machine Parts">General Machine Parts Inquiry</option>
-                </select>
-              </div>
-              <div class="form-group mb-4">
-                <textarea name="message" class="form-control p-3 bg-light border-0" rows="4" placeholder="Please provide Machine Make, Model, Serial Number, and required Part Numbers if known..." required></textarea>
-              </div>
-              <div class="text-end"><button type="submit" class="btn btn-primary px-4 py-2 fw-bold">Submit Part Request</button></div>
-            </form>
+                <h4 class="text-dark fw-bold mb-4">Request a Parts Quote</h4>
+                <div class="row gy-3">
+                  <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Name" required></div>
+                  <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Work Email" required></div>
+                  <div class="col-12">
+                    <select name="category" class="form-select" required>
+                      <option value="" disabled selected>Select Category...</option>
+                      <option value="Filters">Filtration Kits</option>
+                      <option value="Hydraulics">Hydraulic Components</option>
+                      <option value="Undercarriage">Undercarriage Parts</option>
+                      <option value="Wear Parts">Bucket Teeth & Wear Parts</option>
+                    </select>
+                  </div>
+                  <div class="col-12"><textarea name="message" class="form-control" rows="4" placeholder="Machine Make, Model, and Part Numbers if known..." required></textarea></div>
+                  <div class="col-12 text-end"><button type="submit" class="btn btn-primary px-5 py-2">Submit Request</button></div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer id="footer" class="footer py-4 mt-auto">
-    <div class="container text-center">
-      <p class="mb-1">© Copyright <strong class="sitename">Honvax</strong>. Engineered for South Africa.</p>
-    </div>
+  <footer class="footer mt-auto">
+    <div class="container text-center"><p class="mb-0">© Honvax Engineering. Engineered for South Africa.</p></div>
   </footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // 强效拦截逻辑：防止 main.js 篡改提交
+    const form = document.getElementById('sparePartsForm');
+    if(form) {
+      form.addEventListener('submit', function(e) {
+        e.stopImmediatePropagation();
+        return true; 
+      }, true);
+    }
+    // 初始化动画
+    window.addEventListener('load', () => { AOS.init(); });
+  </script>
 
 </body>
 </html>
