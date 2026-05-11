@@ -3,58 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Consulting & Procurement | Honvax Engineering</title>
-  <style>
-    :root { --accent-color: #10558C; --heading-color: #003366; --gold-accent: #C5A059; }
-    body { font-family: 'Roboto', sans-serif; color: #444; }
-    .page-header { padding: 120px 0 60px; background: linear-gradient(rgba(16, 85, 140, 0.9), rgba(0, 51, 102, 0.95)); color: #fff; text-align: center; }
-    .service-box { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 40px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-    .service-box h3 { color: var(--heading-color); font-weight: 700; margin-bottom: 20px; border-left: 5px solid var(--gold-accent); padding-left: 15px; }
-  </style>
+  <title>Consulting & Procurement | Honvax South Africa</title>
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    :root { --accent-color: #10558C; --heading-color: #003366; --gold-accent: #C5A059; }
+    body { font-family: 'Roboto', sans-serif; background: #fdfdfd; }
+    .page-header { padding: 120px 0 60px; background: linear-gradient(rgba(16, 85, 140, 0.95), rgba(0, 51, 102, 0.98)); color: #fff; text-align: center; }
+    .service-box { background: #fff; border-radius: 12px; padding: 35px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--gold-accent); }
+    .footer { background-color: #001a33; color: #fff; padding: 20px 0; text-align: center; }
+  </style>
 </head>
 <body>
   <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
     <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo"><h1 style="font-size: 32px; font-weight: 800; color: #003366; margin: 0;">Honvax</h1></a>
-      <nav class="navmenu"><ul><li><a href="index.html">Home</a></li></ul></nav>
+      <a href="index.html" class="logo"><h1 style="font-size: 30px; font-weight: 800; color: #003366; margin: 0;">Honvax</h1></a>
+      <nav class="navmenu"><ul><li><a href="index.html#hero">Home</a></li></ul></nav>
     </div>
   </header>
 
-  <section class="page-header">
-    <div class="container">
-      <h1>Your Technical Bridge.<br>Eliminating Cross-Border Risk.</h1>
-      <p class="lead">We translate complex engineering requirements into reliable procurement reality.</p>
-    </div>
-  </section>
-
-  <section class="py-5">
-    <div class="container">
-      <div class="service-box">
-        <h3>Tender Technical Audit</h3>
-        <p>Analyzing complex mechanical and electrical specifications in EPC bids to ensure feasibility and compliance with SABS/Eskom standards before you commit.</p>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1 class="fw-bold">Your Technical Bridge.</h1>
+        <p class="lead">Eliminating cross-border procurement risks through expert technical alignment.</p>
       </div>
-      <div class="service-box">
-        <h3>China Factory Vetting</h3>
-        <p>On-site production audits and quality system verification in China. We act as your eyes on the factory floor to ensure what is shipped is what was specified.</p>
-      </div>
-      <div class="service-box">
-        <h3>BOM Localization & Optimization</h3>
-        <p>Send us your Bill of Materials. Our team will map every fastener, insulator, and component to high-quality, cost-effective manufacturers while maintaining technical fidelity.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-5 text-center bg-light">
-    <div class="container">
-      <h2 class="fw-bold">Ready to De-Risk Your Procurement?</h2>
-      <p class="text-muted">Start with a technical consultation with our Johannesburg team.</p>
-      <a href="mailto:sales@honvax.com" class="btn btn-primary btn-lg mt-3">Schedule a Consultation</a>
-    </div>
-  </section>
+    <section class="py-5">
+      <div class="container" style="max-width: 900px;">
+        <div class="service-box">
+          <h4 class="fw-bold text-primary">Tender Technical Audit</h4>
+          <p class="text-muted mb-0">We analyze complex mechanical and electrical specifications in EPC bids to ensure feasibility and compliance with Eskom standards.</p>
+        </div>
+        <div class="service-box">
+          <h4 class="fw-bold text-primary">China Factory Vetting</h4>
+          <p class="text-muted mb-0">On-site production audits and quality verification in China. We act as your eyes on the factory floor.</p>
+        </div>
+        <div class="service-box">
+          <h4 class="fw-bold text-primary">BOM Localization & Optimization</h4>
+          <p class="text-muted mb-0">Send us your Bill of Materials. We map every component to high-quality, cost-effective manufacturers while maintaining technical fidelity.</p>
+        </div>
+      </div>
+    </section>
 
-  <footer style="background: #001a33; color: white; text-align: center; padding: 20px 0;"><p>© Honvax Consulting. Precision Procurement.</p></footer>
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7">
+            <div class="bg-white p-4 shadow rounded text-center">
+              <h3 class="fw-bold">Schedule a Consultation</h3>
+              <p class="text-muted">Submit your project scope for a professional procurement de-risking audit.</p>
+              <form id="conForm" action="https://formsubmit.co/sales@honvax.com" method="POST">
+                <input type="hidden" name="_subject" value="New Consulting Inquiry!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://suyvee759-stack.github.io/consulting.html">
+                <textarea name="message" class="form-control mb-3" rows="4" placeholder="Describe your project or tender requirements..." required></textarea>
+                <button type="submit" class="btn btn-primary px-5">Submit Request</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>© Honvax Engineering</p></footer>
+
+  <script>
+    const cForm = document.getElementById('conForm');
+    if(cForm) {
+      cForm.addEventListener('submit', function(e) {
+        e.stopImmediatePropagation();
+        return true; 
+      }, true);
+    }
+  </script>
 </body>
 </html>
