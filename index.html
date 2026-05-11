@@ -23,13 +23,24 @@
 
   <style>
     :root {
-      --accent-color: #10558C !important; 
-      --heading-color: #003366 !important; 
-      --gold-accent: #C5A059; 
+      --accent-color: #10558C !important; /* 工业蓝：主色调 */
+      --heading-color: #003366 !important; /* 深邃蓝：用于大标题 */
+      --gold-accent: #C5A059; /* 质感金：用于点缀 */
     }
 
-    #hero h1 { font-size: 2.5rem !important; line-height: 1.2 !important; margin-bottom: 1.5rem !important; font-weight: 800; }
-    #hero .lead { font-size: 1.05rem !important; max-width: 90%; line-height: 1.6 !important; margin-bottom: 2rem !important; }
+    #hero h1 {
+      font-size: 2.5rem !important; 
+      line-height: 1.2 !important;
+      margin-bottom: 1.5rem !important;
+      font-weight: 800;
+    }
+
+    #hero .lead {
+      font-size: 1.05rem !important; 
+      max-width: 90%; 
+      line-height: 1.6 !important;
+      margin-bottom: 2rem !important;
+    }
 
     .btn-primary, .submit-btn {
       background-color: var(--accent-color) !important;
@@ -48,11 +59,19 @@
       text-transform: uppercase;
     }
 
-    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
-    .sitename { text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-    .footer { background-color: #001a33 !important; }
+    .navmenu a:hover, .navmenu .active {
+      color: var(--accent-color) !important;
+    }
 
-    /* 视频/图片展示容器 */
+    .sitename {
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .footer {
+      background-color: #001a33 !important;
+    }
+
+    /* 视频/图片容器样式 */
     .video-container {
       position: relative;
       border-radius: 10px;
@@ -79,18 +98,51 @@
       border-radius: 4px;
       font-size: 12px;
       font-weight: 600;
+      letter-spacing: 1px;
     }
 
-    /* 卡片效果 */
-    .product-card { transition: all 0.3s ease; border-radius: 12px; }
-    .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; }
-    .btn-lead-magnet { border: 2px solid var(--gold-accent); color: var(--heading-color); font-weight: 600; transition: all 0.3s ease; background: transparent; }
-    .btn-lead-magnet:hover { background: var(--gold-accent); color: #fff; box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3); }
+    /* 极简矢量卡片悬浮效果 */
+    .product-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; 
+    }
+    .product-card .icon-wrapper i {
+      transition: all 0.3s ease;
+    }
+    .product-card:hover .icon-wrapper i {
+      color: var(--gold-accent) !important; 
+      transform: scale(1.1);
+      display: inline-block;
+    }
+
+    /* Lead Magnet / PDF 按钮动效 */
+    .btn-lead-magnet {
+      border: 2px solid var(--gold-accent);
+      color: var(--heading-color);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+    .btn-lead-magnet:hover {
+      background: var(--gold-accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
+    }
 
     @media (max-width: 768px) {
-      #hero h1 { font-size: 2.2rem !important; }
+      #hero h1 {
+        font-size: 2.2rem !important; 
+        line-height: 1.3 !important;
+        margin-bottom: 1rem !important;
+      }
       #hero .hero-content { padding-right: 0 !important; }
+      #hero .lead { max-width: 100%; font-size: 1rem !important; }
       .video-container { border-radius: 8px !important; margin-bottom: 10px !important; }
+      .video-label { bottom: 8px !important; left: 8px !important; padding: 3px 8px !important; }
     }
   </style>
   <link href="assets/css/main.css" rel="stylesheet">
@@ -102,7 +154,7 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 55px; width: auto; margin-right:15px;">
-        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -122,57 +174,57 @@
   <main class="main">
 
     <section id="hero" class="hero section light-background py-5" style="margin-top: 60px;">
-      <div class="container" data-aos="fade-up">
-        <div class="row align-items-center">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center" style="display: flex !important; flex-wrap: wrap !important; flex-direction: row !important;">
 
-          <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+          <div class="col-12 col-lg-6 mb-4 mb-lg-0" style="order: 1 !important;">
             <div class="hero-content pe-lg-4">
               <span class="badge bg-warning text-dark mb-3 px-3 py-2" style="font-weight: 600;">China Quality, African Durability</span>
-              <h1>Engineering the Future of Africa's Infrastructure</h1>
-              <p class="lead mb-4">Honvax delivers factory-direct engineering supplies and heavy equipment from China to South Africa. We bridge global manufacturing with local requirements through SABS/Eskom compliance.</p>
+              <h1 data-aos="fade-up" data-aos-delay="200" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Engineering the Future of Africa's Infrastructure</h1>
+              <p class="lead mb-4" data-aos="fade-up" data-aos-delay="300">Honvax delivers factory-direct engineering supplies and heavy equipment from China to South Africa. We bridge global manufacturing with local project requirements through expert-led technical alignment and SABS/Eskom compliance.</p>
               
-              <div class="hero-cta d-flex flex-wrap gap-3 mb-4">
-                <a href="#contact" class="btn btn-primary btn-lg px-4">Request a Quote</a>
-                <a href="#services" class="btn btn-outline-dark btn-lg px-4">View Solutions</a>
+              <div class="hero-cta d-flex flex-wrap gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="btn btn-primary btn-lg" style="padding: 10px 24px;">Request a Quote</a>
+                <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px;">View Solutions</a>
               </div>
 
-              <div class="hero-stats w-100 d-flex justify-content-between align-items-center mt-3">
-                <div class="stat-item text-center flex-fill">
-                  <div class="fw-bold text-primary fs-4">SABS</div>
-                  <div class="text-muted fw-bold small">Standard Ready</div>
+              <div class="hero-stats w-100" data-aos="fade-up" data-aos-delay="500" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; margin-top: 15px; margin-bottom: 20px;">
+                <div class="stat-item text-center" style="flex: 1;">
+                  <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">SABS</div>
+                  <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Standard Ready</div>
                 </div>
-                <div class="stat-item text-center flex-fill border-start border-end">
-                  <div class="fw-bold text-primary fs-4">B-BBEE</div>
-                  <div class="text-muted fw-bold small">Local Multipliers</div>
+                <div class="stat-item text-center" style="flex: 1; border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6;">
+                  <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">B-BBEE</div>
+                  <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Local Multipliers</div>
                 </div>
-                <div class="stat-item text-center flex-fill">
-                  <div class="fw-bold text-primary fs-4">24/7</div>
-                  <div class="text-muted fw-bold small">Response</div>
+                <div class="stat-item text-center" style="flex: 1;">
+                  <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">24/7</div>
+                  <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Response</div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="col-12 col-lg-6 mt-3 mt-lg-0">
-            <div class="row g-2">
-              <div class="col-6">
+          <div class="col-12 col-lg-6 mt-3 mt-lg-0" style="order: 2 !important;">
+            <div class="row g-2 w-100 m-0" data-aos="fade-left" data-aos-delay="300" style="display: flex !important; flex-wrap: wrap !important; flex-direction: row !important;">
+              <div class="col-6 px-1">
                 <div class="video-container">
-                  <img src="assets/img/hero-machinery.jpg" alt="Machinery">
-                  <div class="video-label"><i class="bi bi-cone-striped"></i> Machinery</div>
+                  <img src="assets/img/hero-machinery.jpg" alt="Heavy Machinery">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-cone-striped"></i> <span class="d-none d-sm-inline">Machinery</span></div>
                 </div>
                 <div class="video-container mb-0">
-                  <img src="assets/img/hero-service.jpg" alt="Engineering">
-                  <div class="video-label"><i class="bi bi-tools"></i> Engineering</div>
+                  <img src="assets/img/hero-service.jpg" alt="Technical Service">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-tools"></i> <span class="d-none d-sm-inline">Engineering</span></div>
                 </div>
               </div>
-              <div class="col-6 pt-lg-4">
+              <div class="col-6 px-1 pt-3 pt-lg-4">
                 <div class="video-container">
-                  <img src="assets/img/hero-solar.jpg" alt="Infrastructure">
-                  <div class="video-label"><i class="bi bi-lightning-charge"></i> Infrastructure</div>
+                  <img src="assets/img/hero-solar.jpg" alt="Power Infrastructure">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-lightning-charge"></i> <span class="d-none d-sm-inline">Infrastructure</span></div>
                 </div>
                 <div class="video-container mb-0">
-                  <img src="assets/img/hero-generator.jpg" alt="Power Units">
-                  <div class="video-label"><i class="bi bi-ev-station"></i> Power Units</div>
+                  <img src="assets/img/hero-generator.jpg" alt="Custom Generators">
+                  <div class="video-label" style="font-size: 0.75rem;"><i class="bi bi-ev-station"></i> <span class="d-none d-sm-inline">Power Units</span></div>
                 </div>
               </div>
             </div>
@@ -181,92 +233,257 @@
       </div>
     </section>
 
-    <section id="about" class="about section py-5">
-      <div class="container section-title text-center mb-5" data-aos="fade-up">
-        <span class="subtitle">Why Partner With Us</span>
-        <h2>Bridging Global Supply with Local Compliance</h2>
+    <section id="about" class="about section py-4">
+      <div class="container section-title text-center mb-4" data-aos="fade-up">
+        <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Why Partner With Us</span>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">Bridging Global Supply with Local Compliance</h2>
       </div>
-      <div class="container">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
-          <div class="col-lg-6 pe-lg-4">
-            <h3 class="fw-bold mb-3 fs-4">Your Gateway to Compliant Procurement</h3>
-            <p class="text-muted small">We translate your complex technical parameters into precise procurement lists, eliminating costly errors.</p>
-            <ul class="list-unstyled mt-4">
-              <li class="d-flex mb-3"><i class="bi bi-file-spreadsheet fs-4 text-primary me-3"></i><div><h6 class="fw-bold mb-0">Spec-Sheet to Site</h6><p class="small text-muted">Analysis of complex Excel tender documents.</p></div></li>
-              <li class="d-flex mb-3"><i class="bi bi-briefcase fs-4 text-primary me-3"></i><div><h6 class="fw-bold mb-0">B-BBEE Support</h6><p class="small text-muted">Level-1 & Level-2 accredited local partners.</p></div></li>
-              <li class="d-flex"><i class="bi bi-shield-check fs-4 text-primary me-3"></i><div><h6 class="fw-bold mb-0">Warranty Support</h6><p class="small text-muted">12-month factory-backed warranty.</p></div></li>
-            </ul>
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="content pe-lg-4">
+              <h3 class="fw-bold mb-3 fs-4">Your Gateway to Compliant Procurement</h3>
+              <p class="text-muted small mb-4">We solve the risks of direct-importing. Backed by deep expertise in power construction procurement, we act as your technical bridge, ensuring every part meets your exact site requirements.</p>
+              <ul class="list-unstyled">
+                <li class="d-flex mb-3">
+                  <i class="bi bi-file-spreadsheet fs-4 text-primary me-3 mt-1"></i>
+                  <div>
+                    <h5 class="fw-bold mb-1 fs-6">From Spec-Sheet to Site (Our Approach)</h5>
+                    <p class="text-muted small mb-0">We don't just take orders. We translate your complex Excel technical parameters and tender documents into precise procurement lists, eliminating costly errors.</p>
+                  </div>
+                </li>
+                <li class="d-flex mb-3">
+                  <i class="bi bi-briefcase fs-4 text-primary me-3 mt-1"></i>
+                  <div>
+                    <h5 class="fw-bold mb-1 fs-6">B-BBEE Multiplier Localization</h5>
+                    <p class="text-muted small mb-0">Through deep integration with Level-1 & Level-2 accredited local partners, we offer flexible commercial terms and multiplier solutions to meet your procurement targets.</p>
+                  </div>
+                </li>
+                <li class="d-flex">
+                  <i class="bi bi-shield-check fs-4 text-primary me-3 mt-1"></i>
+                  <div>
+                    <h5 class="fw-bold mb-1 fs-6">Warranty & Technical Support</h5>
+                    <p class="text-muted small mb-0">All new equipment is backed by a robust 12-month factory warranty. We provide dedicated online technical guidance and rapid spare parts dispatch.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-6"><img src="assets/img/about-business.jpg" alt="Honvax" class="img-fluid rounded shadow"></div>
+
+          <div class="col-lg-6">
+            <div class="image-wrapper position-relative">
+              <img src="assets/img/about-business.jpg" alt="Local Partnership and BEE Compliance" class="img-fluid rounded shadow-sm w-100" style="object-fit: cover; max-height: 400px;">
+              <div class="position-absolute bottom-0 start-0 bg-white p-3 shadow-sm rounded-top-end" style="border-top-right-radius: 12px;">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-check-circle-fill text-success fs-3 me-2"></i>
+                  <span class="fw-bold text-dark" style="font-size: 0.9rem;">Verified Supply Chain</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="services" class="services section light-background py-5">
-      <div class="container section-title text-center" data-aos="fade-up">
-        <span class="subtitle">Solutions</span>
-        <h2>End-to-End Infrastructure Supply</h2>
+      <div class="container section-title text-center" data-aos="fade-up" style="margin-bottom: 2rem !important;">
+        <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Core Solutions</span>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">End-to-End Infrastructure Supply</h2>
       </div>
+
       <div class="container">
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4 col-md-6"><a href="spare-parts.html" class="product-card d-block h-100"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-gear-wide-connected fs-1 text-primary mb-3"></i><h5 class="fw-bold">Mechanical Spare Parts</h5><p class="small text-muted">OEM-quality filters and pumps.</p></div></a></div>
-          <div class="col-lg-4 col-md-6"><a href="infrastructure-supplies.html" class="product-card d-block h-100"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-lightning-charge fs-1 text-primary mb-3"></i><h5 class="fw-bold">Power Infrastructure</h5><p class="small text-muted">SABS-compliant hardware.</p></div></a></div>
-          <div class="col-lg-4 col-md-6"><a href="used-equipment.html" class="product-card d-block h-100"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-truck-flatbed fs-1 text-primary mb-3"></i><h5 class="fw-bold">Vetted Used Equipment</h5><p class="small text-muted">Technical assessments for machinery.</p></div></a></div>
+        <div class="row gy-4 justify-content-center mb-lg-4">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <a href="spare-parts.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Mechanical Spare Parts</h4>
+                <p class="text-muted small mb-0">OEM-quality filters, hydraulic pumps, control valves, and undercarriage components engineered for zero downtime on heavy machinery.</p>
+              </div>
+            </a>
+          </div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <a href="infrastructure-supplies.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-lightning-charge" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Power Infrastructure Supplies</h4>
+                <p class="text-muted small mb-0">SABS-compliant transmission line hardware, PV mounting fasteners, and advanced earthing materials for grid projects.</p>
+              </div>
+            </a>
+          </div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <a href="used-equipment.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Vetted Used Equipment</h4>
+                <p class="text-muted small mb-0">Strategic sourcing of high-performance cranes, drilling rigs, and earthmoving machinery, verified through rigorous technical assessments.</p>
+              </div>
+            </a>
+          </div>
+<div class="row gy-4 justify-content-center">
+          
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <a href="generators.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-ev-station" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Industrial Power Units</h4>
+                <p class="text-muted small mb-0">Bespoke silent diesel and gas generators designed for remote construction hubs and industrial load shedding mitigation.</p>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <a href="consulting.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff; border: 2px solid var(--accent-color) !important;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-person-check" style="font-size: 3.5rem; color: var(--gold-accent);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5" style="color: var(--heading-color);">Consulting & Procurement</h4>
+                <p class="text-muted small mb-0">Tender document analysis, SABS/Eskom technical alignment, and professional factory vetting for seamless China-to-SA trade.</p>
+              </div>
+            </a>
+          </div>
+
         </div>
-        <div class="row gy-4 justify-content-center mt-2">
-          <div class="col-lg-4 col-md-6"><a href="generators.html" class="product-card d-block h-100"><div class="card h-100 border-0 shadow-sm text-center p-4"><i class="bi bi-ev-station fs-1 text-primary mb-3"></i><h5 class="fw-bold">Industrial Power Units</h5><p class="small text-muted">Silent generators for load shedding.</p></div></a></div>
-          <div class="col-lg-4 col-md-6"><a href="consulting.html" class="product-card d-block h-100"><div class="card h-100 border-0 shadow-sm text-center p-4" style="border: 2px solid var(--accent-color) !important;"><i class="bi bi-person-check fs-1 text-primary mb-3"></i><h5 class="fw-bold">Consulting & Procurement</h5><p class="small text-muted">Tender analysis and factory vetting.</p></div></a></div>
+
+        <div class="row mt-5 pt-3" data-aos="fade-up" data-aos-delay="600">
+          <div class="col-12 text-center">
+            <a href="#contact" class="btn btn-lead-magnet btn-lg px-4 py-3 rounded-pill">
+              <i class="bi bi-file-earmark-pdf-fill me-2 text-danger"></i> Request Our 2026 Procurement Guide & Spec Sheets
+            </a>
+            <p class="text-muted small mt-2">Get detailed specifications on generators, hardware, and lead times.</p>
+          </div>
         </div>
-        <div class="text-center mt-5"><a href="#contact" class="btn btn-lead-magnet btn-lg px-4 py-3 rounded-pill" style="text-decoration:none;"><i class="bi bi-file-earmark-pdf-fill me-2 text-danger"></i> Request Our 2026 Procurement Guide</a></div>
+
       </div>
     </section>
 
     <section id="expertise" class="portfolio section py-5">
-      <div class="container section-title text-center mb-5"><h2>Technical Expertise in Action</h2></div>
+      <div class="container section-title text-center mb-5" data-aos="fade-up">
+        <span class="subtitle">Our DNA</span>
+        <h2 style="font-family: 'Montserrat', sans-serif;">Technical Expertise in Action</h2>
+        <p class="text-muted mt-2">We don't just supply equipment; we analyze, optimize, and deliver technical certainty.</p>
+      </div>
+
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-4"><div class="card h-100 border-0 shadow-sm bg-light p-4"><h6>Tender Support</h6><p class="small text-muted">Spec alignment for 64MWac Solar PV plants.</p></div></div>
-          <div class="col-lg-4"><div class="card h-100 border-0 shadow-sm bg-light p-4"><h6>Compliance</h6><p class="small text-muted">Sourcing materials meeting Eskom and SABS standards.</p></div></div>
-          <div class="col-lg-4"><div class="card h-100 border-0 shadow-sm bg-light p-4"><h6>Factory Vetting</h6><p class="small text-muted">Direct oversight and pre-shipment technical audits.</p></div></div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="bi bi-file-earmark-text text-primary fs-2"></i></div>
+                <h5 class="fw-bold mb-3">Tender Technical Support</h5>
+                <p class="text-muted small">Provided technical specification alignment and procurement support for complex bids, including materials mapping for 64MWac Solar PV plant developments.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="bi bi-shield-check text-primary fs-2"></i></div>
+                <h5 class="fw-bold mb-3">Compliance Alignment</h5>
+                <p class="text-muted small">Deep involvement in sourcing power infrastructure materials that stringently meet Eskom Grid Code and SABS standards for large-scale utility and municipal projects.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm" style="background: #f8f9fa;">
+              <div class="card-body p-4">
+                <div class="mb-3"><i class="bi bi-search text-primary fs-2"></i></div>
+                <h5 class="fw-bold mb-3">Factory Vetting & QA</h5>
+                <p class="text-muted small">Direct oversight of the China-to-SA supply chain, ensuring technical fidelity through pre-shipment video inspections and rigorous factory production capability assessments.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="logistics" class="section py-5 border-top">
+    <section id="logistics" class="section light-background py-5 border-top">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-5 mb-4"><h2>China to Your Site</h2><p class="text-muted">Managed logistics from Durban Port to Johannesburg distribution hubs.</p></div>
-          <div class="col-lg-7 text-center"><img src="assets/img/africa-map.jpg" alt="Logistics Map" class="img-fluid rounded shadow" style="max-height: 350px;"></div>
+          <div class="col-lg-5 mb-4" data-aos="fade-right">
+            <span class="subtitle">Direct-Shipping Workflow</span>
+            <h2 class="fw-bold mb-4" style="font-family: 'Montserrat', sans-serif;">China to Your Site: A Transparent Journey</h2>
+            <p class="text-muted mb-4">We manage the complexities of cross-border trade, from technical scoping and factory selection to heavy-haul transportation across major African economic hubs.</p>
+            
+            <div class="bg-white p-3 rounded shadow-sm border-start border-4 border-primary mb-4">
+              <h6 class="fw-bold mb-2">Estimated Lead Times:</h6>
+              <ul class="list-unstyled text-dark small mb-0">
+                <li class="mb-1"><i class="bi bi-airplane text-primary me-2"></i> <strong>Emergency Air Freight:</strong> 5-7 Days (Ideal for critical spare parts)</li>
+                <li><i class="bi bi-ship text-primary me-2"></i> <strong>Standard Sea Freight:</strong> 30-45 Days (Bulk machinery & hardware)</li>
+              </ul>
+            </div>
+
+            <ul class="list-unstyled fw-bold text-dark small">
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Port Access: Durban, Port Elizabeth, Cape Town</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Inland Hub: Johannesburg Regional Distribution</li>
+              <li class="mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Sub-Saharan Reach: Kenya, Tanzania, Nigeria</li>
+            </ul>
+          </div>
+          <div class="col-lg-7 text-center" data-aos="fade-left">
+            <img src="assets/img/africa-map.jpg" alt="Pan-African Logistics Map" class="img-fluid rounded shadow" style="border: 4px solid #fff;">
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contact" class="contact section py-5">
-      <div class="container section-title text-center mb-5"><h2>Ready to De-Risk Your Procurement?</h2></div>
+      <div class="container section-title text-center mb-5">
+        <span class="subtitle">Inquiry</span>
+        <h2 style="font-family: 'Montserrat', sans-serif;">Ready to De-Risk Your Procurement?</h2>
+      </div>
+
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5">
             <div class="info-item d-flex align-items-center mb-4 p-4 shadow-sm rounded bg-white">
               <i class="bi bi-envelope fs-3 text-primary me-3"></i>
-              <div><h6 class="fw-bold mb-0">Email Us</h6><p class="mb-0 text-muted">sales@honvax.com</p></div>
+              <div>
+                <h4 class="fw-bold mb-1 fs-5">Email Us</h4>
+                <p class="mb-0 text-muted">sales@honvax.com</p>
+              </div>
             </div>
             <div class="info-item d-flex align-items-center p-4 shadow-sm rounded bg-white">
               <i class="bi bi-geo-alt fs-3 text-primary me-3"></i>
-              <div><h6 class="fw-bold mb-0">Location</h6><p class="mb-0 text-muted">Kyalami, JHB, South Africa</p></div>
+              <div>
+                <h4 class="fw-bold mb-1 fs-5">Location</h4>
+                <p class="mb-0 text-muted">Kyalami, JHB, Gauteng<br>South Africa Regional Hub</p>
+              </div>
             </div>
           </div>
           <div class="col-lg-7">
-            <form id="honvaxContactForm" action="https://formsubmit.co/sales@honvax.com" method="POST" class="bg-white p-4 shadow rounded border">
-              <input type="hidden" name="_subject" value="🔥 New Website Inquiry!">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://www.honvax.com">
-              <div class="row gy-3">
-                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Name" required></div>
-                <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Email" required></div>
-                <div class="col-12"><textarea name="message" class="form-control" rows="5" placeholder="Project Details" required></textarea></div>
-                <div class="col-12 text-center"><button type="submit" class="btn btn-primary px-5 py-2 fw-bold">Submit Request</button></div>
-              </div>
-            </form>
+<form id="honvaxContactForm" action="https://formsubmit.co/sales@honvax.com" method="POST" class="bg-white p-4 shadow-sm rounded">
+  
+  <input type="hidden" name="_subject" value="🔥 New Inquiry from Honvax Website!">
+  <input type="hidden" name="_next" value="https://suyvee759-stack.github.io">
+  <input type="hidden" name="_captcha" value="false">
+
+  <div class="row">
+    <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light border-0" placeholder="Your Name" required></div>
+    <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light border-0" placeholder="Your Email" required></div>
+  </div>
+  <div class="form-group mb-3">
+    <select name="subject" class="form-select p-3 bg-light border-0" required>
+      <option value="" disabled selected>Select an Interest...</option>
+      <option value="Spare Parts">Mechanical Spare Parts</option>
+      <option value="Generators">Industrial Power Units / Generators</option>
+      <option value="Hardware">Power Infrastructure Supplies</option>
+      <option value="Used Equipment">Vetted Used Equipment</option>
+      <option value="PDF Request">Request 2026 PDF Brochure</option>
+    </select>
+  </div>
+  <div class="form-group mb-4"><textarea name="message" class="form-control p-3 bg-light border-0" rows="5" placeholder="Project Details & Specifications" required></textarea></div>
+  
+  <div class="text-start">
+    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">Submit Request</button>
+  </div>
+</form>
+
+<script>
+  document.getElementById('honvaxContactForm').addEventListener('submit', function(e) {
+    // 停止模板脚本的所有拦截行为
+    e.stopPropagation();
+  }, false);
+</script>
           </div>
         </div>
       </div>
@@ -274,37 +491,21 @@
 
   </main>
 
-  <footer class="footer py-4 text-center text-white-50 small">© Honvax Engineering. All Rights Reserved.</footer>
+  <footer id="footer" class="footer dark-background">
+    <div class="container copyright text-center mt-4 pb-4">
+      <p class="mb-1">© <span>Copyright</span> <strong class="px-1 sitename">Honvax</strong> <span>All Rights Reserved</span></p>
+      <div class="credits text-white-50 small">Designed by Honvax Media Team</div>
+    </div>
+  </footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <script>
-    // 1. 移动端导航彻底修复
-    const toggle = document.querySelector('.mobile-nav-toggle');
-    const body = document.querySelector('body');
-    if (toggle) {
-      toggle.addEventListener('click', function() {
-        body.classList.toggle('mobile-nav-active');
-        this.classList.toggle('bi-list');
-        this.classList.toggle('bi-x');
-      });
-    }
-
-    // 2. 表单强效拦截 (解决 "Form should POST" 报错)
-    const finalForm = document.getElementById('honvaxContactForm');
-    if(finalForm) {
-      finalForm.addEventListener('submit', function(e) {
-        // 捕获阶段拦截，彻底防止模板脚本 (main.js) 的干扰
-        e.stopImmediatePropagation();
-        return true; 
-      }, true); 
-    }
-    window.addEventListener('load', () => { AOS.init({ duration: 1000, once: true }); });
-  </script>
-
-  <a href="https://wa.me/+27836113703" target="_blank" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 999; box-shadow: 2px 4px 15px rgba(0,0,0,0.2);">
+  <a href="https://wa.me/+27836113703" target="_blank" class="d-flex align-items-center justify-content-center" 
+     style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; font-size: 30px; z-index: 9999; box-shadow: 2px 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s;">
     <i class="bi bi-whatsapp"></i>
   </a>
 
