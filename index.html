@@ -456,7 +456,6 @@
 <form id="honvax-bypass-form" action="https://formsubmit.co/c0ccb1d7b53a559537651b600868af18" method="POST" class="bg-white p-4 shadow-sm rounded">
   
   <input type="hidden" name="_subject" value="🔥 New Inquiry from Honvax Website!">
-  <input type="hidden" name="_next" value="https://suyvee759-stack.github.io">
   <input type="hidden" name="_captcha" value="false">
  
   <div class="row">
@@ -508,12 +507,17 @@
   <!-- 2. 这里是唯一的底层接管脚本 -->
   <script>
     (function() {
-        // A. 强制破解表单拦截
+   // A. 强制破解表单拦截 (强化版)
         const form = document.getElementById('honvax-bypass-form');
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                
+                // 强制上锁：绝不允许模板 JS 把 POST 改成 GET
+                form.setAttribute('method', 'POST'); 
+                form.setAttribute('action', 'https://formsubmit.co/c0ccb1d7b53a559537651b600868af18');
+                
                 try {
                     HTMLFormElement.prototype.submit.call(form);
                 } catch (err) {
