@@ -392,7 +392,10 @@
       window.addEventListener('load', () => { 
         if (typeof AOS !== 'undefined') {
           AOS.init(); 
-          // ==========================================
+        }
+      });
+    })();
+      // ==========================================
     // 智能导航栏：滚动隐藏，鼠标触顶滑出
     // ==========================================
     (function() {
@@ -424,9 +427,6 @@
 
         window.addEventListener('scroll', checkVisibility);
       }
-    })();
-        }
-      });
     })();
   </script>
 
