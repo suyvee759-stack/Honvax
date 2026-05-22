@@ -64,4 +64,300 @@
     /* ==============================================
        2. 全局硬朗机械切角微调 (4px) 与按钮
        ============================================== */
-    .btn, .trust-badge-box, .category-card, .
+    .btn, .trust-badge-box, .category-card, .form-control, .form-select, .bg-white.p-4.shadow.rounded {
+      border-radius: 4px !important; 
+    }
+
+    .btn-primary { background-color: var(--accent-color) !important; border-color: var(--accent-color) !important; }
+    .btn-primary:hover { background-color: var(--heading-color) !important; transform: translateY(-2px); transition: all 0.3s ease; }
+
+    /* ==============================================
+       3. 颜色重构：冷钢灰与钛银色应用
+       ============================================== */
+    .text-muted { color: var(--cold-steel) !important; }
+    
+    .light-background { background-color: #f3f4f6 !important; }
+
+    /* 金属灰底座 */
+    .footer {
+      background-color: #e5e7eb !important; 
+      border-top: 4px solid var(--cold-steel) !important;
+      padding: 30px 0;
+    }
+    .footer p { color: var(--cold-steel) !important; font-weight: 500; }
+
+    /* 表单输入框工业风 */
+    .form-control, .form-select {
+      border: 1px solid var(--titanium-silver) !important;
+      color: #111827 !important;
+    }
+    .form-control:focus, .form-select:focus {
+      background-color: #fff !important;
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important;
+      outline: none;
+    }
+
+    /* ==============================================
+       4. 子页面特定区块样式
+       ============================================== */
+    .page-header {
+      padding: 120px 0 60px 0;
+      background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.95)), url('assets/img/hero-machinery.jpg') center center;
+      background-size: cover;
+      color: #fff;
+    }
+    .page-header h1 { color: #fff; font-weight: 800; font-size: 2.8rem; }
+    .page-header .lead { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; }
+    .breadcrumb-custom { background: transparent; padding: 0; margin-bottom: 20px; }
+    .breadcrumb-custom a { color: var(--gold-accent); text-decoration: none; font-weight: 600; }
+    .breadcrumb-custom .active { color: rgba(255,255,255,0.7); }
+
+    /* Trust Badges */
+    .trust-badge-box { background: #f8f9fa; border: 1px solid var(--titanium-silver); padding: 25px 20px; transition: 0.3s; text-align: center; height: 100%; border-bottom: 3px solid transparent; }
+    .trust-badge-box:hover { border-bottom: 3px solid var(--gold-accent); background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
+    .trust-badge-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
+
+    /* Product Matrix Cards */
+    .category-card { border: 1px solid var(--titanium-silver); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: 0.3s; height: 100%; background: #fff;}
+    .category-card:hover { box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1); transform: translateY(-8px); border-color: var(--accent-color); }
+    .category-img-box { background: #e9ecef; height: 100%; min-height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: #adb5bd; border-right: 1px solid var(--titanium-silver); }
+    .category-body { padding: 25px; }
+    .category-list { list-style: none; padding-left: 0; margin-top: 15px; }
+    .category-list li { margin-bottom: 8px; font-size: 0.9rem; color: var(--cold-steel); position: relative; padding-left: 20px; }
+    .category-list li::before { content: "\F26A"; font-family: "bootstrap-icons"; position: absolute; left: 0; color: var(--gold-accent); font-size: 0.8rem; top: 2px; }
+
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 2rem; }
+      .category-img-box { border-right: none; border-bottom: 1px solid var(--titanium-silver); height: 140px; min-height: 140px; }
+    }
+  </style>
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 style="font-size: 30px; font-weight: 800; color: #003366; margin: 0; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services" class="active">Solutions</a></li>
+          <li><a href="#contact">Request Parts</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="page-header text-center">
+      <div class="container" data-aos="fade-up">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-custom justify-content-center">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Mechanical Spare Parts</li>
+          </ol>
+        </nav>
+        <h1>Zero Downtime.</h1>
+        <p class="lead mx-auto" style="max-width: 700px;">OEM-grade filters, hydraulic components, and undercarriage parts tailored for rugged African terrains.</p>
+        <div class="mt-4">
+          <a href="#contact" class="btn btn-primary btn-lg px-4" style="border-radius: 4px !important;">Request a Part Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-white border-bottom">
+      <div class="container">
+        <div class="row gy-4 text-center">
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="trust-badge-box">
+              <i class="bi bi-gear-wide-connected"></i>
+              <h5 class="fw-bold">100% Fit Guarantee</h5>
+              <p class="small text-muted mb-0">Cross-referenced part numbers to ensure perfect compatibility with your fleet.</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="trust-badge-box">
+              <i class="bi bi-airplane-engines"></i>
+              <h5 class="fw-bold">5-7 Days Air Freight</h5>
+              <p class="small text-muted mb-0">Urgent breakdowns handled with prioritized air shipments direct to JHB.</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="trust-badge-box">
+              <i class="bi bi-shield-lock"></i>
+              <h5 class="fw-bold">Tier-1 OEM Quality</h5>
+              <p class="small text-muted mb-0">Direct sourcing from manufacturers that supply global machinery brands.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 light-background">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="card category-card">
+              <div class="row g-0 h-100">
+                <div class="col-md-4 category-img-box"><i class="bi bi-funnel"></i></div>
+                <div class="col-md-8"><div class="category-body">
+                  <h4 class="fw-bold">Filtration Systems</h4>
+                  <ul class="category-list">
+                    <li>Heavy-Duty Air Filters</li>
+                    <li>Fuel/Water Separators</li>
+                    <li>Hydraulic Return Filters</li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card category-card">
+              <div class="row g-0 h-100">
+                <div class="col-md-4 category-img-box" style="background: #e2e8f0;"><i class="bi bi-moisture"></i></div>
+                <div class="col-md-8"><div class="category-body">
+                  <h4 class="fw-bold">Hydraulics</h4>
+                  <ul class="category-list">
+                    <li>Main Pumps & Seal Kits</li>
+                    <li>Control Valves</li>
+                    <li>Boom & Bucket Cylinders</li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-5" style="background-color: var(--heading-color); color: #fff;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4" data-aos="fade-right">
+            <h2 class="fw-bold text-white mb-3">Get Your Machine Back to Work</h2>
+            <p class="mb-4 text-white-50">Provide your part numbers or machine details for a technical quote.</p>
+            <div class="mb-2"><i class="bi bi-envelope text-warning me-2"></i> sales@honvax.com</div>
+            <div><i class="bi bi-whatsapp text-success me-2"></i> +27 83 611 3703</div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="bg-white p-4 shadow rounded">
+              
+              <form id="sparePartsForm" action="https://formspree.io/f/xlgzqzzn" method="POST">
+                <input type="hidden" name="_subject" value="🛠️ New Spare Parts Inquiry!">
+                <input type="hidden" name="_captcha" value="false">
+
+                <h4 class="text-dark fw-bold mb-4">Request a Parts Quote</h4>
+                <div class="row gy-3">
+                  <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Name" required></div>
+                  <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Work Email" required></div>
+                  <div class="col-12">
+                    <select name="category" class="form-select" required>
+                      <option value="" disabled selected>Select Category...</option>
+                      <option value="Filters">Filtration Kits</option>
+                      <option value="Hydraulics">Hydraulic Components</option>
+                      <option value="Undercarriage">Undercarriage Parts</option>
+                      <option value="Wear Parts">Bucket Teeth & Wear Parts</option>
+                    </select>
+                  </div>
+                  <div class="col-12"><textarea name="message" class="form-control" rows="4" placeholder="Machine Make, Model, and Part Numbers if known..." required></textarea></div>
+                  <div class="col-12 text-end"><button type="submit" class="btn btn-primary px-5 py-2">Submit Request</button></div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer mt-auto">
+    <div class="container text-center"><p class="mb-0">© Honvax Engineering. Engineered for South Africa.</p></div>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  
+  <script>
+    (function() {
+      // 1. 高强度防拦截与无刷新提交逻辑
+      const form = document.getElementById('sparePartsForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+    
+          const button = form.querySelector('button[type="submit"]');
+          
+          // 变更为加载状态
+          button.disabled = true;
+          button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...`;
+    
+          const formData = new FormData(form);
+    
+          fetch('https://formspree.io/f/xlgzqzzn', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          }).then(response => {
+            if (response.ok) {
+              // 提交成功后的内部 UI 替换
+              form.innerHTML = `
+                <div class="text-center py-4">
+                  <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                  <h4 class="fw-bold mt-3 text-dark">Part Request Received</h4>
+                  <p class="text-muted small">Thank you for your inquiry. Our parts specialist will verify the compatibility and send you a quote shortly.</p>
+                  <button onclick="window.location.reload();" class="btn btn-outline-primary btn-sm mt-3">Send Another Request</button>
+                </div>
+              `;
+            } else {
+              throw new Error('Server error');
+            }
+          }).catch(error => {
+            // 失败时的回退机制
+            console.warn('Fetch failed, falling back to standard submit.');
+            form.setAttribute('method', 'POST'); 
+            form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
+            try {
+              HTMLFormElement.prototype.submit.call(form);
+            } catch (err) {
+              form.submit();
+            }
+          });
+        }, true); // 捕获阶段执行
+      }
+
+      // 2. 修复锚点平滑滚动
+      document.addEventListener('click', function(e) {
+        const a = e.target.closest('a');
+        if (!a) return;
+        
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            e.stopPropagation();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }, true);
+
+      // 3. 初始化 AOS 动画
+      window.addEventListener('load', () => { 
+        if (typeof AOS !== 'undefined') {
+          AOS.init(); 
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
