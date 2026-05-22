@@ -92,13 +92,16 @@
       font-weight: 500;
     }
 
-    /* 统计区块边框强化装配感 */
+/* 移除边框，使统计区块与背景彻底融为一体 */
     .hero-stats {
-      background: rgba(255, 255, 255, 0.8) !important;
-      border: 1px solid var(--titanium-silver) !important;
+      background: transparent !important; /* 彻底透明背景 */
+      border: none !important; /* 完全移除外部边框框架 */
+      box-shadow: none !important; /* 如果有阴影，彻底移除 */
+      /* 下面这一行保留，用于处理由于移除内联边框导致的移动端排列问题 */
+      border-radius: 4px !important; 
     }
     .hero-stats .stat-item {
-      border-color: var(--titanium-silver) !important;
+      border: none !important; /* 移除任何可能存在的内部 CSS 边框属性 */
     }
 
     /* 工作流框侧边线 */
@@ -277,12 +280,12 @@
                 <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px; border-radius: 4px;">View Solutions</a>
               </div>
  
-              <div class="hero-stats w-100" data-aos="fade-up" data-aos-delay="500" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; margin-top: 15px; margin-bottom: 20px;">
+         <div class="hero-stats w-100" data-aos="fade-up" data-aos-delay="500" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; margin-top: 15px; margin-bottom: 20px;">
                 <div class="stat-item text-center" style="flex: 1;">
                   <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">SABS</div>
                   <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Standard Ready</div>
                 </div>
-                <div class="stat-item text-center" style="flex: 1; border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6;">
+                <div class="stat-item text-center" style="flex: 1;">
                   <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">B-BBEE</div>
                   <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Local Multipliers</div>
                 </div>
