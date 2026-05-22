@@ -465,36 +465,6 @@
     // 智能导航栏：滚动隐藏，鼠标触顶滑出
     // ==========================================
     (function() {
-      const header = document.getElementById('header');
-      let isHoveringHeader = false;
-
-      if(header) {
-        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
-        header.addEventListener('mouseleave', () => { 
-          isHoveringHeader = false; 
-          checkVisibility(); 
-        });
-
-        document.addEventListener('mousemove', (e) => {
-          if (e.clientY <= 40) {
-            header.classList.remove('header-hidden');
-          } else if (!isHoveringHeader && window.scrollY > 150) {
-            header.classList.add('header-hidden');
-          }
-        });
-
-        function checkVisibility() {
-          if (window.scrollY > 150 && !isHoveringHeader) {
-            header.classList.add('header-hidden');
-          } else if (window.scrollY <= 150) {
-            header.classList.remove('header-hidden');
-          }
-        }
-
-        window.addEventListener('scroll', checkVisibility);
-      }
-    })();
-    (function() {
   const header = document.getElementById('header');
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
