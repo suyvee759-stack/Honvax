@@ -4,53 +4,172 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Industrial Power Units | Honvax South Africa</title>
+  
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  
   <style>
-    :root { --accent-color: #10558C; --heading-color: #003366; --gold-accent: #C5A059; }
-    body { font-family: 'Roboto', sans-serif; }
-    .page-header { padding: 120px 0 60px; background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.95)), url('assets/img/hero-generator.jpg') center; background-size: cover; color: #fff; text-align: center; }
-    .category-card { border: none; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; overflow: hidden; height: 100%; }
-    .category-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16, 85, 140, 0.15); }
-    .footer { background-color: #001a33; color: #fff; padding: 20px 0; text-align: center; }
+    :root { 
+      --accent-color: #10558C !important;   /* 工业蓝 */
+      --heading-color: #003366 !important;  /* 深邃蓝 */
+      --gold-accent: #C5A059;               /* 质感金 */
+      
+      /* 工业金属色系同步 */
+      --titanium-silver: #D1D5DB;           /* 钛银色 */
+      --cold-steel: #4B5563;                /* 冷钢灰 */
+      --glass-bg: rgba(229, 228, 226, 0.85);/* 钛银半透明基底 */
+    }
+    
+    body { font-family: 'Roboto', sans-serif; color: #444; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; color: var(--heading-color); }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    /* ==============================================
+       1. 顶部导航栏：半透明磨砂玻璃质感（钛银）
+       ============================================== */
+    #header.header {
+      background-color: var(--glass-bg) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      backdrop-filter: blur(12px) saturate(180%);
+      border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; 
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.4s ease;
+      padding: 15px 0; /* 增加呼吸感 */
+    }
+
+    .navmenu ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+    .navmenu a {
+      color: #1f2937 !important; /* 深炭灰确保反差 */
+      font-weight: 600 !important;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
+
+    /* ==============================================
+       2. 全局硬朗机械切角微调 (4px) 与按钮
+       ============================================== */
+    .btn, .category-card, .form-control, .bg-white.shadow.rounded {
+      border-radius: 4px !important; 
+    }
+
+    .btn-primary { background-color: var(--accent-color) !important; border-color: var(--accent-color) !important; font-weight: 600; }
+    .btn-primary:hover { background-color: var(--heading-color) !important; transform: translateY(-2px); transition: all 0.3s ease; }
+
+    /* ==============================================
+       3. 颜色重构：冷钢灰与钛银色应用
+       ============================================== */
+    .text-muted { color: var(--cold-steel) !important; }
+    .light-background { background-color: #f3f4f6 !important; }
+
+    /* 金属灰底座 */
+    .footer {
+      background-color: #e5e7eb !important; 
+      border-top: 4px solid var(--cold-steel) !important;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .footer p { color: var(--cold-steel) !important; font-weight: 500; margin: 0; }
+
+    /* 表单输入框工业风 */
+    .form-control {
+      border: 1px solid var(--titanium-silver) !important;
+      color: #111827 !important;
+      padding: 12px 15px;
+    }
+    .form-control:focus {
+      background-color: #fff !important;
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important;
+      outline: none;
+    }
+
+    /* ==============================================
+       4. 子页面特定区块样式
+       ============================================== */
+    .page-header { 
+      padding: 140px 0 80px 0; 
+      background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.95)), url('assets/img/hero-generator.jpg') center center; 
+      background-size: cover; 
+      color: #fff; 
+      text-align: center; 
+    }
+    .page-header h1 { color: #fff; font-weight: 800; font-size: 2.8rem; margin-bottom: 15px; }
+    
+    .category-card { 
+      border: 1px solid var(--titanium-silver); 
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02); 
+      transition: 0.3s; 
+      overflow: hidden; 
+      height: 100%; 
+    }
+    .category-card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1); 
+      border-color: var(--accent-color);
+    }
   </style>
 </head>
 <body>
-  <header id="header" class="header d-flex align-items-center fixed-top bg-white shadow-sm">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo"><h1 style="font-size: 30px; font-weight: 800; color: #003366; margin: 0;">Honvax</h1></a>
-      <nav class="navmenu"><ul><li><a href="index.html#hero">Home</a></li><li><a href="index.html#services" class="active">Solutions</a></li></ul></nav>
+      <a href="index.html" class="logo text-decoration-none">
+        <h1 style="font-size: 30px; font-weight: 800; color: #003366; margin: 0; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+      </a>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#services" class="active">Solutions</a></li>
+          <li><a href="#contact">Request Audit</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="page-header">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <h1 class="fw-bold">Relentless Power Solutions</h1>
-        <p class="lead">Bespoke silent diesel and gas generators designed to mitigate load shedding risks for African industries.</p>
+        <p class="lead mx-auto" style="max-width: 700px; color: rgba(255,255,255,0.9);">Bespoke silent diesel and gas generators designed to mitigate load shedding risks for African industries.</p>
       </div>
     </section>
 
     <section class="py-5 light-background">
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4">
-            <div class="card category-card p-4">
+        <div class="row gy-4 text-center">
+          <div class="col-lg-4" data-aos="fade-up">
+            <div class="card category-card p-4 d-flex flex-column justify-content-center">
+              <i class="bi bi-building mb-3" style="font-size: 2.5rem; color: var(--accent-color);"></i>
               <h4 class="fw-bold">20 - 120kW</h4>
-              <p class="small text-muted">Ideal for commercial offices, telecommunication hubs, and retail backup.</p>
+              <p class="small text-muted mb-0">Ideal for commercial offices, telecommunication hubs, and retail backup.</p>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="card category-card p-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card category-card p-4 d-flex flex-column justify-content-center">
+              <i class="bi bi-cone-striped mb-3" style="font-size: 2.5rem; color: var(--accent-color);"></i>
               <h4 class="fw-bold">150 - 300kW</h4>
-              <p class="small text-muted">Engineered for construction sites, mixing stations, and infrastructure projects.</p>
+              <p class="small text-muted mb-0">Engineered for construction sites, mixing stations, and infrastructure projects.</p>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="card category-card p-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card category-card p-4 d-flex flex-column justify-content-center">
+              <i class="bi bi-lightning-charge mb-3" style="font-size: 2.5rem; color: var(--accent-color);"></i>
               <h4 class="fw-bold">400 - 600kW+</h4>
-              <p class="small text-muted">Utility-scale power for heavy industry, mining, and large residential estates.</p>
+              <p class="small text-muted mb-0">Utility-scale power for heavy industry, mining, and large residential estates.</p>
             </div>
           </div>
         </div>
@@ -59,21 +178,31 @@
 
     <section id="contact" class="py-5" style="background-color: var(--heading-color);">
       <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-7">
-            <div class="bg-white p-4 shadow rounded">
-              <h3 class="text-dark fw-bold mb-4">Request a Power Audit</h3>
-              <form id="genForm" action="https://formsubmit.co/sales@honvax.com" method="POST">
-                <input type="hidden" name="_subject" value="New Generator Inquiry!">
+            <div class="bg-white p-5 shadow rounded">
+              <h3 class="text-dark fw-bold mb-4 text-center">Request a Power Audit</h3>
+              
+              <form id="genForm" action="https://formspree.io/f/xlgzqzzn" method="POST">
+                <input type="hidden" name="_subject" value="🔋 New Generator / Power Unit Inquiry!">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://suyvee759-stack.github.io/generators.html">
+                
                 <div class="row gy-3">
-                  <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Name" required></div>
-                  <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Work Email" required></div>
-                  <div class="col-12"><textarea name="message" class="form-control" rows="4" placeholder="Specify required kVA and application..." required></textarea></div>
-                  <div class="col-12 text-center"><button type="submit" class="btn btn-primary px-5">Submit Quote Request</button></div>
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="email" name="email" class="form-control" placeholder="Work Email" required>
+                  </div>
+                  <div class="col-12">
+                    <textarea name="message" class="form-control" rows="5" placeholder="Specify required kVA, prime or standby application, and site location..." required></textarea>
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 w-100">Submit Quote Request</button>
+                  </div>
                 </div>
               </form>
+
             </div>
           </div>
         </div>
@@ -81,16 +210,83 @@
     </section>
   </main>
 
-  <footer class="footer"><p>© Honvax Engineering</p></footer>
+  <footer class="footer"><p>© Honvax Engineering. Engineered for South Africa.</p></footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
 
   <script>
-    const gForm = document.getElementById('genForm');
-    if(gForm) {
-      gForm.addEventListener('submit', function(e) {
-        e.stopImmediatePropagation();
-        return true; 
+    (function() {
+      // 1. 高强度防拦截与无刷新提交逻辑 (统一 Formspree 接口)
+      const form = document.getElementById('genForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+    
+          const button = form.querySelector('button[type="submit"]');
+          
+          // 变更为加载状态
+          button.disabled = true;
+          button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Calculating...`;
+    
+          const formData = new FormData(form);
+    
+          fetch('https://formspree.io/f/xlgzqzzn', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          }).then(response => {
+            if (response.ok) {
+              // 提交成功后的内部 UI 替换
+              form.innerHTML = `
+                <div class="text-center py-4">
+                  <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                  <h4 class="fw-bold mt-3 text-dark">Audit Request Received</h4>
+                  <p class="text-muted small">Thank you for contacting Honvax. Our power engineering team will review your kVA requirements and respond with a technical proposal shortly.</p>
+                  <button onclick="window.location.reload();" class="btn btn-outline-primary btn-sm mt-3">Submit Another Request</button>
+                </div>
+              `;
+            } else {
+              throw new Error('Server error');
+            }
+          }).catch(error => {
+            // 失败时的回退机制
+            console.warn('Fetch failed, falling back to standard submit.');
+            form.setAttribute('method', 'POST'); 
+            form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
+            try {
+              HTMLFormElement.prototype.submit.call(form);
+            } catch (err) {
+              form.submit();
+            }
+          });
+        }, true);
+      }
+
+      // 2. 修复锚点平滑滚动
+      document.addEventListener('click', function(e) {
+        const a = e.target.closest('a');
+        if (!a) return;
+        
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            e.stopPropagation();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       }, true);
-    }
+
+      // 3. 初始化 AOS 动画
+      window.addEventListener('load', () => { 
+        if (typeof AOS !== 'undefined') {
+          AOS.init(); 
+        }
+      });
+    })();
   </script>
 </body>
 </html>
