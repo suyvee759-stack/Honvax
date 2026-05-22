@@ -806,40 +806,6 @@
    // ==========================================
     // 智能导航栏：滚动隐藏，鼠标触顶滑出
     // ==========================================
-    (function() {
-      const header = document.getElementById('header');
-      let isHoveringHeader = false;
-
-      if(header) {
-        // 1. 判断鼠标是否在导航栏实体上
-        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
-        header.addEventListener('mouseleave', () => { 
-          isHoveringHeader = false; 
-          checkVisibility(); // 鼠标移开时重新判定是否该隐藏
-        });
-
-        // 2. 监听全屏鼠标移动：如果靠近屏幕顶部 40px 以内，强制滑出
-        document.addEventListener('mousemove', (e) => {
-          if (e.clientY <= 40) {
-            header.classList.remove('header-hidden');
-          } else if (!isHoveringHeader && window.scrollY > 150) {
-            // 如果鼠标离开顶部区域，且不在导航栏上，且页面不在最顶部，就缩回去
-            header.classList.add('header-hidden');
-          }
-        });
-
-        // 3. 页面滚动逻辑：只要不在网页最顶部（超过150px），默认强制缩回隐藏
-        function checkVisibility() {
-          if (window.scrollY > 150 && !isHoveringHeader) {
-            header.classList.add('header-hidden');
-          } else if (window.scrollY <= 150) {
-            header.classList.remove('header-hidden'); // 回到网页最顶部时常驻显示
-          }
-        }
-
-        window.addEventListener('scroll', checkVisibility);
-      }
-    })();
    (function() {
   const header = document.getElementById('header');
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
