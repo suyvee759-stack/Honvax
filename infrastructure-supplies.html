@@ -159,24 +159,55 @@
     .header-hidden {
       transform: translateY(-100%) !important;
     }
+    /* ==============================================
+       全局强制统一：导航栏高度与品牌标识优化
+       ============================================== */
+    /* 1. 统一导航栏的高度和上下呼吸感 */
+    #header.header {
+      padding: 18px 0 !important; 
+      min-height: 85px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* 2. 强化品牌 Logo 字体：更大、更粗、更具工业机械感 */
+    .logo h1, .sitename {
+      font-size: 36px !important; 
+      font-weight: 900 !important; 
+      letter-spacing: 1px !important;
+      color: var(--heading-color) !important;
+      margin: 0 !important;
+      text-transform: uppercase !important; /* 转为全大写，增强国际感 */
+    }
+
+    /* 3. 微微调大右侧导航菜单字号，使其与大 Logo 保持平衡 */
+    .navmenu a {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+    }
   </style>
 </head>
 
 <body>
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
+<header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1 style="font-size: 30px; font-weight: 800; color: #003366; margin: 0; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+      
+      <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
+        <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 45px; width: auto; margin-right: 12px;">
+        <h1 class="sitename" style="font-family: 'Montserrat', sans-serif;">HONVAX</h1>
       </a>
+
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#hero">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services" class="active">Solutions</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html#services">Solutions</a></li>
+          <li><a href="#contact">Contact / Request</a></li>
         </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
     </div>
   </header>
 
