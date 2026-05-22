@@ -124,6 +124,44 @@
       border-left: 4px solid var(--accent-color);
     }
     .service-box h4 { color: var(--accent-color); }
+    /* ==============================================
+       紧急修复：强制导航栏横向排列与去下划线
+       ============================================== */
+    .navmenu ul {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 30px !important; 
+    }
+    .navmenu li { position: relative; }
+    .navmenu a, .logo { 
+      text-decoration: none !important; 
+    }
+
+    /* ==============================================
+       紧急修复：彻底隐形化统计数据区块
+       ============================================== */
+    .hero-stats {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .hero-stats .stat-item {
+      border: none !important; 
+    }
+
+    /* ==============================================
+       智能导航栏：悬浮滑出的动画基础
+       ============================================== */
+    #header.header {
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease !important;
+    }
+    
+    .header-hidden {
+      transform: translateY(-100%) !important;
+    }
   </style>
 </head>
 <body>
@@ -290,6 +328,39 @@
           AOS.init(); 
         }
       });
+    })();
+    // ==========================================
+    // 智能导航栏：滚动隐藏，鼠标触顶滑出
+    // ==========================================
+    (function() {
+      const header = document.getElementById('header');
+      let isHoveringHeader = false;
+
+      if(header) {
+        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
+        header.addEventListener('mouseleave', () => { 
+          isHoveringHeader = false; 
+          checkVisibility(); 
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY <= 40) {
+            header.classList.remove('header-hidden');
+          } else if (!isHoveringHeader && window.scrollY > 150) {
+            header.classList.add('header-hidden');
+          }
+        });
+
+        function checkVisibility() {
+          if (window.scrollY > 150 && !isHoveringHeader) {
+            header.classList.add('header-hidden');
+          } else if (window.scrollY <= 150) {
+            header.classList.remove('header-hidden');
+          }
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+      }
     })();
   </script>
 </body>
