@@ -5,9 +5,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Vetted Used Equipment | Honvax Engineering South Africa</title>
+  
   <meta property="og:title" content="Honvax | Technical Engineering Supplies South Africa">
   <meta property="og:description" content="Direct-shipping factory-vetted engineering supplies, heavy equipment, and power solutions from China to SA. Eskom & SABS compliant.">
-  <meta property="og:image" content="https://honvax.com/assets/img/hero-machinery.jpg"> <meta property="og:url" content="https://honvax.com">
+  <meta property="og:image" content="https://honvax.com/assets/img/hero-machinery.jpg"> 
+  <meta property="og:url" content="https://honvax.com">
   <meta property="og:type" content="website">
   
   <meta name="description" content="Strategic sourcing of high-performance used cranes, excavators, and drilling rigs. Fully vetted with technical audits for South African contractors.">
@@ -26,11 +28,11 @@
 
   <style>
     :root {
-      --accent-color: #10558C !important;   /* 工业蓝：主行动色 */
-      --heading-color: #003366 !important;  /* 深邃蓝：大标题 */
-      --gold-accent: #C5A059;               /* 质感金：点缀 */
+      --accent-color: #10558C !important;   /* 工业蓝 */
+      --heading-color: #003366 !important;  /* 深邃蓝 */
+      --gold-accent: #C5A059;               /* 质感金 */
       
-      /* 新增工业金属色系同步 */
+      /* 工业金属色系同步 */
       --titanium-silver: #D1D5DB;           /* 钛银色 */
       --cold-steel: #4B5563;                /* 冷钢灰 */
       --glass-bg: rgba(229, 228, 226, 0.85);/* 钛银半透明基底 */
@@ -45,7 +47,7 @@
     }
 
     /* ==============================================
-       1. 顶部导航栏：半透明磨砂玻璃质感（钛银）
+       1. 顶部导航栏核心与隐藏动画
        ============================================== */
     #header.header {
       background-color: var(--glass-bg) !important;
@@ -53,57 +55,50 @@
       backdrop-filter: blur(12px) saturate(180%);
       border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; 
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-      transition: all 0.4s ease;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease !important;
+      padding: 15px 0 !important; 
+      min-height: 85px !important;
+      display: flex !important;
+      align-items: center !important;
     }
-
-    .navmenu a {
-      color: #1f2937 !important; /* 深炭灰确保反差 */
-      font-weight: 600 !important;
-    }
-    
-    .navmenu a:hover, .navmenu .active {
-      color: var(--accent-color) !important;
-    }
+    .header-hidden { transform: translateY(-100%) !important; }
 
     /* ==============================================
-       2. 全局硬朗机械切角微调 (4px) 与按钮
+       2. 导航栏排版与 Logo 强化
        ============================================== */
-    .btn, .trust-badge-box, .category-card, .form-control, .form-select, .bg-white.p-4.shadow.rounded {
-      border-radius: 4px !important; 
+    .navmenu ul {
+      list-style: none !important; margin: 0 !important; padding: 0 !important;
+      display: flex !important; align-items: center !important; gap: 30px !important; 
     }
+    .navmenu li { position: relative; }
+    .navmenu a, .logo { text-decoration: none !important; }
+    .navmenu a { color: #1f2937 !important; font-weight: 700 !important; font-size: 16px !important; letter-spacing: 0.5px !important; }
+    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
 
+    .logo h1, .sitename {
+      font-size: 36px !important; font-weight: 900 !important; letter-spacing: 1px !important;
+      color: var(--heading-color) !important; margin: 0 !important; text-transform: uppercase !important; 
+    }
+    .logo img { max-height: 55px !important; margin-right: 15px !important; transition: all 0.3s ease; }
+
+    /* ==============================================
+       3. 全局硬朗切角、底层与表单
+       ============================================== */
+    .btn, .trust-badge-box, .audit-card, .form-control, .form-select, .bg-white.p-4.shadow.rounded { border-radius: 4px !important; }
     .btn-primary { background-color: var(--accent-color) !important; border-color: var(--accent-color) !important; }
     .btn-primary:hover { background-color: var(--heading-color) !important; transform: translateY(-2px); transition: all 0.3s ease; }
-
-    /* ==============================================
-       3. 颜色重构：冷钢灰与钛银色应用
-       ============================================== */
-    .text-muted { color: var(--cold-steel) !important; }
     
+    .text-muted { color: var(--cold-steel) !important; }
     .light-background { background-color: #f3f4f6 !important; }
 
-    /* 金属灰底座 */
-    .footer {
-      background-color: #e5e7eb !important; 
-      border-top: 4px solid var(--cold-steel) !important;
-      padding: 30px 0;
-    }
+    .footer { background-color: #e5e7eb !important; border-top: 4px solid var(--cold-steel) !important; padding: 30px 0; }
     .footer p { color: var(--cold-steel) !important; font-weight: 500; margin: 0; }
 
-    /* 表单输入框工业风 */
-    .form-control, .form-select {
-      border: 1px solid var(--titanium-silver) !important;
-      color: #111827 !important;
-    }
-    .form-control:focus, .form-select:focus {
-      background-color: #fff !important;
-      border-color: var(--accent-color) !important;
-      box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important;
-      outline: none;
-    }
+    .form-control, .form-select { border: 1px solid var(--titanium-silver) !important; color: #111827 !important; }
+    .form-control:focus, .form-select:focus { background-color: #fff !important; border-color: var(--accent-color) !important; box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important; outline: none; }
 
     /* ==============================================
-       4. 子页面特定区块样式
+       4. 子页面横幅与 Trust Badges
        ============================================== */
     .page-header {
       padding: 120px 0 60px 0;
@@ -116,191 +111,77 @@
     .breadcrumb-custom a { color: var(--gold-accent); text-decoration: none; font-weight: 600; }
     .breadcrumb-custom .active { color: rgba(255,255,255,0.7); }
 
-    /* Trust Badges */
     .trust-badge-box { background: #f8f9fa; border: 1px solid var(--titanium-silver); padding: 25px 20px; transition: 0.3s; text-align: center; height: 100%; border-bottom: 3px solid transparent; }
     .trust-badge-box:hover { border-bottom: 3px solid var(--gold-accent); background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-5px); }
     .trust-badge-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
 
-    /* Product Matrix Cards */
-    .category-card { border: 1px solid var(--titanium-silver); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: 0.3s; height: 100%; background: #fff;}
-    .category-card:hover { box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1); transform: translateY(-8px); border-color: var(--accent-color); }
-    .category-img-box { background: #e9ecef; height: 100%; min-height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: #adb5bd; border-right: 1px solid var(--titanium-silver); }
-    .category-body { padding: 25px; }
-    .category-list { list-style: none; padding-left: 0; margin-top: 15px; }
-    .category-list li { margin-bottom: 8px; font-size: 0.9rem; color: var(--cold-steel); position: relative; padding-left: 20px; }
-    .category-list li::before { content: "\F26A"; font-family: "bootstrap-icons"; position: absolute; left: 0; color: var(--gold-accent); font-size: 0.8rem; top: 2px; }
-
-    @media (max-width: 768px) {
-      .page-header h1 { font-size: 2rem; }
-      .category-img-box { border-right: none; border-bottom: 1px solid var(--titanium-silver); height: 140px; min-height: 140px; }
-    }
     /* ==============================================
-       紧急修复：强制导航栏横向排列与去下划线
+       5. 新增：绝杀级二手设备“审计卡”视觉结构
        ============================================== */
-    .navmenu ul {
-      list-style: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 30px !important; 
+    .audit-card {
+      border: 1px solid var(--titanium-silver); background: #fff; overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    .navmenu li { position: relative; }
-    .navmenu a, .logo { 
-      text-decoration: none !important; 
-    }
-
-    /* ==============================================
-       紧急修复：彻底隐形化统计数据区块
-       ============================================== */
-    .hero-stats {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-    .hero-stats .stat-item {
-      border: none !important; 
-    }
-
-    /* ==============================================
-       智能导航栏：悬浮滑出的动画基础
-       ============================================== */
-    #header.header {
-      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease !important;
-    }
+    .audit-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16, 85, 140, 0.12); border-color: var(--accent-color); }
     
-    .header-hidden {
-      transform: translateY(-100%) !important;
-    }
-    /* ==============================================
-       全局强制统一：导航栏高度与品牌标识优化
-       ============================================== */
-    /* 1. 统一导航栏的高度和上下呼吸感 */
-    #header.header {
-      padding: 18px 0 !important; 
-      min-height: 85px !important;
-      display: flex !important;
-      align-items: center !important;
-    }
+    .fleet-img-box { background: #f1f5f9; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .fleet-img-box img { width: 100%; height: 240px; object-fit: cover; }
+    .fleet-status-tag { position: absolute; top: 15px; left: 15px; z-index: 10; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; padding: 6px 12px; border-radius: 2px; }
 
-    /* 2. 强化品牌 Logo 字体：更大、更粗、更具工业机械感 */
-    .logo h1, .sitename {
-      font-size: 36px !important; 
-      font-weight: 900 !important; 
-      letter-spacing: 1px !important;
-      color: var(--heading-color) !important;
-      margin: 0 !important;
-      text-transform: uppercase !important; /* 转为全大写，增强国际感 */
-    }
-
-    /* 3. 微微调大右侧导航菜单字号，使其与大 Logo 保持平衡 */
-    .navmenu a {
-      font-size: 16px !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.5px !important;
-    }
-    /* ==============================================
-       优化：调整 Logo 图片大小，并防止移动端排版崩溃
-       ============================================== */
-    /* 桌面端：放大图片，和 36px 的大字保持平衡 */
-    .logo img {
-      max-height: 55px !important; 
-      margin-right: 15px !important;
-      transition: all 0.3s ease;
-    }
-
-    /* 手机端保护：屏幕小于 768px 时，自动缩小 Logo 和文字，留出菜单空间 */
-    @media (max-width: 768px) {
-      .logo h1, .sitename {
-        font-size: 24px !important; /* 手机端字体缩小 */
-      }
-      .logo img {
-        max-height: 38px !important; /* 手机端图标缩小 */
-        margin-right: 10px !important;
-      }
-      #header.header {
-        min-height: 70px !important; /* 手机端导航栏变窄 */
-      }
-    }
-    /* ==============================================
-       优化：WhatsApp 悬浮按钮“呼吸波纹”动效
-       ============================================== */
-    a[href*="wa.me"] {
-      animation: pulse-green 2s infinite !important;
-    }
+    .audit-report-body { padding: 25px; }
+    .audit-section-title { font-size: 0.75rem; font-weight: 700; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 1px dashed var(--titanium-silver); padding-bottom: 5px; margin-bottom: 12px; }
     
+    .health-bar-wrapper { margin-bottom: 15px; }
+    .health-label-row { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+    .health-progress-bg { background: #e2e8f0; height: 6px; border-radius: 2px; overflow: hidden; }
+    .health-progress-fill { background: #10b981; height: 100%; transition: width 1s ease; }
+
+    .audit-specs-list { list-style: none; padding-left: 0; margin-bottom: 20px; }
+    .audit-specs-list li { font-size: 0.85rem; line-height: 1.6; color: var(--cold-steel); padding-left: 22px; position: relative; margin-bottom: 6px; }
+    .audit-specs-list li i { position: absolute; left: 0; top: 1px; font-size: 0.95rem; }
+
+    /* ==============================================
+       6. 移动端适配与 WhatsApp 动效
+       ============================================== */
+    a[href*="wa.me"] { animation: pulse-green 2s infinite !important; }
     @keyframes pulse-green {
       0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7) !important; }
       70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0) !important; }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0) !important; }
     }
-    /* ==============================================
-       移动端适配：汉堡菜单与全屏滑出式导航
-       ============================================== */
-    /* 默认隐藏汉堡按钮（仅在手机端显示） */
-    .mobile-nav-toggle {
-      color: var(--heading-color);
-      font-size: 32px;
-      cursor: pointer;
-      display: none !important;
-      line-height: 0;
-      transition: 0.3s;
-      z-index: 9999;
-    }
+
+    .mobile-nav-toggle { color: var(--heading-color); font-size: 32px; cursor: pointer; display: none !important; line-height: 0; transition: 0.3s; z-index: 9999; }
 
     @media (max-width: 1199px) {
-      /* 1. 显示汉堡按钮 */
-      .mobile-nav-toggle {
-        display: block !important;
-      }
-
-      /* 2. 重置原本的横向菜单，改为右侧隐藏的全屏抽屉 */
+      .mobile-nav-toggle { display: block !important; }
       .navmenu {
-        position: fixed;
-        top: 0;
-        right: -100%; /* 默认藏在屏幕右侧之外 */
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, 0.98); /* 不透明纯白底色确保可读性 */
-        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        z-index: 9998;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98); transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 9998; display: flex; align-items: center; justify-content: center;
       }
+      .navmenu ul { flex-direction: column !important; gap: 35px !important; }
+      .navmenu a { font-size: 22px !important; color: var(--heading-color) !important; }
+      body.mobile-nav-active .navmenu { right: 0; }
+      body.mobile-nav-active { overflow: hidden; }
+    }
 
-      /* 3. 手机端菜单列表改为竖排居中 */
-      .navmenu ul {
-        flex-direction: column !important;
-        gap: 35px !important;
-      }
-
-      /* 4. 手机端菜单字体放大，方便触摸点击 */
-      .navmenu a {
-        font-size: 22px !important;
-        color: var(--heading-color) !important;
-      }
-
-      /* 5. 触发类：当 body 被打上 mobile-nav-active 时，菜单从右侧滑出 */
-      body.mobile-nav-active .navmenu {
-        right: 0;
-      }
-      
-      /* 6. 菜单打开时，禁止背后的网页上下滚动 */
-      body.mobile-nav-active {
-        overflow: hidden;
-      }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 2rem; }
+      .logo h1, .sitename { font-size: 24px !important; }
+      .logo img { max-height: 38px !important; margin-right: 10px !important; }
+      #header.header { min-height: 70px !important; }
     }
   </style>
 </head>
 
 <body>
-<header id="header" class="header d-flex align-items-center fixed-top">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       
       <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
-        <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 45px; width: auto; margin-right: 12px;">
-        <h1 class="sitename" style="font-family: 'Montserrat', sans-serif;">HONVAX</h1>
+        <img src="assets/img/logo.png" alt="Honvax Logo">
+        <h1 class="sitename">HONVAX</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -329,7 +210,7 @@
         <h1>Strategic Sourcing.<br>Transparent Assessments.</h1>
         <p class="lead mx-auto" style="max-width: 700px;">Helping South African contractors secure high-performance machinery verified through rigorous technical audits.</p>
         <div class="mt-4">
-          <a href="#contact" class="btn btn-primary btn-lg px-4" style="border-radius: 4px !important;">Find Your Machine</a>
+          <a href="#contact" class="btn btn-primary btn-lg px-4">Find Your Machine</a>
         </div>
       </div>
     </section>
@@ -365,40 +246,16 @@
     <section class="py-5 light-background">
       <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
-          <h2 class="fw-bold">Specialized Sourcing Fleet</h2>
+          <h2 class="fw-bold">Honvax Vetted Machinery Fleet</h2>
+          <p class="text-muted small">Click details to verify service meter logs and structural assessments.</p>
         </div>
-        <div class="row gy-4">
-          <div class="col-lg-6" data-aos="fade-up">
-            <div class="card category-card">
-              <div class="row g-0 h-100">
-                <div class="col-md-4 category-img-box"><i class="bi bi-arrow-up-circle"></i></div>
-                <div class="col-md-8"><div class="category-body">
-                  <h4 class="fw-bold">Lifting & Handling</h4>
-                  <ul class="category-list">
-                    <li>Mobile & Truck Cranes</li>
-                    <li>Rough Terrain Cranes</li>
-                    <li>Heavy Telehandlers</li>
-                  </ul>
-                </div></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card category-card">
-              <div class="row g-0 h-100">
-                <div class="col-md-4 category-img-box" style="background:#e2e8f0;"><i class="bi bi-truck"></i></div>
-                <div class="col-md-8"><div class="category-body">
-                  <h4 class="fw-bold">Earthmoving</h4>
-                  <ul class="category-list">
-                    <li>Crawler Excavators</li>
-                    <li>Front-End Wheel Loaders</li>
-                    <li>Motor Graders</li>
-                  </ul>
-                </div></div>
-              </div>
-            </div>
+        
+        <div id="machinery-gallery-json" class="row gy-4">
+          <div class="text-center py-5 w-100">
+            <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading Fleet...</span></div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -452,122 +309,154 @@
   
   <script>
     (function() {
-      // 1. 高强度防拦截与无刷新提交逻辑
+      // 1. 动态加载本地 JSON 数据库并生成 52 点销售卡片
+      const gallery = document.getElementById('machinery-gallery-json');
+      if(gallery) {
+        fetch('equipment.json')
+          .then(response => {
+            if (!response.ok) throw new Error('Data load failed');
+            return response.json();
+          })
+          .then(data => {
+            gallery.innerHTML = ''; 
+            if(data.length === 0) {
+              gallery.innerHTML = '<div class="text-center text-muted py-5">Currently updates ongoing. Please contact sales direct.</div>';
+              return;
+            }
+            data.forEach(item => {
+              const cardHTML = `
+                <div class="col-lg-6 col-md-12" data-aos="fade-up">
+                  <div class="card audit-card h-100">
+                    <div class="fleet-img-box">
+                      <span class="${item.status_class} fleet-status-tag">${item.status_text}</span>
+                      <img src="${item.img_url}" alt="${item.title}" loading="lazy" onerror="this.src='assets/img/hero-machinery.jpg';">
+                    </div>
+                    <div class="audit-report-body">
+                      <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h4 class="fw-bold mb-0 fs-5 text-dark">${item.title}</h4>
+                        <span class="badge bg-light text-dark border small fw-bold">ID: ${item.id}</span>
+                      </div>
+                      
+                      <div class="audit-section-title">Verified Identity</div>
+                      <div class="row g-2 mb-3 text-dark small fw-bold">
+                        <div class="col-4"><i class="bi bi-calendar3 text-primary"></i> YOM: ${item.yom}</div>
+                        <div class="col-4"><i class="bi bi-speedometer2 text-primary"></i> SMR: ${item.smr_hours}</div>
+                        <div class="col-4 text-end"><i class="bi bi-hash text-primary"></i> VIN: ${item.serial_num}</div>
+                      </div>
+
+                      <div class="audit-section-title">Critical Component Wear Report</div>
+                      <div class="health-bar-wrapper">
+                        <div class="health-label-row">
+                          <span class="text-muted">Undercarriage Lifetime Remaining</span>
+                          <span class="text-success">${item.undercarriage_pct}</span>
+                        </div>
+                        <div class="health-progress-bg">
+                          <div class="health-progress-fill" style="width: ${item.undercarriage_pct};"></div>
+                        </div>
+                      </div>
+
+                      <ul class="audit-specs-list">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> <strong>Engine Block Audit:</strong> ${item.engine_status}</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> <strong>Hydraulic Audit:</strong> ${item.hydraulic_status}</li>
+                      </ul>
+
+                      <div class="d-flex gap-2 pt-2">
+                        <a href="${item.video_url}" target="_blank" class="btn btn-outline-dark btn-sm flex-grow-1"><i class="bi bi-play-circle-fill text-danger me-1"></i> Request Walkaround Video</a>
+                        <a href="${item.whatsapp_inquiry_url}" target="_blank" class="btn btn-primary btn-sm px-3"><i class="bi bi-whatsapp"></i> Chat Quote</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              `;
+              gallery.insertAdjacentHTML('beforeend', cardHTML);
+            });
+          })
+          .catch(error => {
+            console.error(error);
+            gallery.innerHTML = '<div class="text-center text-danger py-5">Error connecting fleet archive. Please contact sales@honvax.com</div>';
+          });
+      }
+
+      // 2. 表单拦截无刷新提交逻辑
       const form = document.getElementById('usedEquipmentForm');
       if (form) {
         form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-    
+          e.preventDefault(); e.stopPropagation();
           const button = form.querySelector('button[type="submit"]');
-          
-          // 变更为加载状态
           button.disabled = true;
           button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...`;
-    
-          const formData = new FormData(form);
-    
+          
           fetch('https://formspree.io/f/xlgzqzzn', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
+            method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
           }).then(response => {
             if (response.ok) {
-              // 提交成功后的内部 UI 替换
               form.innerHTML = `
                 <div class="text-center py-4">
                   <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
                   <h4 class="fw-bold mt-3 text-dark">Sourcing Request Received</h4>
-                  <p class="text-muted small">Thank you! Our equipment sourcing specialists will analyze your requirements and contact you with available machine options shortly.</p>
+                  <p class="text-muted small">Our equipment sourcing specialists will analyze your requirements and contact you with available machine options shortly.</p>
                   <button onclick="window.location.reload();" class="btn btn-outline-primary btn-sm mt-3">Submit Another Request</button>
                 </div>
               `;
-            } else {
-              throw new Error('Server error');
-            }
+            } else { throw new Error('Server error'); }
           }).catch(error => {
-            // 失败时的回退机制
-            console.warn('Fetch failed, falling back to standard submit.');
-            form.setAttribute('method', 'POST'); 
-            form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
-            try {
-              HTMLFormElement.prototype.submit.call(form);
-            } catch (err) {
-              form.submit();
-            }
+            form.setAttribute('method', 'POST'); form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
+            try { HTMLFormElement.prototype.submit.call(form); } catch (err) { form.submit(); }
           });
-        }, true); // 捕获阶段执行
+        }, true);
       }
 
-      // 2. 修复锚点平滑滚动
+      // 3. 智能导航栏：滚动隐藏，鼠标触顶滑出
+      const header = document.getElementById('header');
+      let isHoveringHeader = false;
+      if(header) {
+        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
+        header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY <= 40) { header.classList.remove('header-hidden'); }
+          else if (!isHoveringHeader && window.scrollY > 150) { header.classList.add('header-hidden'); }
+        });
+        function checkVisibility() {
+          if (window.scrollY > 150 && !isHoveringHeader) { header.classList.add('header-hidden'); }
+          else if (window.scrollY <= 150) { header.classList.remove('header-hidden'); }
+        }
+        window.addEventListener('scroll', checkVisibility);
+      }
+
+      // 4. 移动端汉堡菜单滑出逻辑
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function(e) {
+          document.body.classList.toggle('mobile-nav-active');
+          this.classList.toggle('bi-list'); this.classList.toggle('bi-x');
+        });
+      }
+      document.querySelectorAll('.navmenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (document.body.classList.contains('mobile-nav-active')) {
+            document.body.classList.remove('mobile-nav-active');
+            if (mobileNavToggleBtn) {
+              mobileNavToggleBtn.classList.add('bi-list'); mobileNavToggleBtn.classList.remove('bi-x');
+            }
+          }
+        });
+      });
+
+      // 5. 锚点平滑滚动修复 & AOS 动画初始化
       document.addEventListener('click', function(e) {
         const a = e.target.closest('a');
         if (!a) return;
-        
         const href = a.getAttribute('href');
         if (href && href.startsWith('#')) {
           const target = document.querySelector(href);
           if (target) {
-            e.preventDefault();
-            e.stopPropagation();
+            e.preventDefault(); e.stopPropagation();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }
       }, true);
 
-      // 3. 初始化 AOS 动画
-      window.addEventListener('load', () => { 
-        if (typeof AOS !== 'undefined') {
-          AOS.init(); 
-        }
-      });
-    })();
-    // ==========================================
-    // 智能导航栏：滚动隐藏，鼠标触顶滑出
-    // ==========================================
-    (function() {
-  const header = document.getElementById('header');
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  // --- 1. 滚动与触顶滑出逻辑 ---
-  let isHoveringHeader = false;
-  if(header) {
-    header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
-    header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
-
-    document.addEventListener('mousemove', (e) => {
-      if (e.clientY <= 40) { header.classList.remove('header-hidden'); }
-      else if (!isHoveringHeader && window.scrollY > 150) { header.classList.add('header-hidden'); }
-    });
-
-    function checkVisibility() {
-      if (window.scrollY > 150 && !isHoveringHeader) { header.classList.add('header-hidden'); }
-      else if (window.scrollY <= 150) { header.classList.remove('header-hidden'); }
-    }
-    window.addEventListener('scroll', checkVisibility);
-  }
-
-  // --- 2. 移动端汉堡菜单逻辑 ---
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', function(e) {
-      document.body.classList.toggle('mobile-nav-active');
-      this.classList.toggle('bi-list');
-      this.classList.toggle('bi-x');
-    });
-  }
-  
-  // 点击菜单项自动关闭抽屉
-  document.querySelectorAll('.navmenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (document.body.classList.contains('mobile-nav-active')) {
-        document.body.classList.remove('mobile-nav-active');
-        if (mobileNavToggleBtn) {
-          mobileNavToggleBtn.classList.add('bi-list');
-          mobileNavToggleBtn.classList.remove('bi-x');
-        }
-      }
-    });
-  });
+      window.addEventListener('load', () => { if (typeof AOS !== 'undefined') { AOS.init(); } });
     })();
   </script>
 
