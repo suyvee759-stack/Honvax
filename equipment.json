@@ -1,9 +1,9 @@
 [
   {
     "id": "eq-001",
-    "title": "SANY SY215C Medium Excavator",
+    "title": "SANY SY365H 30T Excavator",
     "brand": "SANY",
-    "yom": "2021",
+    "yom": "2018",
     "smr_hours": "3,450 Hours",
     "serial_num": "SY215C-***882",
     "status_text": "Available (Shanghai Port)",
@@ -17,11 +17,11 @@
   },
   {
     "id": "eq-002",
-    "title": "Caterpillar 320D Heavy Excavator",
-    "brand": "CAT",
+    "title": "Komatsu PC240LC-8M0 Heavy Excavator",
+    "brand": "Komatsu",
     "yom": "2019",
     "smr_hours": "5,120 Hours",
-    "serial_num": "CAT320D-***451",
+    "serial_num": "KMTPC-***451",
     "status_text": "In Transit to Durban",
     "status_class": "badge bg-warning text-dark",
     "undercarriage_pct": "78%",
