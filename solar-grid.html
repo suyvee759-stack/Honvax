@@ -192,13 +192,15 @@ window.addToRFQ = function(button, itemName) {
   }
   
   // 3. UI 反馈
-  button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added to RFQ`; 
+  button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`; 
   button.classList.remove('btn-outline-primary'); 
   button.classList.add('added'); 
   
-  // 提示用户
-  alert(itemName + ' has been added to your RFQ list.');
-};)();
+  // 4. 强制自动跳转到系统页
+  setTimeout(() => {
+    window.location.href = 'rfq-system.html';
+  }, 500); // 等待 0.5 秒让用户看到反馈
+};)
   </script>
 </body>
 </html>
