@@ -3,41 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Bulk Water & Smart Utilities | Honvax EPC Packages</title>
+  <title>Category Name | Honvax EPC Procurement</title>
   <link href="assets/img/logo.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
   <style>
-    :root { --accent-color: #10558C !important; --heading-color: #003366 !important; --gold-accent: #C5A059; --titanium-silver: #D1D5DB; --cold-steel: #4B5563; --glass-bg: rgba(229, 228, 226, 0.92); }
-    body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; color: var(--heading-color); }
-    #header.header { background-color: var(--glass-bg) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; transition: transform 0.4s; }
-    .header-hidden { transform: translateY(-100%) !important; }
-    .navmenu ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 30px; }
-    .navmenu a { text-decoration: none !important; color: #1f2937 !important; font-weight: 600 !important; }
-    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
-    .navmenu .dropdown ul { display: flex !important; flex-direction: column !important; position: absolute; left: 0; top: calc(100% + 20px); opacity: 0; visibility: hidden; background: #fff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1); border-top: 3px solid var(--accent-color); min-width: 290px; transition: 0.3s; padding: 10px 0; }
-    .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
-    .navmenu .dropdown ul a { padding: 12px 20px !important; color: var(--cold-steel) !important; }
-    .page-header { padding: 120px 0 60px; background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.95)), url('assets/img/hero-service.jpg') center center; background-size: cover; color: #fff; text-align: center; }
-    .sku-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 25px; height: 100%; transition: 0.3s; }
-    .btn-rfq { width: 100%; font-weight: 700; }
-    .btn-rfq.added { background-color: #10b981; color: #fff; border-color: #10b981; }
+    :root { --accent-color: #10558C !important; --heading-color: #003366 !important; --gold-accent: #C5A059; --titanium-silver: #D1D5DB; --cold-steel: #4B5563; --glass-bg: rgba(229, 228, 226, 0.95); }
+    body { font-family: 'Roboto', sans-serif; }
+    /* 导航栏样式同步首页 */
+    #header.header { background-color: var(--glass-bg) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(75, 85, 99, 0.1); }
+    .navmenu .dropdown ul { display: flex !important; flex-direction: column !important; position: absolute; left: 0; top: 100%; opacity: 0; visibility: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 3px solid var(--accent-color); min-width: 250px; transition: 0.3s; padding: 10px 0; }
+    .navmenu .dropdown:hover > ul { opacity: 1; visibility: visible; }
+    /* 统一按钮样式 */
+    .btn-primary { background-color: var(--accent-color) !important; border: none; }
+    .product-card { padding: 30px; border: 1px solid #e5e7eb; border-radius: 4px; transition: 0.3s; }
+    .product-card:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
   </style>
 </head>
+
 <body>
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo text-decoration-none"><h1 class="text-dark fs-3 fw-bold">HONVAX</h1></a>
+      <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
+        <h1 class="sitename" style="font-size: 24px; font-weight: 800; color: #003366; margin: 0;">HONVAX</h1>
+      </a>
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li class="dropdown"><a href="#" class="active"><span>Procurement Packages</span></a>
+          <li class="dropdown"><a href="#"><span>Procurement Packages</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="water-utilities.html" class="active">Bulk Water & Smart Utilities</a></li>
-              <li><a href="solar-grid.html">Solar BoP & Grid Reticulation</a></li>
-              <li><a href="mining-industrial.html">Mining Process & Industrial</a></li>
+              <li><a href="water-utilities.html">Bulk Water</a></li>
+              <li><a href="solar-grid.html">Solar BoP & Grid</a></li>
+              <li><a href="mining-industrial.html">Mining & Industrial</a></li>
               <li><a href="used-equipment.html">Construction Equipment</a></li>
             </ul>
           </li>
@@ -47,33 +47,34 @@
     </div>
   </header>
 
-  <main class="main" style="padding-top: 85px;">
-    <section class="page-header">
-      <div class="container"><h1>Bulk Water & Smart Utilities</h1></div>
-    </section>
-
-    <section class="py-5">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4">
-            <div class="sku-card">
-              <h5 class="fw-bold">DN600-DN2000 Butterfly Valve</h5>
-              <div class="hs-code mb-3 text-primary font-monospace">HS: 8481.80</div>
-              <p class="small text-muted">Ductile iron body with SS304 disc. Designed for municipal pump stations.</p>
-              <button class="btn btn-outline-primary btn-rfq" onclick="addToRFQ(this, 'DN600 Butterfly Valve')">Add to RFQ List</button>
-            </div>
-          </div>
-          </div>
+  <main class="main" style="padding-top: 100px;">
+    <section class="container py-5">
+      <h1 class="mb-4">页面标题</h1> <div class="row gy-4">
+        <div class="col-lg-4">
+           <div class="product-card">
+             <h3>产品名称</h3>
+             <p>详细规格...</p>
+             <button class="btn btn-primary w-100" onclick="addToRFQ(this, '产品名称')">Add to RFQ</button>
+           </div>
+        </div>
       </div>
     </section>
   </main>
 
+  <footer class="footer bg-light py-4 text-center mt-5">
+    <p>© 2026 Honvax Engineering. All Rights Reserved.</p>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
+    // 统一的 RFQ 逻辑
     window.addToRFQ = function(button, itemName) { 
       let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
-      if (!cart.includes(itemName)) { cart.push(itemName); localStorage.setItem('honvax_rfq', JSON.stringify(cart)); }
-      button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`; 
-      button.classList.add('added'); 
+      if (!cart.includes(itemName)) {
+        cart.push(itemName);
+        localStorage.setItem('honvax_rfq', JSON.stringify(cart));
+      }
+      button.innerHTML = `Adding...`; 
       setTimeout(() => { window.location.href = 'rfq-system.html'; }, 500);
     };
   </script>
