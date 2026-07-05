@@ -370,6 +370,26 @@
         overflow: hidden;
       }
     }
+   /* 采购包下拉菜单 */
+    .navmenu .dropdown ul {
+      display: block; position: absolute; left: 0; top: calc(100% + 20px);
+      margin: 0; padding: 10px 0; z-index: 99; opacity: 0; visibility: hidden;
+      background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1);
+      border-top: 3px solid var(--accent-color); border-radius: 0 0 4px 4px;
+      transition: 0.3s; min-width: 280px;
+    }
+    .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
+    .navmenu .dropdown ul a {
+      padding: 12px 20px !important; font-size: 15px !important; color: var(--cold-steel) !important;
+      border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block;
+    }
+    .navmenu .dropdown ul a:hover { color: var(--accent-color) !important; background-color: #f8f9fa; padding-left: 25px !important; }
+
+    /* 移动端特殊适配 */
+    @media (max-width: 1199px) {
+      .navmenu .dropdown ul { position: static; display: none; padding: 10px 0; margin: 10px 20px; border: 1px solid var(--titanium-silver); }
+      .navmenu .dropdown.active > ul { display: block; }
+    }
   </style>
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
@@ -377,25 +397,39 @@
 <body class="index-page">
  
   <!-- 移除了 bg-white 和 shadow-sm，展现玻璃质感 -->
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Logo 调整体现折线硬朗风格 -->
-        <img src="assets/img/logo.png" alt="Honvax Logo" style="max-height: 55px; width: auto; margin-right:15px;">
-        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">Honvax</h1>
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      
+      <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
+        <img src="assets/img/logo.png" alt="Honvax Logo">
+        <h1 class="sitename">HONVAX</h1>
       </a>
- 
+
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Solutions</a></li>
-          <li><a href="#expertise">Expertise</a></li>
-          <li><a href="#logistics">Supply Chain</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          
+          <li class="dropdown"><a href="#"><span>Procurement Packages</span> <i class="bi bi-chevron-down ms-1" style="font-size: 12px;"></i></a>
+            <ul>
+              <li><a href="water-utilities.html">Bulk Water & Smart Utilities</a></li>
+              <li><a href="solar-grid.html">Solar BoP & Grid Reticulation</a></li>
+              <li><a href="mining-spares.html">Mining Process & Spares</a></li>
+              <li><a href="used-equipment.html">Construction Equipment</a></li>
+            </ul>
+          </li>
+
+          <li><a href="compliance.html">Compliance</a></li>
+          <li><a href="localization.html">Localization</a></li>
+          
+          <li>
+            <a href="rfq-system.html" class="btn btn-primary text-white px-4 py-2 ms-xl-3" style="border-radius: 4px; font-weight: 700;">
+              <i class="bi bi-file-earmark-text me-2"></i>RFQ System
+            </a>
+          </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
     </div>
   </header>
  
@@ -836,6 +870,15 @@
       this.classList.toggle('bi-x');
     });
   }
+    // 采购包菜单手机端点击切换
+      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+          if (window.innerWidth < 1200) {
+            e.preventDefault();
+            this.parentNode.classList.toggle('active');
+          }
+        });
+      });
   
   // 点击菜单项自动关闭抽屉
   document.querySelectorAll('.navmenu a').forEach(link => {
