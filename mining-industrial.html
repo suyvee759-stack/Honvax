@@ -180,27 +180,55 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script>
     (function() {
-      window.addToRFQ = function(button, itemName) { 
-        let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
-        if (!cart.includes(itemName)) {
-          cart.push(itemName);
-          localStorage.setItem('honvax_rfq', JSON.stringify(cart));
-        }
-        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`; 
-        button.classList.remove('btn-outline-primary'); 
-        button.classList.add('added'); 
-        setTimeout(() => { window.location.href = 'rfq-system.html'; }, 500);
-      };
-
-      // 导航逻辑
-      const header = document.getElementById('header'); let isHoveringHeader = false;
-      if(header) {
-        header.addEventListener('mouseenter', () => { isHoveringHeader = true; }); header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
-        document.addEventListener('mousemove', (e) => { if (e.clientY <= 40) header.classList.remove('header-hidden'); else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden'); });
-        function checkVisibility() { (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden'); } window.addEventListener('scroll', checkVisibility);
+      // 1. 简单的 Add to RFQ 按钮交互 (视觉反馈，真正的存储逻辑在下一步)
+      window.addToRFQ = function(button, itemName) {
+        // 1. 获取现有 RFQ
+      let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
+      
+      // 2. 添加项
+      if (!cart.includes(itemName)) {
+        cart.push(itemName);
+        localStorage.setItem('honvax_rfq', JSON.stringify(cart));
       }
-      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle'); if (mobileNavToggleBtn) { mobileNavToggleBtn.addEventListener('click', function() { document.body.classList.toggle('mobile-nav-active'); this.classList.toggle('bi-list'); this.classList.toggle('bi-x'); }); }
-      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => { dropdown.addEventListener('click', function(e) { if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); } }); });
+      
+      // 3. 视觉反馈
+        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`;
+        button.classList.remove('btn-outline-primary');
+        button.classList.add('added');
+        
+      // 4. 跳转
+      setTimeout(() => {
+        window.location.href = 'rfq-system.html';
+      }, 500);
+    };
+       
+
+      // 3. 智能导航栏与移动端逻辑 (统一大管家)
+      const header = document.getElementById('header');
+      let isHoveringHeader = false;
+      if(header) {
+        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
+        header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY <= 40) header.classList.remove('header-hidden');
+          else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden');
+        });
+        function checkVisibility() { (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden'); }
+        window.addEventListener('scroll', checkVisibility);
+      }
+
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function() {
+          document.body.classList.toggle('mobile-nav-active');
+          this.classList.toggle('bi-list'); this.classList.toggle('bi-x');
+        });
+      }
+      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) { if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); } });
+      });
+
+      // 初始化 AOS 动画
       window.addEventListener('load', () => { if (typeof AOS !== 'undefined') { AOS.init(); } });
     })();
   </script>
