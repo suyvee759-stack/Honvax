@@ -26,19 +26,27 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
  
-  <style>
+<style>
     :root {
-      --accent-color: #10558C !important;   
-      --heading-color: #003366 !important;  
-      --gold-accent: #C5A059;               
-      --titanium-silver: #D1D5DB;           
-      --cold-steel: #4B5563;                
-      --glass-bg: rgba(229, 228, 226, 0.85);
+      --accent-color: #10558C !important;   /* 工业蓝：主行动色 */
+      --heading-color: #003366 !important;  /* 深邃蓝：用于大标题 */
+      --gold-accent: #C5A059;               /* 质感金：用于点缀 */
+      
+      /* 工业金属色系 */
+      --titanium-silver: #D1D5DB;           /* 钛银色 */
+      --cold-steel: #4B5563;                /* 冷钢灰 */
+      --glass-bg: rgba(229, 228, 226, 0.85);/* 钛银半透明基底 */
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    /* 增强全局工程字体的呼吸感与硬朗化 */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px; /* 避开固定 Header 的高度 */
+    }
 
-    /* Header & Navigation */
+    /* ==============================================
+       1. 顶部导航栏：半透明磨砂玻璃质感
+       ============================================== */
     #header.header {
       background-color: var(--glass-bg) !important;
       -webkit-backdrop-filter: blur(12px) saturate(180%);
@@ -47,74 +55,237 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
       transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease !important;
     }
-    .header-hidden { transform: translateY(-100%) !important; }
 
-    .logo { text-decoration: none !important; }
-    .logo img { max-height: 55px !important; margin-right: 15px !important; transition: all 0.3s ease; }
-    .sitename { text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
-
-    .navmenu ul { list-style: none !important; margin: 0 !important; padding: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; }
-    .navmenu li { position: relative; }
-    .navmenu a { text-decoration: none !important; color: #1f2937 !important; font-weight: 600 !important; }
-    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
-
-    /* Dropdown CSS */
-    .navmenu .dropdown ul {
-      display: block; position: absolute; left: 0; top: calc(100% + 20px);
-      margin: 0; padding: 10px 0; z-index: 99; opacity: 0; visibility: hidden;
-      background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1);
-      border-top: 3px solid var(--accent-color); border-radius: 0 0 4px 4px;
-      transition: 0.3s; min-width: 280px;
+    .header-hidden {
+      transform: translateY(-100%) !important;
     }
-    .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
-    .navmenu .dropdown ul a { padding: 12px 20px !important; font-size: 15px !important; color: var(--cold-steel) !important; border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block; }
-    .navmenu .dropdown ul a:hover { color: var(--accent-color) !important; background-color: #f8f9fa; padding-left: 25px !important; }
 
-    /* Global UI Elements */
-    .btn, .product-card, .video-container, .info-item, form { border-radius: 4px !important; }
-    .light-background { background-color: #f3f4f6 !important; }
-    .text-muted, p.lead, .section-title p { color: var(--cold-steel) !important; }
+    .navmenu a {
+      color: #1f2937 !important; /* 深炭灰确保反差 */
+      font-weight: 600 !important;
+    }
     
-    .hero-stats { background: transparent !important; border: none !important; box-shadow: none !important; border-radius: 4px !important; }
-    .hero-stats .stat-item { border: none !important; }
-    .bg-white.p-3.border-start.border-4.border-primary { border-color: var(--cold-steel) !important; background-color: #f9fafb !important; }
+    .navmenu a:hover, .navmenu .active {
+      color: var(--accent-color) !important;
+    }
 
-    .btn-primary, .submit-btn { background-color: var(--accent-color) !important; border-color: var(--accent-color) !important; }
-    .btn-primary:hover { background-color: var(--heading-color) !important; transform: translateY(-2px); transition: all 0.3s ease; }
+    .sitename {
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    }
 
-    .btn-lead-magnet { border: 2px solid var(--gold-accent) !important; color: var(--heading-color) !important; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); background: transparent; }
-    .btn-lead-magnet:hover { background: var(--gold-accent) !important; color: #fff !important; box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4); }
+    /* ==============================================
+       2. 全局硬朗机械切角微调 (4px-6px)
+       ============================================== */
+    .btn, .product-card, .video-container, .info-item, form, .hero-stats {
+      border-radius: 4px !important; 
+    }
 
-    .section-title .subtitle { color: var(--gold-accent) !important; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    /* ==============================================
+       3. 颜色重构：冷钢灰与钛银色应用
+       ============================================== */
+    .light-background {
+      background-color: #f3f4f6 !important; 
+    }
 
-    .form-control, .form-select { border: 1px solid var(--titanium-silver) !important; color: #111827 !important; }
-    .form-control:focus, .form-select:focus { background-color: #fff !important; border-color: var(--accent-color) !important; box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important; outline: none; }
+    .text-muted, p.lead, .section-title p {
+      color: var(--cold-steel) !important;
+    }
 
-    .video-container { position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; margin-bottom: 20px; }
-    .video-container img { width: 100%; height: 100%; display: block; opacity: 0.9; object-fit: cover; aspect-ratio: 4/3; }
-    .video-label { position: absolute; bottom: 15px; left: 15px; background: rgba(0, 51, 102, 0.85); color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+    .footer {
+      background-color: #e5e7eb !important; 
+      border-top: 4px solid var(--cold-steel) !important;
+    }
+    
+    .footer p, .footer .credits {
+      color: var(--cold-steel) !important;
+      font-weight: 500;
+    }
 
-    .product-card { transition: all 0.3s ease; }
-    .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; }
-    .product-card .icon-wrapper i { transition: all 0.3s ease; }
-    .product-card:hover .icon-wrapper i { color: var(--gold-accent) !important; transform: scale(1.1); display: inline-block; }
+    .hero-stats {
+      background: transparent !important; 
+      border: none !important; 
+      box-shadow: none !important; 
+    }
+    .hero-stats .stat-item {
+      border: none !important; 
+    }
 
-    #hero h1 { font-size: 2.8rem !important; letter-spacing: -0.5px; line-height: 1.2 !important; margin-bottom: 1.5rem !important; font-weight: 800; }
-    #hero .lead { font-size: 1.05rem !important; max-width: 90%; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+    /* 工作流框侧边线 */
+    .bg-white.p-3.border-start.border-4.border-primary {
+      border-color: var(--cold-steel) !important; 
+      background-color: #f9fafb !important;
+    }
 
-    /* Footer */
-    .footer { background-color: #e5e7eb !important; border-top: 4px solid var(--cold-steel) !important; }
-    .footer p, .footer .credits { color: var(--cold-steel) !important; font-weight: 500; }
+    /* ==============================================
+       4. 按钮与交互元素
+       ============================================== */
+    .btn-primary, .submit-btn {
+      background-color: var(--accent-color) !important;
+      border-color: var(--accent-color) !important;
+    }
+    .btn-primary:hover {
+      background-color: var(--heading-color) !important;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
 
-    /* WhatsApp Button */
-    a[href*="wa.me"] { animation: pulse-green 2s infinite !important; }
+    /* Lead Magnet 按钮改成机械切边感 */
+    .btn-lead-magnet {
+      border: 2px solid var(--gold-accent) !important;
+      color: var(--heading-color) !important;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      background: transparent;
+    }
+    .btn-lead-magnet:hover {
+      background: var(--gold-accent) !important;
+      color: #fff !important;
+      box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4);
+    }
+
+    .section-title .subtitle {
+      color: var(--gold-accent) !important;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* 表单输入框工业风 */
+    .form-control, .form-select {
+      border: 1px solid var(--titanium-silver) !important;
+      color: #111827 !important;
+    }
+    .form-control:focus, .form-select:focus {
+      background-color: #fff !important;
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important;
+      outline: none;
+    }
+
+    /* ==============================================
+       5. 视频/图片与卡片特效
+       ============================================== */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      background: #000;
+      margin-bottom: 20px;
+    }
+    .video-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0.9;
+      object-fit: cover;
+      aspect-ratio: 4/3; 
+    }
+    .video-label {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0, 51, 102, 0.85);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .product-card {
+      transition: all 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; 
+    }
+    .product-card .icon-wrapper i {
+      transition: all 0.3s ease;
+    }
+    .product-card:hover .icon-wrapper i {
+      color: var(--gold-accent) !important; 
+      transform: scale(1.1);
+      display: inline-block;
+    }
+
+    /* ==============================================
+       6. 排版细节优化与 Logo 保护
+       ============================================== */
+    #hero h1 {
+      font-size: 2.8rem !important;  
+      letter-spacing: -0.5px;
+      line-height: 1.2 !important;
+      margin-bottom: 1.5rem !important;
+      font-weight: 800;
+    }
+    #hero .lead {
+      font-size: 1.05rem !important; 
+      max-width: 90%; 
+      line-height: 1.7 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .navmenu ul {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 30px !important; 
+    }
+    .navmenu li { position: relative; }
+    .navmenu a, .logo { 
+      text-decoration: none !important; 
+    }
+
+    .logo img {
+      max-height: 55px !important; 
+      margin-right: 15px !important;
+      transition: all 0.3s ease;
+    }
+
+    /* ==============================================
+       7. 【未删除】WhatsApp 悬浮按钮“呼吸波纹”动效
+       ============================================== */
+    a[href*="wa.me"] {
+      animation: pulse-green 2s infinite !important;
+    }
+    
     @keyframes pulse-green {
       0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7) !important; }
       70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0) !important; }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0) !important; }
     }
 
-    /* Mobile Adaptations */
+    /* ==============================================
+       8. 采购包下拉菜单 (已修复：彻底强制竖排)
+       ============================================== */
+    .navmenu .dropdown ul {
+      display: flex !important; 
+      flex-direction: column !important; /* 强制竖向堆叠 */
+      align-items: stretch !important;   
+      gap: 0 !important;                 
+      
+      position: absolute; left: 0; top: calc(100% + 20px);
+      margin: 0; padding: 10px 0 !important; z-index: 99; opacity: 0; visibility: hidden;
+      background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1);
+      border-top: 3px solid var(--accent-color); border-radius: 0 0 4px 4px;
+      transition: 0.3s; min-width: 290px;
+    }
+    
+    .navmenu .dropdown ul li { width: 100%; display: block; }
+    .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
+    .navmenu .dropdown ul a { padding: 12px 20px !important; font-size: 15px !important; color: var(--cold-steel) !important; border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block; width: 100%; text-transform: none; }
+    .navmenu .dropdown ul li:last-child a { border-bottom: none; }
+    .navmenu .dropdown ul a:hover { color: var(--accent-color) !important; background-color: #f8f9fa; padding-left: 25px !important; }
+
+    /* ==============================================
+       9. 移动端与不同屏幕自适应适配
+       ============================================== */
     .mobile-nav-toggle { color: var(--heading-color); font-size: 32px; cursor: pointer; display: none !important; line-height: 0; transition: 0.3s; z-index: 9999; }
     
     @media (max-width: 1199px) {
@@ -124,8 +295,9 @@
       .navmenu a { font-size: 22px !important; color: var(--heading-color) !important; }
       body.mobile-nav-active .navmenu { right: 0; }
       body.mobile-nav-active { overflow: hidden; }
-      .navmenu .dropdown ul { position: static; display: none; padding: 10px 0; margin: 10px 20px; border: 1px solid var(--titanium-silver); }
-      .navmenu .dropdown.active > ul { display: block; }
+      
+      .navmenu .dropdown ul { position: static !important; display: none !important; padding: 10px 0 !important; margin: 10px 20px !important; border: 1px solid var(--titanium-silver) !important; box-shadow: none !important; }
+      .navmenu .dropdown.active > ul { display: flex !important; }
     }
 
     @media (max-width: 768px) {
