@@ -4,33 +4,47 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Bulk Water & Smart Utilities | Honvax EPC Packages</title>
+  
   <link href="assets/img/logo.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
   <style>
-    :root { --accent-color: #10558C !important; --heading-color: #003366 !important; --gold-accent: #C5A059; --titanium-silver: #D1D5DB; --glass-bg: rgba(229, 228, 226, 0.95); }
-    body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; }
-    h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; color: var(--heading-color); }
-    #header.header { background-color: var(--glass-bg) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.1); }
-    .navmenu ul { list-style: none; display: flex; align-items: center; gap: 30px; }
-    .navmenu a { color: #1f2937 !important; font-weight: 600; text-decoration: none; }
-    .navmenu .active { color: var(--accent-color) !important; }
-    .sku-card { background: #fff; padding: 25px; border: 1px solid #e2e8f0; border-radius: 6px; height: 100%; }
-    .btn-rfq { width: 100%; font-weight: 700; border: 1px solid var(--accent-color); color: var(--accent-color); }
-    .btn-rfq.added { background-color: #10b981 !important; color: #fff !important; border-color: #10b981 !important; }
+    :root { --accent-color: #10558C !important; --heading-color: #003366 !important; --gold-accent: #C5A059; --titanium-silver: #D1D5DB; --cold-steel: #4B5563; --glass-bg: rgba(229, 228, 226, 0.92); }
+    body { font-family: 'Roboto', sans-serif; color: #444; background-color: #f8f9fa; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; color: var(--heading-color); }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    /* 恢复你的高保真导航栏 */
+    #header.header { background-color: var(--glass-bg) !important; backdrop-filter: blur(12px) saturate(180%); border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .navmenu ul { list-style: none !important; margin: 0 !important; padding: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; }
+    .navmenu a { text-decoration: none !important; color: #1f2937 !important; font-weight: 600 !important; }
+    .navmenu .dropdown ul { display: flex !important; flex-direction: column !important; position: absolute; left: 0; top: 100%; opacity: 0; visibility: hidden; background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1); border-top: 3px solid var(--accent-color); min-width: 290px; transition: 0.3s; padding: 10px 0; }
+    .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
+
+    /* 恢复你的卡片视觉样式 */
+    .sku-card { background: #fff; border: 1px solid var(--titanium-silver); border-radius: 6px; height: 100%; display: flex; flex-direction: column; transition: 0.3s; }
+    .sku-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(16, 85, 140, 0.1); }
+    .sku-img-wrapper { height: 220px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; }
+    .sku-body { padding: 25px; flex-grow: 1; }
+    .hs-code { font-family: monospace; font-size: 0.85rem; color: var(--accent-color); background: rgba(16, 85, 140, 0.08); padding: 3px 8px; }
+    .btn-rfq { width: 100%; font-weight: 700; transition: 0.3s; }
+    .btn-rfq.added { background-color: #10b981 !important; border-color: #10b981 !important; color: #fff !important; }
   </style>
 </head>
+
 <body>
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo text-decoration-none"><h1 class="sitename" style="font-size: 24px; font-weight: 800; color: #003366; margin: 0;">HONVAX</h1></a>
+      <a href="index.html" class="logo text-decoration-none"><h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0;">HONVAX</h1></a>
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li class="dropdown"><a href="#" class="active">Procurement Packages</a>
+          <li class="dropdown"><a href="#" class="active">Procurement Packages <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="water-utilities.html" class="active">Bulk Water</a></li>
+              <li><a href="water-utilities.html" class="active">Bulk Water & Smart Utilities</a></li>
               <li><a href="solar-grid.html">Solar BoP & Grid</a></li>
               <li><a href="mining-industrial.html">Mining & Industrial</a></li>
               <li><a href="used-equipment.html">Construction Equipment</a></li>
@@ -41,19 +55,37 @@
       </nav>
     </div>
   </header>
-  <main style="padding-top: 100px;">
+
+  <main class="main" style="padding-top: 100px;">
     <section class="container py-5">
       <h1>Bulk Water & Smart Utilities</h1>
       <div class="row gy-4">
-        <div class="col-lg-4"><div class="sku-card"><h3>Butterfly Valve</h3><p>DN600-DN2000 Ductile iron.</p><button class="btn btn-rfq" onclick="addToRFQ(this, 'Butterfly Valve')">Add to RFQ</button></div></div>
+        <!-- 你的原始卡片结构已恢复 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="sku-card">
+            <div class="sku-img-wrapper"><img src="assets/img/hero-service.jpg" alt="Valve" style="max-height: 80%"></div>
+            <div class="sku-body">
+              <h3 class="sku-title">Butterfly Valve</h3>
+              <div class="hs-code mb-3">HS: 8481.80</div>
+              <p class="sku-desc">DN600-DN2000 Ductile iron.</p>
+              <button class="btn btn-outline-primary btn-rfq" onclick="addToRFQ(this, 'Butterfly Valve')">Add to RFQ</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
+
   <script>
+    // 逻辑：存储 -> 反馈 -> 跳转
     window.addToRFQ = function(button, itemName) { 
       let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
-      if (!cart.includes(itemName)) { cart.push(itemName); localStorage.setItem('honvax_rfq', JSON.stringify(cart)); }
-      button.innerHTML = `Added! Redirecting...`; button.classList.add('added');
+      if (!cart.includes(itemName)) {
+        cart.push(itemName);
+        localStorage.setItem('honvax_rfq', JSON.stringify(cart));
+      }
+      button.innerHTML = `Added! Redirecting...`; 
+      button.classList.add('added'); 
       setTimeout(() => { window.location.href = 'rfq-system.html'; }, 500);
     };
   </script>
