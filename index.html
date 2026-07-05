@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Honvax | Technical Engineering Supplies & Procurement Consulting South Africa</title>
- <meta property="og:title" content="Honvax | Technical Engineering Supplies South Africa">
+  <title>Honvax | EPC Procurement & Engineering Consulting South Africa</title>
+  
+  <meta property="og:title" content="Honvax | Technical Engineering Supplies South Africa">
   <meta property="og:description" content="Direct-shipping factory-vetted engineering supplies, heavy equipment, and power solutions from China to SA. Eskom & SABS compliant.">
-  <meta property="og:image" content="https://honvax.com/assets/img/hero-machinery.jpg"> <meta property="og:url" content="https://honvax.com">
+  <meta property="og:image" content="https://honvax.com/assets/img/hero-machinery.jpg"> 
+  <meta property="og:url" content="https://honvax.com">
   <meta property="og:type" content="website">
   <meta name="description" content="Honvax provides factory-direct engineering supplies, vetted used equipment, and customized power solutions from China to South Africa. Expert-led technical alignment and SABS/Eskom compliance.">
-  <meta name="keywords" content="Honvax, South Africa, Power Infrastructure, Mechanical Spare Parts, Technical Consulting, SABS Compliance, Eskom Standards, Used Equipment, Generators">
+  <meta name="keywords" content="Honvax, South Africa, Power Infrastructure, EPC Procurement, SABS Compliance, Eskom Standards, Used Equipment">
  
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -27,350 +28,37 @@
  
   <style>
     :root {
-      --accent-color: #10558C !important;   /* 工业蓝：主行动色 */
-      --heading-color: #003366 !important;  /* 深邃蓝：用于大标题 */
-      --gold-accent: #C5A059;               /* 质感金：用于点缀 */
-      
-      /* 工业金属色系 */
-      --titanium-silver: #D1D5DB;           /* 钛银色：高质感背景替代色 */
-      --cold-steel: #4B5563;                /* 冷钢灰：用于副标题、正文及边框 */
-      --glass-bg: rgba(229, 228, 226, 0.85);/* 钛银半透明基底 */
+      --accent-color: #10558C !important;   
+      --heading-color: #003366 !important;  
+      --gold-accent: #C5A059;               
+      --titanium-silver: #D1D5DB;           
+      --cold-steel: #4B5563;                
+      --glass-bg: rgba(229, 228, 226, 0.85);
     }
 
-    /* 增强全局工程字体的呼吸感与硬朗化 */
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px; /* 完美避开固定 Header 的高度 */
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
-    /* ==============================================
-       1. 顶部导航栏：半透明磨砂玻璃质感（钛银）
-       ============================================== */
+    /* Header & Navigation */
     #header.header {
       background-color: var(--glass-bg) !important;
       -webkit-backdrop-filter: blur(12px) saturate(180%);
       backdrop-filter: blur(12px) saturate(180%);
       border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; 
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-      transition: all 0.4s ease;
-    }
-
-    .navmenu a {
-      color: #1f2937 !important; /* 深炭灰确保反差 */
-      font-weight: 600 !important;
-    }
-    
-    .navmenu a:hover, .navmenu .active {
-      color: var(--accent-color) !important;
-    }
-
-    .sitename {
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-    }
-
-    /* ==============================================
-       2. 全局硬朗机械切角微调 (4px-6px)
-       ============================================== */
-    .btn, .product-card, .video-container, .info-item, form, .hero-stats {
-      border-radius: 4px !important; 
-    }
-
-    /* ==============================================
-       3. 颜色重构：冷钢灰与钛银色应用
-       ============================================== */
-    .light-background {
-      background-color: #f3f4f6 !important; /* 极淡的钛银延伸色 */
-    }
-
-    .text-muted, p.lead, .section-title p {
-      color: var(--cold-steel) !important;
-    }
-
-    .footer {
-      background-color: #e5e7eb !important; /* 纯正钛银色背景 */
-      border-top: 4px solid var(--cold-steel) !important;
-    }
-    
-    .footer p, .footer .credits {
-      color: var(--cold-steel) !important;
-      font-weight: 500;
-    }
-
-/* 移除边框，使统计区块与背景彻底融为一体 */
-    .hero-stats {
-      background: transparent !important; /* 彻底透明背景 */
-      border: none !important; /* 完全移除外部边框框架 */
-      box-shadow: none !important; /* 如果有阴影，彻底移除 */
-      /* 下面这一行保留，用于处理由于移除内联边框导致的移动端排列问题 */
-      border-radius: 4px !important; 
-    }
-    .hero-stats .stat-item {
-      border: none !important; /* 移除任何可能存在的内部 CSS 边框属性 */
-    }
-
-    /* 工作流框侧边线 */
-    .bg-white.p-3.border-start.border-4.border-primary {
-      border-color: var(--cold-steel) !important; 
-      background-color: #f9fafb !important;
-    }
-
-    /* ==============================================
-       4. 按钮与交互元素
-       ============================================== */
-    .btn-primary, .submit-btn {
-      background-color: var(--accent-color) !important;
-      border-color: var(--accent-color) !important;
-    }
-    .btn-primary:hover {
-      background-color: var(--heading-color) !important;
-      transform: translateY(-2px);
-      transition: all 0.3s ease;
-    }
-
-    /* Lead Magnet 按钮改成机械切边感 */
-    .btn-lead-magnet {
-      border: 2px solid var(--gold-accent) !important;
-      color: var(--heading-color) !important;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      background: transparent;
-    }
-    .btn-lead-magnet:hover {
-      background: var(--gold-accent) !important;
-      color: #fff !important;
-      box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4);
-    }
-
-    .section-title .subtitle {
-      color: var(--gold-accent) !important;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* 表单输入框工业风 */
-    .form-control, .form-select {
-      border: 1px solid var(--titanium-silver) !important;
-      color: #111827 !important;
-    }
-    .form-control:focus, .form-select:focus {
-      background-color: #fff !important;
-      border-color: var(--accent-color) !important;
-      box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important;
-      outline: none;
-    }
-
-    /* ==============================================
-       5. 视频/图片与卡片特效
-       ============================================== */
-    .video-container {
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      background: #000;
-      margin-bottom: 20px;
-    }
-    .video-container img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      opacity: 0.9;
-      object-fit: cover;
-      aspect-ratio: 4/3; 
-    }
-    .video-label {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      background: rgba(0, 51, 102, 0.85);
-      color: #fff;
-      padding: 5px 12px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .product-card {
-      transition: all 0.3s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; 
-    }
-    .product-card .icon-wrapper i {
-      transition: all 0.3s ease;
-    }
-    .product-card:hover .icon-wrapper i {
-      color: var(--gold-accent) !important; 
-      transform: scale(1.1);
-      display: inline-block;
-    }
-
-    /* ==============================================
-       6. 排版细节优化
-       ============================================== */
-    #hero h1 {
-      font-size: 2.8rem !important;  
-      letter-spacing: -0.5px;
-      line-height: 1.2 !important;
-      margin-bottom: 1.5rem !important;
-      font-weight: 800;
-    }
-    #hero .lead {
-      font-size: 1.05rem !important; 
-      max-width: 90%; 
-      line-height: 1.7 !important;
-      margin-bottom: 2rem !important;
-    }
-
-    @media (max-width: 768px) {
-      #hero h1 {
-        font-size: 2.2rem !important; 
-        line-height: 1.3 !important;
-        margin-bottom: 1rem !important;
-      }
-      #hero .hero-content { padding-right: 0 !important; }
-      #hero .lead { max-width: 100%; font-size: 1rem !important; }
-      .video-container { margin-bottom: 10px !important; }
-      .video-label { bottom: 8px !important; left: 8px !important; padding: 3px 8px !important; }
-    }
-   /* ==============================================
-       紧急修复：强制导航栏横向排列与去下划线
-       ============================================== */
-    .navmenu ul {
-      list-style: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 30px !important; /* 菜单文字之间的间距 */
-    }
-    .navmenu li { position: relative; }
-    .navmenu a, .logo { 
-      text-decoration: none !important; /* 强制去掉所有蓝色下划线 */
-    }
-
-    /* ==============================================
-       紧急修复：彻底隐形化统计数据区块
-       ============================================== */
-    .hero-stats {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-    .hero-stats .stat-item {
-      border: none !important; /* 彻底清除内部竖线 */
-    }
-
-    /* ==============================================
-       智能导航栏：悬浮滑出的动画基础
-       ============================================== */
-    #header.header {
-      /* 确保开启 Transform 动画 */
       transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease !important;
     }
-    
-    /* 定义缩回隐藏的状态 */
-    .header-hidden {
-      transform: translateY(-100%) !important;
-    }
-   /* ==============================================
-       优化：调整 Logo 图片大小，并防止移动端排版崩溃
-       ============================================== */
-    /* 桌面端：放大图片，和 36px 的大字保持平衡 */
-    .logo img {
-      max-height: 55px !important; 
-      margin-right: 15px !important;
-      transition: all 0.3s ease;
-    }
+    .header-hidden { transform: translateY(-100%) !important; }
 
-    /* 手机端保护：屏幕小于 768px 时，自动缩小 Logo 和文字，留出菜单空间 */
-    @media (max-width: 768px) {
-      .logo h1, .sitename {
-        font-size: 24px !important; /* 手机端字体缩小 */
-      }
-      .logo img {
-        max-height: 38px !important; /* 手机端图标缩小 */
-        margin-right: 10px !important;
-      }
-      #header.header {
-        min-height: 70px !important; /* 手机端导航栏变窄 */
-      }
-    }
-   /* ==============================================
-       优化：WhatsApp 悬浮按钮“呼吸波纹”动效
-       ============================================== */
-    a[href*="wa.me"] {
-      animation: pulse-green 2s infinite !important;
-    }
-    
-    @keyframes pulse-green {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7) !important; }
-      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0) !important; }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0) !important; }
-    }
-   /* ==============================================
-       移动端适配：汉堡菜单与全屏滑出式导航
-       ============================================== */
-    /* 默认隐藏汉堡按钮（仅在手机端显示） */
-    .mobile-nav-toggle {
-      color: var(--heading-color);
-      font-size: 32px;
-      cursor: pointer;
-      display: none !important;
-      line-height: 0;
-      transition: 0.3s;
-      z-index: 9999;
-    }
+    .logo { text-decoration: none !important; }
+    .logo img { max-height: 55px !important; margin-right: 15px !important; transition: all 0.3s ease; }
+    .sitename { text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
 
-    @media (max-width: 1199px) {
-      /* 1. 显示汉堡按钮 */
-      .mobile-nav-toggle {
-        display: block !important;
-      }
+    .navmenu ul { list-style: none !important; margin: 0 !important; padding: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; }
+    .navmenu li { position: relative; }
+    .navmenu a { text-decoration: none !important; color: #1f2937 !important; font-weight: 600 !important; }
+    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
 
-      /* 2. 重置原本的横向菜单，改为右侧隐藏的全屏抽屉 */
-      .navmenu {
-        position: fixed;
-        top: 0;
-        right: -100%; /* 默认藏在屏幕右侧之外 */
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, 0.98); /* 不透明纯白底色确保可读性 */
-        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        z-index: 9998;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* 3. 手机端菜单列表改为竖排居中 */
-      .navmenu ul {
-        flex-direction: column !important;
-        gap: 35px !important;
-      }
-
-      /* 4. 手机端菜单字体放大，方便触摸点击 */
-      .navmenu a {
-        font-size: 22px !important;
-        color: var(--heading-color) !important;
-      }
-
-      /* 5. 触发类：当 body 被打上 mobile-nav-active 时，菜单从右侧滑出 */
-      body.mobile-nav-active .navmenu {
-        right: 0;
-      }
-      
-      /* 6. 菜单打开时，禁止背后的网页上下滚动 */
-      body.mobile-nav-active {
-        overflow: hidden;
-      }
-    }
-   /* 采购包下拉菜单 */
+    /* Dropdown CSS */
     .navmenu .dropdown ul {
       display: block; position: absolute; left: 0; top: calc(100% + 20px);
       margin: 0; padding: 10px 0; z-index: 99; opacity: 0; visibility: hidden;
@@ -379,16 +67,76 @@
       transition: 0.3s; min-width: 280px;
     }
     .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
-    .navmenu .dropdown ul a {
-      padding: 12px 20px !important; font-size: 15px !important; color: var(--cold-steel) !important;
-      border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block;
-    }
+    .navmenu .dropdown ul a { padding: 12px 20px !important; font-size: 15px !important; color: var(--cold-steel) !important; border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block; }
     .navmenu .dropdown ul a:hover { color: var(--accent-color) !important; background-color: #f8f9fa; padding-left: 25px !important; }
 
-    /* 移动端特殊适配 */
+    /* Global UI Elements */
+    .btn, .product-card, .video-container, .info-item, form { border-radius: 4px !important; }
+    .light-background { background-color: #f3f4f6 !important; }
+    .text-muted, p.lead, .section-title p { color: var(--cold-steel) !important; }
+    
+    .hero-stats { background: transparent !important; border: none !important; box-shadow: none !important; border-radius: 4px !important; }
+    .hero-stats .stat-item { border: none !important; }
+    .bg-white.p-3.border-start.border-4.border-primary { border-color: var(--cold-steel) !important; background-color: #f9fafb !important; }
+
+    .btn-primary, .submit-btn { background-color: var(--accent-color) !important; border-color: var(--accent-color) !important; }
+    .btn-primary:hover { background-color: var(--heading-color) !important; transform: translateY(-2px); transition: all 0.3s ease; }
+
+    .btn-lead-magnet { border: 2px solid var(--gold-accent) !important; color: var(--heading-color) !important; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); background: transparent; }
+    .btn-lead-magnet:hover { background: var(--gold-accent) !important; color: #fff !important; box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4); }
+
+    .section-title .subtitle { color: var(--gold-accent) !important; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+    .form-control, .form-select { border: 1px solid var(--titanium-silver) !important; color: #111827 !important; }
+    .form-control:focus, .form-select:focus { background-color: #fff !important; border-color: var(--accent-color) !important; box-shadow: 0 0 0 3px rgba(16, 85, 140, 0.15) !important; outline: none; }
+
+    .video-container { position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; margin-bottom: 20px; }
+    .video-container img { width: 100%; height: 100%; display: block; opacity: 0.9; object-fit: cover; aspect-ratio: 4/3; }
+    .video-label { position: absolute; bottom: 15px; left: 15px; background: rgba(0, 51, 102, 0.85); color: #fff; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+
+    .product-card { transition: all 0.3s ease; }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(16, 85, 140, 0.1) !important; }
+    .product-card .icon-wrapper i { transition: all 0.3s ease; }
+    .product-card:hover .icon-wrapper i { color: var(--gold-accent) !important; transform: scale(1.1); display: inline-block; }
+
+    #hero h1 { font-size: 2.8rem !important; letter-spacing: -0.5px; line-height: 1.2 !important; margin-bottom: 1.5rem !important; font-weight: 800; }
+    #hero .lead { font-size: 1.05rem !important; max-width: 90%; line-height: 1.7 !important; margin-bottom: 2rem !important; }
+
+    /* Footer */
+    .footer { background-color: #e5e7eb !important; border-top: 4px solid var(--cold-steel) !important; }
+    .footer p, .footer .credits { color: var(--cold-steel) !important; font-weight: 500; }
+
+    /* WhatsApp Button */
+    a[href*="wa.me"] { animation: pulse-green 2s infinite !important; }
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7) !important; }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0) !important; }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0) !important; }
+    }
+
+    /* Mobile Adaptations */
+    .mobile-nav-toggle { color: var(--heading-color); font-size: 32px; cursor: pointer; display: none !important; line-height: 0; transition: 0.3s; z-index: 9999; }
+    
     @media (max-width: 1199px) {
+      .mobile-nav-toggle { display: block !important; }
+      .navmenu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: rgba(255, 255, 255, 0.98); transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 9998; display: flex; align-items: center; justify-content: center; }
+      .navmenu ul { flex-direction: column !important; gap: 35px !important; }
+      .navmenu a { font-size: 22px !important; color: var(--heading-color) !important; }
+      body.mobile-nav-active .navmenu { right: 0; }
+      body.mobile-nav-active { overflow: hidden; }
       .navmenu .dropdown ul { position: static; display: none; padding: 10px 0; margin: 10px 20px; border: 1px solid var(--titanium-silver); }
       .navmenu .dropdown.active > ul { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      #hero h1 { font-size: 2.2rem !important; line-height: 1.3 !important; margin-bottom: 1rem !important; }
+      #hero .hero-content { padding-right: 0 !important; }
+      #hero .lead { max-width: 100%; font-size: 1rem !important; }
+      .video-container { margin-bottom: 10px !important; }
+      .video-label { bottom: 8px !important; left: 8px !important; padding: 3px 8px !important; }
+      .logo h1, .sitename { font-size: 24px !important; }
+      .logo img { max-height: 38px !important; margin-right: 10px !important; }
+      #header.header { min-height: 70px !important; }
     }
   </style>
   <link href="assets/css/main.css" rel="stylesheet">
@@ -396,13 +144,12 @@
  
 <body class="index-page">
  
-  <!-- 移除了 bg-white 和 shadow-sm，展现玻璃质感 -->
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       
       <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
         <img src="assets/img/logo.png" alt="Honvax Logo">
-        <h1 class="sitename">HONVAX</h1>
+        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;">HONVAX</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -447,10 +194,10 @@
               
               <div class="hero-cta d-flex flex-wrap gap-3 mb-4" data-aos="fade-up" data-aos-delay="400">
                 <a href="#contact" class="btn btn-primary btn-lg" style="padding: 10px 24px;">Request a Quote</a>
-                <a href="#services" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px; border-radius: 4px;">View Solutions</a>
+                <a href="#packages" class="btn btn-outline-dark btn-lg" style="padding: 10px 24px; border-radius: 4px;">View EPC Packages</a>
               </div>
  
-         <div class="hero-stats w-100" data-aos="fade-up" data-aos-delay="500" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; margin-top: 15px; margin-bottom: 20px;">
+              <div class="hero-stats w-100" data-aos="fade-up" data-aos-delay="500" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; margin-top: 15px; margin-bottom: 20px;">
                 <div class="stat-item text-center" style="flex: 1;">
                   <div class="fw-bold text-primary mb-0" style="font-size: 1.25rem; line-height: 1;">SABS</div>
                   <div class="text-muted fw-bold mt-1" style="font-size: 0.7rem;">Standard Ready</div>
@@ -548,72 +295,63 @@
       </div>
     </section>
  
-    <section id="services" class="services section light-background py-5">
+    <section id="packages" class="services section light-background py-5">
       <div class="container section-title text-center" data-aos="fade-up" style="margin-bottom: 2rem !important;">
-        <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Core Solutions</span>
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">End-to-End Infrastructure Supply</h2>
+        <span class="subtitle" style="font-size: 12px; margin-bottom: 5px;">Our Core Divisions</span>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem;">Integrated EPC Procurement Packages</h2>
       </div>
  
       <div class="container">
         <div class="row gy-4 justify-content-center mb-lg-4">
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <a href="spare-parts.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-                <div class="icon-wrapper mb-4"><i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Mechanical Spare Parts</h4>
-                <p class="text-muted small mb-0">OEM-quality filters, hydraulic pumps, control valves, and undercarriage components engineered for zero downtime on heavy machinery.</p>
+          
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <a href="water-utilities.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-water" style="font-size: 3rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Bulk Water & Utilities</h4>
+                <p class="text-muted small mb-0">Large-diameter pipelines, SABS valves, high-head pumps, and STS-prepaid digital metering mapped for municipal lines.</p>
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <a href="infrastructure-supplies.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-                <div class="icon-wrapper mb-4"><i class="bi bi-lightning-charge" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Power Infrastructure Supplies</h4>
-                <p class="text-muted small mb-0">SABS-compliant transmission line hardware, PV mounting fasteners, and advanced earthing materials for grid projects.</p>
+          
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <a href="solar-grid.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-lightning-charge" style="font-size: 3rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Solar BoP & Grid</h4>
+                <p class="text-muted small mb-0">Engineered for Eskom expansions. Heavy-duty hardware, composite insulators, and anti-theft bimetallic terminals.</p>
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <a href="mining-spares.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-gear-wide-connected" style="font-size: 3rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Mining Spares</h4>
+                <p class="text-muted small mb-0">Customized for Tier-1 Mining Houses. Wear-resistant linings, slurry pump ends, and heavy conveyor components.</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <a href="used-equipment.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-                <div class="icon-wrapper mb-4"><i class="bi bi-truck-flatbed" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Vetted Used Equipment</h4>
-                <p class="text-muted small mb-0">Strategic sourcing of high-performance cranes, drilling rigs, and earthmoving machinery, verified through rigorous technical assessments.</p>
+              <div class="card h-100 border-0 shadow-sm product-card text-center p-4" style="background: #ffffff;">
+                <div class="icon-wrapper mb-4"><i class="bi bi-truck-flatbed" style="font-size: 3rem; color: var(--accent-color);"></i></div>
+                <h4 class="fw-bold mb-3 fs-5">Construction Assets</h4>
+                <p class="text-muted small mb-0">Premium reconditioned yellow metals and heavy attachments verified via strict 52-point technical audits.</p>
               </div>
             </a>
           </div>
-        </div>
-        <div class="row gy-4 justify-content-center">
-          
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <a href="generators.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff;">
-                <div class="icon-wrapper mb-4"><i class="bi bi-ev-station" style="font-size: 3.5rem; color: var(--accent-color);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5">Industrial Power Units</h4>
-                <p class="text-muted small mb-0">Bespoke silent diesel and gas generators designed for remote construction hubs and industrial load shedding mitigation.</p>
-              </div>
-            </a>
-          </div>
-          
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <a href="consulting.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-              <div class="card h-100 border-0 shadow-sm product-card text-center p-4 p-lg-5" style="background: #ffffff; border: 2px solid var(--accent-color) !important;">
-                <div class="icon-wrapper mb-4"><i class="bi bi-person-check" style="font-size: 3.5rem; color: var(--gold-accent);"></i></div>
-                <h4 class="fw-bold mb-3 fs-5" style="color: var(--heading-color);">Consulting & Procurement</h4>
-                <p class="text-muted small mb-0">Tender document analysis, SABS/Eskom technical alignment, and professional factory vetting for seamless China-to-SA trade.</p>
-              </div>
-            </a>
-          </div>
- 
+
         </div>
  
-        <div class="row mt-5 pt-3" data-aos="fade-up" data-aos-delay="600">
+        <div class="row mt-5 pt-3" data-aos="fade-up" data-aos-delay="500">
           <div class="col-12 text-center">
-            <a href="#contact" class="btn btn-lead-magnet btn-lg px-4 py-3">
-              <i class="bi bi-file-earmark-pdf-fill me-2 text-danger"></i> Request Our 2026 Procurement Guide & Spec Sheets
+            <a href="rfq-system.html" class="btn btn-lead-magnet btn-lg px-4 py-3">
+              <i class="bi bi-file-earmark-pdf-fill me-2 text-danger"></i> Submit BOQ & Access 120-SKU Master Catalogue
             </a>
-            <p class="text-muted small mt-2">Get detailed specifications on generators, hardware, and lead times.</p>
+            <p class="text-muted small mt-2">Bypass the friction. Let our engineers estimate your complete Turnkey Package within 72 hours.</p>
           </div>
         </div>
  
@@ -683,7 +421,7 @@
             </ul>
           </div>
           <div class="col-lg-7 text-center" data-aos="fade-left">
-            <img src="assets/img/africa-map.jpg" alt="Pan-African Logistics Map" class="img-fluid shadow" style="border: 4px solid #fff; border-radius: 4px;"loading="lazy">
+            <img src="assets/img/africa-map.jpg" alt="Pan-African Logistics Map" class="img-fluid shadow" style="border: 4px solid #fff; border-radius: 4px;" loading="lazy">
           </div>
         </div>
       </div>
@@ -714,11 +452,10 @@
             </div>
           </div>
           <div class="col-lg-7">
-
             <form id="honvax-bypass-form" action="https://formspree.io/f/xlgzqzzn" method="POST" class="bg-white p-4 shadow-sm">
               <input type="hidden" name="_subject" value="🔥 New Inquiry from Honvax Website!">
               <input type="hidden" name="_captcha" value="false">
-             
+              
               <div class="row">
                 <div class="col-md-6 mb-3"><input type="text" name="name" class="form-control p-3 bg-light" placeholder="Your Name" required></div>
                 <div class="col-md-6 mb-3"><input type="email" name="email" class="form-control p-3 bg-light" placeholder="Your Email" required></div>
@@ -726,11 +463,11 @@
               <div class="form-group mb-3">
                 <select name="subject" class="form-select p-3 bg-light" required>
                   <option value="" disabled selected>Select an Interest...</option>
-                  <option value="Spare Parts">Mechanical Spare Parts</option>
-                  <option value="Generators">Industrial Power Units / Generators</option>
-                  <option value="Hardware">Power Infrastructure Supplies</option>
-                  <option value="Used Equipment">Vetted Used Equipment</option>
-                  <option value="PDF Request">Request 2026 PDF Brochure</option>
+                  <option value="Bulk Water">Bulk Water & Smart Utilities</option>
+                  <option value="Solar Grid">Solar BoP & Grid Reticulation</option>
+                  <option value="Mining Spares">Mining Process & Spares</option>
+                  <option value="Used Equipment">Construction Equipment / Yellow Metals</option>
+                  <option value="Compliance">Localization & B-BBEE Inquiry</option>
                 </select>
               </div>
               <div class="form-group mb-4"><textarea name="message" class="form-control p-3 bg-light" rows="5" placeholder="Project Details & Specifications" required></textarea></div>
@@ -739,7 +476,6 @@
                 <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">Submit Request</button>
               </div>
             </form>
- 
           </div>
         </div>
       </div>
@@ -747,7 +483,6 @@
  
   </main>
  
-  <!-- 移除了 dark-background，展现金属灰底座 -->
   <footer id="footer" class="footer">
     <div class="container copyright text-center mt-4 pb-4">
       <p class="mb-1">© <span>Copyright</span> <strong class="px-1 sitename">Honvax</strong> <span>All Rights Reserved</span></p>
@@ -766,133 +501,94 @@
     <i class="bi bi-whatsapp"></i>
   </a>
  
-  <!-- 升级版底层接管脚本（防拦截 + 异步无刷新提交 + 平滑滚动修复） -->
   <script>
     (function() {
-      // A. 智能表单接管：Fetch 异步提交到 Formspree，解决 POST 失败与跳转问题
+      // 1. 智能表单无刷新提交
       const form = document.getElementById('honvax-bypass-form');
       if (form) {
         form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-    
+          e.preventDefault(); e.stopPropagation();
           const button = form.querySelector('button[type="submit"]');
-          const originalText = button.innerHTML;
-          
           button.disabled = true;
           button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...`;
-    
-          const formData = new FormData(form);
-    
+          
           fetch('https://formspree.io/f/xlgzqzzn', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
+            method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
           }).then(response => {
             if (response.ok) {
               form.innerHTML = `
                 <div class="text-center py-5">
                   <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
                   <h4 class="fw-bold mt-3" style="color: var(--heading-color);">Inquiry Received Successfully</h4>
-                  <p class="text-muted small" style="color: var(--cold-steel) !important;">Thank you for contacting Honvax. Our technical procurement team will review your specs and respond within 24 hours.</p>
+                  <p class="text-muted small">Our technical procurement team will review your specs and respond within 24 hours.</p>
                   <button onclick="window.location.reload();" class="btn btn-outline-primary btn-sm mt-3">Send Another Inquiry</button>
                 </div>
               `;
-            } else {
-              throw new Error('Server error');
-            }
+            } else throw new Error('Server error');
           }).catch(error => {
-            // 容错退路：降级调用强制原生提交
-            console.warn('Fetch failed, falling back to secure standard submit.');
-            form.setAttribute('method', 'POST'); 
-            form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
-            try {
-              HTMLFormElement.prototype.submit.call(form);
-            } catch (err) {
-              form.submit();
-            }
+            form.setAttribute('method', 'POST'); form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
+            try { HTMLFormElement.prototype.submit.call(form); } catch (err) { form.submit(); }
           });
         }, true);
       }
-    
-      // B. 修复锚点跳转与 index.html 回顶
+ 
+      // 2. 修复锚点跳转，并排除下拉菜单触发返回顶部 Bug
       document.addEventListener('click', function(e) {
         const a = e.target.closest('a');
         if (!a) return;
-        
         const href = a.getAttribute('href');
         
-        if (href && href.startsWith('#')) {
+        // 保护机制：如果 href 仅仅是 "#"（如下拉菜单），不执行平滑滚动
+        if (href && href.startsWith('#') && href !== '#') {
           const target = document.querySelector(href);
           if (target) {
-            e.preventDefault();
-            e.stopPropagation();
+            e.preventDefault(); e.stopPropagation();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }
-        
         if (href === 'index.html' && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/')) {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }, true);
-    })();
-   // ==========================================
-    // 智能导航栏：滚动隐藏，鼠标触顶滑出
-    // ==========================================
-   (function() {
-  const header = document.getElementById('header');
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  // --- 1. 滚动与触顶滑出逻辑 ---
-  let isHoveringHeader = false;
-  if(header) {
-    header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
-    header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
+      // 3. 智能导航栏滚动悬浮逻辑
+      const header = document.getElementById('header');
+      let isHoveringHeader = false;
+      if(header) {
+        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
+        header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY <= 40) header.classList.remove('header-hidden');
+          else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden');
+        });
+        function checkVisibility() {
+          (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden');
+        }
+        window.addEventListener('scroll', checkVisibility);
+      }
 
-    document.addEventListener('mousemove', (e) => {
-      if (e.clientY <= 40) { header.classList.remove('header-hidden'); }
-      else if (!isHoveringHeader && window.scrollY > 150) { header.classList.add('header-hidden'); }
-    });
-
-    function checkVisibility() {
-      if (window.scrollY > 150 && !isHoveringHeader) { header.classList.add('header-hidden'); }
-      else if (window.scrollY <= 150) { header.classList.remove('header-hidden'); }
-    }
-    window.addEventListener('scroll', checkVisibility);
-  }
-
-  // --- 2. 移动端汉堡菜单逻辑 ---
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', function(e) {
-      document.body.classList.toggle('mobile-nav-active');
-      this.classList.toggle('bi-list');
-      this.classList.toggle('bi-x');
-    });
-  }
-    // 采购包菜单手机端点击切换
+      // 4. 移动端汉堡菜单与下拉切换逻辑
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function() {
+          document.body.classList.toggle('mobile-nav-active');
+          this.classList.toggle('bi-list'); this.classList.toggle('bi-x');
+        });
+      }
       document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => {
         dropdown.addEventListener('click', function(e) {
-          if (window.innerWidth < 1200) {
-            e.preventDefault();
-            this.parentNode.classList.toggle('active');
+          if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); }
+        });
+      });
+      document.querySelectorAll('.navmenu a:not(.dropdown > a)').forEach(link => {
+        link.addEventListener('click', () => {
+          if (document.body.classList.contains('mobile-nav-active')) {
+            document.body.classList.remove('mobile-nav-active');
+            if (mobileNavToggleBtn) { mobileNavToggleBtn.classList.add('bi-list'); mobileNavToggleBtn.classList.remove('bi-x'); }
           }
         });
       });
-  
-  // 点击菜单项自动关闭抽屉
-  document.querySelectorAll('.navmenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (document.body.classList.contains('mobile-nav-active')) {
-        document.body.classList.remove('mobile-nav-active');
-        if (mobileNavToggleBtn) {
-          mobileNavToggleBtn.classList.add('bi-list');
-          mobileNavToggleBtn.classList.remove('bi-x');
-        }
-      }
-    });
-  });
-})();
+    })();
   </script>
 </body>
 </html>
