@@ -55,7 +55,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
         <img src="assets/img/logo.png" alt="Honvax Logo">
-        <h1 class="sitename">HONVAX</h1>
+        <h1 class="sitename" style="font-size: 32px; font-weight: 800; color: #003366; margin: 0; letter-spacing: 1px;">HONVAX</h1>
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -112,7 +112,7 @@
                 <img src="assets/img/hero-solar.jpg" alt="Transmission Line Hardware">
               </div>
               <div class="sku-body">
-                <h3 class="sku-title">Overhead Transmission Line Hardware (Tension & Suspension Clamps)</h3>
+                <h3 class="sku-title">Overhead Transmission Line Hardware</h3>
                 <div class="hs-code"><i class="bi bi-upc-scan me-1"></i> Target HS: 7326.90</div>
                 <p class="sku-desc">Heavy-duty forged and cast components, hot-dip galvanized for corrosion protection. Designed for 11kV to 132kV power reticulation lines.</p>
                 <div class="localization-box"><strong>Local Foundry Downstream</strong>Supports local fabrication alignment. Raw structural forging can be managed through Chinese Tier-1 supply, while galvanization and packaging are executed in local foundries.</div>
@@ -127,7 +127,7 @@
                 <img src="assets/img/hero-service.jpg" alt="Cold-Shrink Kits">
               </div>
               <div class="sku-body">
-                <h3 class="sku-title">11kV-132kV Cold-Shrink Cable Termination & Jointing Kits</h3>
+                <h3 class="sku-title">11kV-132kV Cold-Shrink Cable Termination</h3>
                 <div class="hs-code"><i class="bi bi-upc-scan me-1"></i> Target HS: 8547.90</div>
                 <p class="sku-desc">High-performance liquid silicone rubber termination units. Features trace-less geometric stress control and exceptional UV/hydrophobic resistance profiles.</p>
                 <div class="localization-box"><strong>Component-Level Kit Integration</strong>We supply the specialized core silicone bodies. Local supply chain assembly can incorporate South African lugs, mechanical shear-bolt connectors, and local outer-box packing.</div>
@@ -142,7 +142,7 @@
                 <img src="assets/img/hero-generator.jpg" alt="Bimetallic Lugs">
               </div>
               <div class="sku-body">
-                <h3 class="sku-title">Friction-Welded Copper-Aluminum Bimetallic Lugs & Connectors</h3>
+                <h3 class="sku-title">Friction-Welded Bimetallic Lugs</h3>
                 <div class="hs-code"><i class="bi bi-upc-scan me-1"></i> Target HS: 8536.90</div>
                 <p class="sku-desc">Engineered for termination transitions between aluminum conductors and copper substation busbars. Friction welding process ensures zero galvanic oxidation vulnerabilities.</p>
                 <div class="localization-box"><strong>Anti-Theft Asset Protection</strong>Designed specifically to assist local municipal networks. Eliminates pure copper exposures, optimizing risk management and total security compliance metrics.</div>
@@ -180,27 +180,30 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script>
     (function() {
-      // 升级后的 addToRFQ 函数
-window.addToRFQ = function(button, itemName) { 
-  // 1. 获取现有清单
-  let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
-  
-  // 2. 避免重复添加
-  if (!cart.includes(itemName)) {
-    cart.push(itemName);
-    localStorage.setItem('honvax_rfq', JSON.stringify(cart));
-  }
-  
-  // 3. UI 反馈
-  button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`; 
-  button.classList.remove('btn-outline-primary'); 
-  button.classList.add('added'); 
-  
-  // 4. 强制自动跳转到系统页
-  setTimeout(() => {
-    window.location.href = 'rfq-system.html';
-  }, 500); // 等待 0.5 秒让用户看到反馈
-})();
+      // 核心功能：添加清单并自动跳转
+      window.addToRFQ = function(button, itemName) { 
+        let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
+        if (!cart.includes(itemName)) {
+          cart.push(itemName);
+          localStorage.setItem('honvax_rfq', JSON.stringify(cart));
+        }
+        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`; 
+        button.classList.remove('btn-outline-primary'); 
+        button.classList.add('added'); 
+        setTimeout(() => { window.location.href = 'rfq-system.html'; }, 500);
+      };
+
+      // 导航逻辑
+      const header = document.getElementById('header'); let isHoveringHeader = false;
+      if(header) {
+        header.addEventListener('mouseenter', () => { isHoveringHeader = true; }); header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
+        document.addEventListener('mousemove', (e) => { if (e.clientY <= 40) header.classList.remove('header-hidden'); else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden'); });
+        function checkVisibility() { (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden'); } window.addEventListener('scroll', checkVisibility);
+      }
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle'); if (mobileNavToggleBtn) { mobileNavToggleBtn.addEventListener('click', function() { document.body.classList.toggle('mobile-nav-active'); this.classList.toggle('bi-list'); this.classList.toggle('bi-x'); }); }
+      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => { dropdown.addEventListener('click', function(e) { if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); } }); });
+      window.addEventListener('load', () => { if (typeof AOS !== 'undefined') { AOS.init(); } });
+    })();
   </script>
 </body>
 </html>
