@@ -337,7 +337,7 @@
       }
       
       // 3. 视觉反馈
-        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added to RFQ`;
+        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`;
         button.classList.remove('btn-outline-primary');
         button.classList.add('added');
         
@@ -346,36 +346,7 @@
         window.location.href = 'rfq-system.html';
       }, 500);
     };
-        // 后续我们将在这里加上 localStorage 逻辑，把 itemName 存进去
-        // alert(itemName + " has been added to your inquiry list!");
-      };
-
-      // 2. 表单拦截无刷新提交逻辑
-      const form = document.getElementById('packageForm');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault(); e.stopPropagation();
-          const button = form.querySelector('button[type="submit"]');
-          button.disabled = true;
-          button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...`;
-          fetch('https://formspree.io/f/xlgzqzzn', {
-            method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
-          }).then(response => {
-            if (response.ok) {
-              form.innerHTML = `
-                <div class="text-center py-4">
-                  <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
-                  <h4 class="fw-bold mt-3 text-dark">Inquiry Received</h4>
-                  <p class="text-muted small">Our estimation engineers will analyze your requirements and contact you shortly.</p>
-                  <button onclick="window.location.reload();" class="btn btn-outline-primary btn-sm mt-3">Submit Another</button>
-                </div>`;
-            } else { throw new Error('Server error'); }
-          }).catch(error => {
-            form.setAttribute('method', 'POST'); form.setAttribute('action', 'https://formspree.io/f/xlgzqzzn');
-            try { HTMLFormElement.prototype.submit.call(form); } catch (err) { form.submit(); }
-          });
-        }, true);
-      }
+       
 
       // 3. 智能导航栏与移动端逻辑 (统一大管家)
       const header = document.getElementById('header');
