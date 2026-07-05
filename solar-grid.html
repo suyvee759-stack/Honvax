@@ -180,17 +180,25 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script>
     (function() {
-      window.addToRFQ = function(button, itemName) { button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added to RFQ`; button.classList.remove('btn-outline-primary'); button.classList.add('added'); };
-      const header = document.getElementById('header'); let isHoveringHeader = false;
-      if(header) {
-        header.addEventListener('mouseenter', () => { isHoveringHeader = true; }); header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
-        document.addEventListener('mousemove', (e) => { if (e.clientY <= 40) header.classList.remove('header-hidden'); else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden'); });
-        function checkVisibility() { (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden'); } window.addEventListener('scroll', checkVisibility);
-      }
-      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle'); if (mobileNavToggleBtn) { mobileNavToggleBtn.addEventListener('click', function() { document.body.classList.toggle('mobile-nav-active'); this.classList.toggle('bi-list'); this.classList.toggle('bi-x'); }); }
-      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => { dropdown.addEventListener('click', function(e) { if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); } }); });
-      window.addEventListener('load', () => { if (typeof AOS !== 'undefined') { AOS.init(); } });
-    })();
+      // 升级后的 addToRFQ 函数
+window.addToRFQ = function(button, itemName) { 
+  // 1. 获取现有清单
+  let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
+  
+  // 2. 避免重复添加
+  if (!cart.includes(itemName)) {
+    cart.push(itemName);
+    localStorage.setItem('honvax_rfq', JSON.stringify(cart));
+  }
+  
+  // 3. UI 反馈
+  button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added to RFQ`; 
+  button.classList.remove('btn-outline-primary'); 
+  button.classList.add('added'); 
+  
+  // 提示用户
+  alert(itemName + ' has been added to your RFQ list.');
+};)();
   </script>
 </body>
 </html>
