@@ -326,7 +326,8 @@
   <script>
     (function() {
       // 1. 简单的 Add to RFQ 按钮交互 (视觉反馈，真正的存储逻辑在下一步)
-      window.addToRFQ = function(button, itemName) {// 1. 获取现有 RFQ
+      window.addToRFQ = function(button, itemName) {
+        // 1. 获取现有 RFQ
       let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
       
       // 2. 添加项
