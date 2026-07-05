@@ -143,59 +143,55 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script>
     (function() {
-      // 动态读取原有 equipment.json 并渲染卡片
-      const gallery = document.getElementById('machinery-gallery-json');
-      if(gallery) {
-        fetch('equipment.json').then(res => res.json()).then(data => {
-          gallery.innerHTML = '';
-          if(data.length === 0) { gallery.innerHTML = '<div class="text-center text-muted py-5">Inventory updates in progress. Contact sales directly.</div>'; return; }
-          data.forEach(item => {
-            gallery.insertAdjacentHTML('beforeend', `
-              <div class="col-lg-6 col-md-12" data-aos="fade-up">
-                <div class="card audit-card h-100">
-                  <div class="fleet-img-box">
-                    <span class="${item.status_class} fleet-status-tag">${item.status_text}</span>
-                    <img src="${item.img_url}" alt="${item.title}" onerror="this.src='assets/img/hero-machinery.jpg';">
-                  </div>
-                  <div class="audit-report-body">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                      <h4 class="fw-bold mb-0 fs-5 text-dark">${item.title}</h4>
-                      <span class="badge bg-light text-dark border small fw-bold">ID: ${item.id}</span>
-                    </div>
-                    <div class="audit-section-title">Verified Identity & Customs Data</div>
-                    <div class="row g-2 mb-3 text-dark small fw-bold">
-                      <div class="col-6"><i class="bi bi-calendar3 text-primary"></i> YOM: ${item.yom} | SMR: ${item.smr_hours}</div>
-                      <div class="col-6 text-end"><i class="bi bi-upc-scan text-primary"></i> Target HS: 8429.52</div>
-                    </div>
-                    <div class="audit-section-title">Critical Component Wear Report</div>
-                    <div class="health-bar-wrapper">
-                      <div class="health-label-row"><span class="text-muted">Remaining Lifetime Integrity</span><span class="text-success">${item.undercarriage_pct}</span></div>
-                      <div class="health-progress-bg"><div class="health-progress-fill" style="width: ${item.undercarriage_pct};"></div></div>
-                    </div>
-                    <ul class="audit-specs-list">
-                      <li><i class="bi bi-check-circle-fill text-success"></i> <strong>Engine Block Status:</strong> ${item.engine_status}</li>
-                      <li><i class="bi bi-shield-check text-success"></i> <strong>Regulatory Status:</strong> NRCS Dossier / ITAC Document Ready</li>
-                    </ul>
-                    <div class="d-flex gap-2 pt-2">
-                      <a href="${item.video_url}" target="_blank" class="btn btn-outline-dark btn-sm flex-grow-1"><i class="bi bi-play-circle-fill text-danger me-1"></i> Request Audit Video</a>
-                      <a href="${item.whatsapp_inquiry_url}" target="_blank" class="btn btn-primary btn-sm px-3"><i class="bi bi-whatsapp"></i> Chat Quote</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            `);
-          });
-        }).catch(() => { gallery.innerHTML = '<div class="text-center text-danger py-5">Error loading fleet index. Contact sales@honvax.com</div>'; });
+       // 1. 简单的 Add to RFQ 按钮交互 (视觉反馈，真正的存储逻辑在下一步)
+      window.addToRFQ = function(button, itemName) {
+        // 1. 获取现有 RFQ
+      let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
+      
+      // 2. 添加项
+      if (!cart.includes(itemName)) {
+        cart.push(itemName);
+        localStorage.setItem('honvax_rfq', JSON.stringify(cart));
+      }
+      
+      // 3. 视觉反馈
+        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`;
+        button.classList.remove('btn-outline-primary');
+        button.classList.add('added');
+        
+      // 4. 跳转
+      setTimeout(() => {
+        window.location.href = 'rfq-system.html';
+      }, 500);
+    };
+       
+
+      // 3. 智能导航栏与移动端逻辑 (统一大管家)
+      const header = document.getElementById('header');
+      let isHoveringHeader = false;
+      if(header) {
+        header.addEventListener('mouseenter', () => { isHoveringHeader = true; });
+        header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
+        document.addEventListener('mousemove', (e) => {
+          if (e.clientY <= 40) header.classList.remove('header-hidden');
+          else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden');
+        });
+        function checkVisibility() { (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden'); }
+        window.addEventListener('scroll', checkVisibility);
       }
 
-      const header = document.getElementById('header'); let isHoveringHeader = false;
-      if(header) {
-        header.addEventListener('mouseenter', () => { isHoveringHeader = true; }); header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
-        document.addEventListener('mousemove', (e) => { if (e.clientY <= 40) header.classList.remove('header-hidden'); else if (!isHoveringHeader && window.scrollY > 150) header.classList.add('header-hidden'); });
-        function checkVisibility() { (window.scrollY > 150 && !isHoveringHeader) ? header.classList.add('header-hidden') : header.classList.remove('header-hidden'); } window.addEventListener('scroll', checkVisibility);
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+      if (mobileNavToggleBtn) {
+        mobileNavToggleBtn.addEventListener('click', function() {
+          document.body.classList.toggle('mobile-nav-active');
+          this.classList.toggle('bi-list'); this.classList.toggle('bi-x');
+        });
       }
-      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle'); if (mobileNavToggleBtn) { mobileNavToggleBtn.addEventListener('click', function() { document.body.classList.toggle('mobile-nav-active'); this.classList.toggle('bi-list'); this.classList.toggle('bi-x'); }); }
-      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => { dropdown.addEventListener('click', function(e) { if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); } }); });
+      document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) { if (window.innerWidth < 1200) { e.preventDefault(); this.parentNode.classList.toggle('active'); } });
+      });
+
+      // 初始化 AOS 动画
       window.addEventListener('load', () => { if (typeof AOS !== 'undefined') { AOS.init(); } });
     })();
   </script>
