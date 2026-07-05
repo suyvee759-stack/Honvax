@@ -180,7 +180,19 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script>
     (function() {
-      window.addToRFQ = function(button, itemName) { button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added to RFQ`; button.classList.remove('btn-outline-primary'); button.classList.add('added'); };
+     window.addToRFQ = function(button, itemName) { 
+        let cart = JSON.parse(localStorage.getItem('honvax_rfq') || '[]');
+        if (!cart.includes(itemName)) {
+          cart.push(itemName);
+          localStorage.setItem('honvax_rfq', JSON.stringify(cart));
+        }
+        button.innerHTML = `<i class="bi bi-check2-all me-2"></i>Added! Redirecting...`; 
+        button.classList.remove('btn-outline-primary'); 
+        button.classList.add('added'); 
+        setTimeout(() => { window.location.href = 'rfq-system.html'; }, 500);
+      };
+
+      // 导航逻辑
       const header = document.getElementById('header'); let isHoveringHeader = false;
       if(header) {
         header.addEventListener('mouseenter', () => { isHoveringHeader = true; }); header.addEventListener('mouseleave', () => { isHoveringHeader = false; checkVisibility(); });
