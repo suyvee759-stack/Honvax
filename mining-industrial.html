@@ -15,67 +15,65 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <style>
-    :root { --accent-color: #10558C !important; --heading-color: #003366 !important; --gold-accent: #C5A059; --titanium-silver: #D1D5DB; --cold-steel: #4B5563; --glass-bg: rgba(229, 228, 226, 0.92); }
-    body { font-family: 'Roboto', sans-serif !important; color: #444 !important;}
-    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif !important; color:#003366 !important; /* 统一的深邃蓝 */
-    font-weight: 800 !important; /* 统一的加粗度 */
-    letter-spacing: -0.5px !important;}
-    /* 强制 h1 在所有页面中都保持一致的视觉压迫感 */
-h1 {
-    font-size: 2.8rem !important;
-    text-transform: none !important;
-}
+ /* =========================================================
+       1. 全局字体与排版基调 (与主页完全一致)
+       ========================================================= */
+    :root { 
+      --accent-color: #10558C !important; 
+      --heading-color: #003366 !important; 
+      --gold-accent: #C5A059; 
+      --titanium-silver: #D1D5DB; 
+      --cold-steel: #4B5563; 
+      --glass-bg: rgba(229, 228, 226, 0.95); /* 泓钰标准钛银半透明基底 */
+    }
+    
+    body { font-family: 'Roboto', sans-serif; color: #444; background-color: #f8f9fa; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; color: var(--heading-color); }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    #header.header {background-color: rgba(229, 228, 226, 0.92) !important; /* 强制统一背景色 */
-    backdrop-filter: blur(12px) saturate(180%) !important;
-    padding: 15px 0 !important;   /* 强制统一内边距 */
-    min-height: 85px !important;  /* 强制统一高度 */
-    border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-    display: flex !important;
-    align-items: center !important;
-}
 
-/* 2. 强制统一 Logo 图片尺寸 */
-.logo img {
-    max-height: 55px !important;  /* 强制统一 Logo 高度 */
-    margin-right: 15px !important;
-    transition: all 0.3s ease !important;
-}
-    .sitename {
-    font-size: 32px !important;   /* 强制统一标题字号 */
-    font-weight: 800 !important;
-    color: #003366 !important;    /* 强制统一品牌蓝 */
-    margin: 0 !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-}
-    .navmenu .dropdown ul { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; position: absolute; left: 0; top: calc(100% + 20px); margin: 0; padding: 10px 0 !important; z-index: 99; opacity: 0; visibility: hidden; background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1); border-top: 3px solid var(--accent-color); border-radius: 0 0 4px 4px; transition: 0.3s; min-width: 290px; }
-    .navmenu .dropdown ul li { width: 100%; display: block; }
+    /* =========================================================
+       2. 顶部导航栏 (Header) - 像素级对齐主页
+       ========================================================= */
+    #header.header {
+      background-color: var(--glass-bg) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      backdrop-filter: blur(12px) saturate(180%);
+      border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; 
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+      padding: 15px 0 !important; 
+      min-height: 85px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .header-hidden { transform: translateY(-100%) !important; }
+
+    .logo h1.sitename { font-size: 32px !important; font-weight: 800 !important; color: var(--heading-color) !important; margin: 0 !important; letter-spacing: 1px !important; }
+    .logo img { max-height: 55px !important; margin-right: 15px !important; }
+
+    /* 导航菜单下拉逻辑 */
+    .navmenu ul { list-style: none !important; margin: 0 !important; padding: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; }
+    .navmenu li { position: relative; }
+    .navmenu a { text-decoration: none !important; color: #1f2937 !important; font-weight: 600 !important; font-size: 16px !important; }
+    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
+
+    .navmenu .dropdown ul { display: flex !important; flex-direction: column !important; position: absolute; left: 0; top: calc(100% + 20px); opacity: 0; visibility: hidden; background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1); border-top: 3px solid var(--accent-color); border-radius: 0 0 4px 4px; transition: 0.3s; min-width: 290px; padding: 10px 0 !important; z-index: 99; }
     .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
-    .navmenu .dropdown ul a { padding: 12px 20px !important; font-size: 15px !important; color: var(--cold-steel) !important; border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block; width: 100%; text-transform: none; }
-    .navmenu .dropdown ul a:hover { color: var(--accent-color) !important; background-color: #f8f9fa; padding-left: 25px !important; }
-    .page-header { padding: 140px 0 80px 0; background: linear-gradient(rgba(0, 51, 102, 0.88), rgba(0, 51, 102, 0.95)), url('assets/img/hero-machinery.jpg') center center; background-size: cover; color: #fff; text-align: center; }
-    .page-header h1 { color: #fff; font-weight: 800; font-size: 2.8rem; }
-    .breadcrumb-custom { background: transparent; padding: 0; margin-bottom: 20px; font-size: 0.9rem; }
-    .breadcrumb-custom a { color: var(--gold-accent); text-decoration: none; font-weight: 600; }
-    .breadcrumb-custom .active { color: rgba(255,255,255,0.6); }
-    .sku-card { background: #fff; border: 1px solid var(--titanium-silver); border-radius: 6px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; }
-    .sku-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(16, 85, 140, 0.1); border-color: var(--accent-color); }
-    .sku-img-wrapper { position: relative; height: 220px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #e2e8f0; }
-    .sku-img-wrapper img { max-height: 80%; max-width: 80%; object-fit: contain; }
-    .compliance-badges { position: absolute; top: 12px; right: 12px; display: flex; flex-direction: column; gap: 5px; }
-    .badge-compliance { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 5px 8px; }
-    .sku-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-    .sku-title { font-size: 1.15rem; font-weight: 700; color: var(--heading-color); margin-bottom: 5px; }
-    .hs-code { font-family: monospace; font-size: 0.85rem; font-weight: 600; color: var(--accent-color); background: rgba(16, 85, 140, 0.08); padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 15px; }
-    .sku-desc { font-size: 0.85rem; color: var(--cold-steel); line-height: 1.6; margin-bottom: 15px; flex-grow: 1; }
-    .localization-box { background: #f8fafc; border-left: 3px solid var(--gold-accent); padding: 12px; font-size: 0.75rem; color: #334155; margin-bottom: 20px; }
-    .localization-box strong { color: var(--heading-color); display: block; margin-bottom: 3px; font-size: 0.8rem; }
-    .btn-rfq { width: 100%; font-weight: 700; letter-spacing: 0.5px; border-radius: 4px; padding: 10px; transition: 0.3s; }
-    .btn-rfq.added { background-color: #10b981; border-color: #10b981; color: #fff; }
-    .mobile-nav-toggle { color: var(--heading-color); font-size: 32px; cursor: pointer; display: none !important; line-height: 0; z-index: 9999; }
-    @media (max-width: 1199px) { .mobile-nav-toggle { display: block !important; } .navmenu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(255, 255, 255, 0.98); transition: 0.4s; z-index: 9998; display: flex; align-items: center; justify-content: center; } .navmenu ul { flex-direction: column !important; gap: 35px !important; } .navmenu a { font-size: 22px !important; } body.mobile-nav-active .navmenu { right: 0; overflow: hidden; } .navmenu .dropdown ul { position: static !important; display: none !important; box-shadow: none !important; border: 1px solid var(--titanium-silver) !important; } .navmenu .dropdown.active > ul { display: flex !important; } }
+    .navmenu .dropdown ul a { padding: 12px 20px !important; color: var(--cold-steel) !important; border-bottom: 1px solid rgba(209, 213, 219, 0.4); display: block; width: 100%; text-transform: none; }
+    .navmenu .dropdown ul a:hover { background-color: #f8f9fa; color: var(--accent-color) !important; padding-left: 25px !important; }
+
+    /* =========================================================
+       3. 标题行 (Page Header) - 同步主页 Hero 视觉压迫感
+       ========================================================= */
+    .page-header {
+      padding: 140px 0 60px 0; /* 顶部留出 140px，完美避开 85px 的悬浮导航栏 */
+      background: linear-gradient(rgba(0, 51, 102, 0.88), rgba(0, 51, 102, 0.95)), url('assets/img/hero-machinery.jpg') center center;
+      background-size: cover; 
+      color: #fff; 
+      text-align: center;
+    }
+    .page-header h1 { color: #fff !important; font-weight: 800 !important; font-size: 2.8rem !important; letter-spacing: -0.5px !important; margin-bottom: 15px; }
+    .page-header .lead { color: rgba(255,255,255,0.85); font-size: 1.1rem; }
   </style>
 </head>
 <body>
