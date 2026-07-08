@@ -26,13 +26,30 @@ h1 {
     text-transform: none !important;
 }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    #header.header { background-color: var(--glass-bg) !important; backdrop-filter: blur(12px) saturate(180%); border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease !important; }
-    .header-hidden { transform: translateY(-100%) !important; }
-    .navmenu ul { list-style: none !important; margin: 0 !important; padding: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; }
-    .navmenu li { position: relative; }
-    .navmenu a { text-decoration: none !important; color: #1f2937 !important; font-weight: 600 !important; }
-    .navmenu a:hover, .navmenu .active { color: var(--accent-color) !important; }
-    .logo img { max-height: 55px !important; margin-right: 15px !important; }
+    #header.header {background-color: rgba(229, 228, 226, 0.92) !important; /* 强制统一背景色 */
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    padding: 15px 0 !important;   /* 强制统一内边距 */
+    min-height: 85px !important;  /* 强制统一高度 */
+    border-bottom: 1px solid rgba(75, 85, 99, 0.2) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 2. 强制统一 Logo 图片尺寸 */
+.logo img {
+    max-height: 55px !important;  /* 强制统一 Logo 高度 */
+    margin-right: 15px !important;
+    transition: all 0.3s ease !important;
+}
+    .sitename {
+    font-size: 32px !important;   /* 强制统一标题字号 */
+    font-weight: 800 !important;
+    color: #003366 !important;    /* 强制统一品牌蓝 */
+    margin: 0 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+}
     .navmenu .dropdown ul { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; position: absolute; left: 0; top: calc(100% + 20px); margin: 0; padding: 10px 0 !important; z-index: 99; opacity: 0; visibility: hidden; background: #ffffff; box-shadow: 0px 10px 30px rgba(0, 51, 102, 0.1); border-top: 3px solid var(--accent-color); border-radius: 0 0 4px 4px; transition: 0.3s; min-width: 290px; }
     .navmenu .dropdown ul li { width: 100%; display: block; }
     .navmenu .dropdown:hover > ul { opacity: 1; top: 100%; visibility: visible; }
