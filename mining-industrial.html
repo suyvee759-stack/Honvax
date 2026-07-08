@@ -78,29 +78,34 @@
 </head>
 <body>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+<header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      
       <a href="index.html" class="logo d-flex align-items-center text-decoration-none">
         <img src="assets/img/logo.png" alt="Honvax Logo">
         <h1 class="sitename">HONVAX</h1>
       </a>
+
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li class="dropdown"><a href="#" class="active"><span>Procurement Packages</span> <i class="bi bi-chevron-down ms-1" style="font-size: 12px;"></i></a>
             <ul>
-              <li><a href="water-utilities.html">Bulk Water & Smart Utilities</a></li>
+              <li><a href="water-utilities.html" class="active">Bulk Water & Smart Utilities</a></li>
               <li><a href="solar-grid.html">Solar BoP & Grid Reticulation</a></li>
-              <li><a href="mining-industrial.html" class="active">Mining Process & Industrial</a></li>
+              <li><a href="mining-industrial.html">Mining Process & Industrial</a></li>
               <li><a href="used-equipment.html">Construction Equipment</a></li>
             </ul>
           </li>
           <li><a href="compliance.html">Compliance</a></li>
-          <li><a href="localization.html">Localization</a></li>
-          <li><a href="rfq-system.html" class="btn btn-primary text-white px-4 py-2 ms-xl-3"><i class="bi bi-file-earmark-text me-2"></i>RFQ System</a></li>
+          <li>
+            <a href="rfq-system.html" class="btn btn-primary text-white px-4 py-2 ms-xl-3" style="border-radius: 4px; font-weight: 700;">
+              <i class="bi bi-file-earmark-text me-2"></i>RFQ System
+            </a>
+          </li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
     </div>
   </header>
 
@@ -108,7 +113,7 @@
     <section class="page-header">
       <div class="container" data-aos="fade-up">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb breadcrumb-custom justify-content-center">
+         <ol class="breadcrumb justify-content-center" style="background: transparent; padding: 0; margin-bottom: 20px;">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Procurement Packages</a></li>
             <li class="breadcrumb-item active">Mining & Industrial</li>
