@@ -4,7 +4,62 @@
 @media(max-width:780px){.wrap{width:min(100% - 28px,1160px)}.nav-wrap{min-height:68px}.nav-toggle{display:block}.site-header nav{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:12px 20px 24px}.site-header nav.open{display:block}.site-header nav ul{display:block}.site-header nav li{margin:4px 0}.site-header nav a{display:block;padding:11px}.site-header nav .nav-cta{margin-top:10px;text-align:center}.hero{padding:55px 0}.hero-grid,.split,.compare,.form-layout{grid-template-columns:1fr}.hero-image{order:-1}.hero h1{font-size:42px}.lead{font-size:18px}.section{padding:60px 0}.cards-3,.timeline,.list-grid{grid-template-columns:1fr}.cards-4,.cards-5{grid-template-columns:1fr 1fr}.cta-inner{display:block}.cta .button{margin-top:18px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.field-row{grid-template-columns:1fr}}
 @media(max-width:500px){.hero h1{font-size:36px}.cards-4,.cards-5{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.footer-bottom{display:block}.footer-bottom>span{display:block;margin:8px 0}.rfq-form{padding:20px}.actions .button{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-/* Homepage hero without generic stock photography */
+
+/* =========================================================
+   HONVAX HOMEPAGE AND HEADER UPDATE
+   ========================================================= */
+
+/* Restore the dark-blue HONVAX header */
+
+.site-header {
+  background: #092e49;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 5px 20px rgba(9, 46, 73, 0.18);
+  backdrop-filter: none;
+}
+
+.nav-wrap {
+  min-height: 86px;
+}
+
+.site-header .brand {
+  color: #ffffff;
+  gap: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+}
+
+.site-header nav ul {
+  gap: 30px;
+}
+
+.site-header nav a {
+  color: #e7f2f7;
+  font-size: 16px;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.site-header nav a.active {
+  box-shadow: inset 0 -2px 0 #31a9c9;
+}
+
+.site-header nav .nav-cta {
+  color: #ffffff;
+  background: #e87430;
+}
+
+.nav-toggle span {
+  width: 28px;
+  background: #ffffff;
+}
+
+/* Homepage first section */
 
 .home-hero {
   padding: 82px 0 88px;
@@ -14,16 +69,23 @@
       rgba(49, 169, 201, 0.13),
       transparent 30%
     ),
-    linear-gradient(135deg, #f1f7fa 0%, #ffffff 62%);
+    linear-gradient(
+      135deg,
+      #f1f7fa 0%,
+      #ffffff 62%
+    );
 }
 
 .home-hero .hero-grid {
-  grid-template-columns: minmax(0, 1.06fr) minmax(430px, 0.94fr);
+  grid-template-columns:
+    minmax(0, 1.06fr)
+    minmax(430px, 0.94fr);
   gap: 72px;
 }
 
 .home-hero h1 {
   max-width: 700px;
+  margin-bottom: 24px;
   font-size: clamp(44px, 5vw, 66px);
   line-height: 1.06;
 }
@@ -58,8 +120,8 @@
   width: 280px;
   height: 280px;
   content: "";
-  border-radius: 50%;
   background: rgba(49, 169, 201, 0.14);
+  border-radius: 50%;
 }
 
 .panel-label {
@@ -150,9 +212,24 @@
   line-height: 1.5;
 }
 
-/* Tablet and mobile */
+/* Footer brand */
+
+.footer-brand {
+  color: #ffffff;
+  font-size: 25px;
+}
+
+/* Tablet */
 
 @media (max-width: 1000px) {
+  .site-header nav ul {
+    gap: 17px;
+  }
+
+  .site-header nav a {
+    font-size: 15px;
+  }
+
   .home-hero .hero-grid {
     grid-template-columns: 1fr 1fr;
     gap: 38px;
@@ -163,7 +240,28 @@
   }
 }
 
+/* Mobile */
+
 @media (max-width: 780px) {
+  .nav-wrap {
+    min-height: 76px;
+  }
+
+  .site-header .brand {
+    font-size: 27px;
+  }
+
+  .site-header nav {
+    top: 76px;
+    background: #092e49;
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .site-header nav a {
+    color: #e7f2f7;
+    font-size: 16px;
+  }
+
   .home-hero {
     padding: 55px 0 65px;
   }
@@ -185,6 +283,8 @@
     font-size: 42px;
   }
 }
+
+/* Small phones */
 
 @media (max-width: 500px) {
   .home-hero h1 {
