@@ -2,123 +2,74 @@
   "use strict";
 
   const body = document.body;
-
-  /*
-   * Create the page-transition layer automatically.
-   * This avoids adding the element manually to every HTML page.
-   */
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const transitionLayer = document.createElement("div");
   transitionLayer.className = "page-transition";
   transitionLayer.setAttribute("aria-hidden", "true");
-
   body.prepend(transitionLayer);
   body.classList.add("page-arriving");
 
-  /*
-   * Start entrance animation after the first page frame.
-   */
-
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       body.classList.add("is-ready");
-
-      window.setTimeout(() => {
-        body.classList.remove("page-arriving");
-      }, 650);
+      window.setTimeout(() => body.classList.remove("page-arriving"), 650);
     });
   });
 
-  /*
-   * Mobile navigation.
-   */
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".site-header nav");
+  const headerBrand = document.querySelector(".site-header .brand");
 
-  const navigationToggle =
-    document.querySelector(".nav-toggle");
+  if (headerBrand) {
+    headerBrand.textContent = "HONVAX";
+    headerBrand.setAttribute("aria-label", "HONVAX home");
+  }
 
-  const navigation =
-    document.querySelector(".site-header nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
 
-  if (navigationToggle && navigation) {
-    navigationToggle.addEventListener("click", () => {
-      const isOpen =
-        navigation.classList.toggle("open");
-
-      navigationToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
+    nav.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) return;
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
     });
   }
 
-  /*
-   * Current year.
-   */
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-  const year =
-    document.getElementById("year");
+  document.querySelectorAll("main > section:not(.network-hero)").forEach((section) => {
+    if (!section.hasAttribute("data-reveal")) section.setAttribute("data-reveal", "");
+  });
 
-  if (year) {
-    year.textContent =
-      new Date().getFullYear();
-  }
+  const revealElements = document.querySelectorAll("[data-reveal]");
 
-  /*
-   * Reveal sections when they enter the viewport.
-   */
-
-  const revealElements =
-    document.querySelectorAll("[data-reveal]");
-
-  const reduceMotion =
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-  if (reduceMotion) {
-    revealElements.forEach((element) => {
-      element.classList.add("is-visible");
-    });
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
   } else {
-    const revealObserver =
-      new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+    );
 
-            entry.target.classList.add(
-              "is-visible"
-            );
-
-            observer.unobserve(entry.target);
-          });
-        },
-        {
-          threshold: 0.12,
-          rootMargin: "0px 0px -50px 0px"
-        }
-      );
-
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
+    revealElements.forEach((element) => observer.observe(element));
   }
-
-  /*
-   * Smooth transition between local HONVAX pages.
-   */
 
   document.addEventListener("click", (event) => {
-    const link =
-      event.target.closest("a");
-
-    if (!link) {
-      return;
-    }
+    const link = event.target.closest("a");
 
     if (
+      !link ||
       event.defaultPrevented ||
       event.button !== 0 ||
       event.metaKey ||
@@ -129,9 +80,7 @@
       return;
     }
 
-    const href =
-      link.getAttribute("href");
-
+    const href = link.getAttribute("href");
     if (
       !href ||
       href.startsWith("#") ||
@@ -143,104 +92,58 @@
       return;
     }
 
-    const targetURL =
-      new URL(link.href, window.location.href);
+    const target = new URL(link.href, window.location.href);
+    const samePageAnchor =
+      target.pathname === window.location.pathname && Boolean(target.hash);
 
-    if (
-      targetURL.origin !==
-      window.location.origin
-    ) {
-      return;
-    }
-
-    if (
-      targetURL.pathname ===
-        window.location.pathname &&
-      targetURL.hash
-    ) {
-      return;
-    }
-
-    if (reduceMotion) {
+    if (target.origin !== window.location.origin || samePageAnchor || reduceMotion) {
       return;
     }
 
     event.preventDefault();
-
     body.classList.add("is-leaving");
-
     window.setTimeout(() => {
-      window.location.href =
-        targetURL.href;
+      window.location.href = target.href;
     }, 500);
   });
 
-  /*
-   * RFQ form submission.
-   */
-
-  const form =
-    document.querySelector(".rfq-form");
+  const form = document.querySelector(".rfq-form");
 
   if (form) {
-    form.addEventListener(
-      "submit",
-      async (event) => {
-        event.preventDefault();
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-        const button =
-          form.querySelector(
-            'button[type="submit"]'
-          );
+      const button = form.querySelector('button[type="submit"]');
+      const status = form.querySelector(".form-status");
 
-        const status =
-          form.querySelector(
-            ".form-status"
-          );
-
-        if (!button || !status) {
-          form.submit();
-          return;
-        }
-
-        button.disabled = true;
-        button.textContent =
-          "Submitting…";
-
-        status.textContent = "";
-
-        try {
-          const response =
-            await fetch(
-              form.action,
-              {
-                method: "POST",
-                body: new FormData(form),
-                headers: {
-                  Accept: "application/json"
-                }
-              }
-            );
-
-          if (!response.ok) {
-            throw new Error(
-              "Submission failed"
-            );
-          }
-
-          form.reset();
-
-          status.textContent =
-            "Thank you. Your enquiry has been submitted.";
-        } catch (error) {
-          status.textContent =
-            "The form could not be submitted. Please email info@honvax.com with your documents.";
-        } finally {
-          button.disabled = false;
-          button.textContent =
-            "Submit RFQ";
-        }
+      if (!button || !status) {
+        form.submit();
+        return;
       }
-    );
+
+      const originalButtonText = button.textContent;
+      button.disabled = true;
+      button.textContent = "Submitting…";
+      status.textContent = "";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) throw new Error("Submission failed");
+
+        form.reset();
+        status.textContent = "Thank you. Your enquiry has been submitted.";
+      } catch (error) {
+        status.textContent =
+          "The form could not be submitted. Please email info@honvax.com with your documents.";
+      } finally {
+        button.disabled = false;
+        button.textContent = originalButtonText || "Submit RFQ";
+      }
+    });
   }
 })();
