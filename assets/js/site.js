@@ -58,10 +58,10 @@
       title: "A controlled procurement route",
       text: "The process begins with the actual requirement. Technical and commercial risks are checked before supply execution begins.",
       links: [
-        ["01 — Review", "Clarify scope, specification and delivery needs", "how-we-work.html"],
-        ["02 — Source", "Develop the appropriate China supply route", "how-we-work.html"],
-        ["03 — Compare", "Assess compliance, quality, terms and cost", "how-we-work.html"],
-        ["04 — Execute", "Coordinate ordering, inspection and delivery", "how-we-work.html"]
+        ["01 — Review", "Clarify scope, specification and delivery needs", "requirement-review.html"],
+        ["02 — Source", "Develop the appropriate China supply route", "china-supplier-sourcing.html"],
+        ["03 — Compare", "Assess compliance, quality, terms and cost", "technical-commercial-comparison.html"],
+        ["04 — Execute", "Coordinate ordering, inspection and delivery", "supply-execution.html"]
       ]
     }
   };
