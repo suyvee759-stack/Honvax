@@ -2,40 +2,137 @@
   "use strict";
 
   const body = document.body;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const transitionLayer = document.createElement("div");
-  transitionLayer.className = "page-transition";
-  transitionLayer.setAttribute("aria-hidden", "true");
-  body.prepend(transitionLayer);
-  body.classList.add("page-arriving");
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      body.classList.add("is-ready");
-      window.setTimeout(() => body.classList.remove("page-arriving"), 650);
-    });
-  });
-
+  const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-header nav");
   const headerBrand = document.querySelector(".site-header .brand");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (headerBrand) {
     headerBrand.textContent = "HONVAX";
     headerBrand.setAttribute("aria-label", "HONVAX home");
   }
 
+  requestAnimationFrame(() => body.classList.add("is-ready"));
+
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
       const open = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(open));
+      body.classList.toggle("mobile-nav-open", open);
     });
 
     nav.addEventListener("click", (event) => {
       if (!event.target.closest("a")) return;
       nav.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
+      body.classList.remove("mobile-nav-open");
+    });
+  }
+
+  const previewContent = {
+    "industries.html": {
+      eyebrow: "CORE INDUSTRIES",
+      title: "Engineering and industrial supply",
+      text: "Focused supply categories where China has mature manufacturing capability and importing can make technical and commercial sense.",
+      links: [
+        ["Power & Energy", "Grid, electrical and renewable-energy supply", "power-energy.html"],
+        ["Water & Municipal", "Pipes, valves, meters, pumps and network equipment", "water-municipal.html"],
+        ["Mining & Industrial", "Wear parts, screening products and industrial components", "mining-industrial.html"],
+        ["Infrastructure & Construction", "Steel, pipework, fasteners and fabricated items", "infrastructure-construction.html"]
+      ]
+    },
+    "services.html": {
+      eyebrow: "OUR SERVICES",
+      title: "Support built around the RFQ",
+      text: "HONVAX can support the sourcing process from the initial requirement review through supplier development, quality control and delivery coordination.",
+      links: [
+        ["Requirement Review", "RFQs, BOQs, drawings and specifications", "services.html"],
+        ["China Supplier Sourcing", "RFQ-specific manufacturer identification", "services.html"],
+        ["Technical & Commercial Comparison", "Compliance, lead time, terms and landed cost", "services.html"],
+        ["Supply Execution", "Quality, documentation, export and delivery", "services.html"]
+      ]
+    },
+    "how-we-work.html": {
+      eyebrow: "HOW WE WORK",
+      title: "A controlled procurement route",
+      text: "The process begins with the actual requirement. Technical and commercial risks are checked before supply execution begins.",
+      links: [
+        ["01 — Review", "Clarify scope, specification and delivery needs", "how-we-work.html"],
+        ["02 — Source", "Develop the appropriate China supply route", "how-we-work.html"],
+        ["03 — Compare", "Assess compliance, quality, terms and cost", "how-we-work.html"],
+        ["04 — Execute", "Coordinate ordering, inspection and delivery", "how-we-work.html"]
+      ]
+    }
+  };
+
+  if (header && nav) {
+    const preview = document.createElement("div");
+    preview.className = "nav-preview";
+    preview.setAttribute("aria-hidden", "true");
+    preview.innerHTML = '<div class="wrap nav-preview-inner"></div>';
+    header.append(preview);
+
+    const previewInner = preview.querySelector(".nav-preview-inner");
+    let closeTimer;
+
+    const closePreview = () => {
+      window.clearTimeout(closeTimer);
+      header.classList.remove("preview-open");
+      preview.setAttribute("aria-hidden", "true");
+      nav.querySelectorAll("a.preview-active").forEach((link) => link.classList.remove("preview-active"));
+    };
+
+    const openPreview = (link, data) => {
+      if (window.matchMedia("(max-width: 780px)").matches) return;
+      window.clearTimeout(closeTimer);
+      nav.querySelectorAll("a.preview-active").forEach((item) => item.classList.remove("preview-active"));
+      link.classList.add("preview-active");
+      previewInner.innerHTML = `
+        <div class="nav-preview-intro">
+          <p>${data.eyebrow}</p>
+          <h2>${data.title}</h2>
+          <span>${data.text}</span>
+        </div>
+        <div class="nav-preview-links">
+          ${data.links.map(([title, text, href], index) => `
+            <a href="${href}">
+              <small>0${index + 1}</small>
+              <strong>${title}</strong>
+              <span>${text}</span>
+              <b aria-hidden="true">→</b>
+            </a>
+          `).join("")}
+        </div>`;
+      preview.setAttribute("aria-hidden", "false");
+      header.classList.add("preview-open");
+    };
+
+    nav.querySelectorAll("a[href]").forEach((link) => {
+      const href = link.getAttribute("href").split("#")[0].split("/").pop();
+      const data = previewContent[href];
+      if (!data) return;
+      link.classList.add("has-preview");
+      link.addEventListener("mouseenter", () => openPreview(link, data));
+      link.addEventListener("focus", () => openPreview(link, data));
+    });
+
+    header.addEventListener("mouseleave", () => {
+      closeTimer = window.setTimeout(closePreview, 120);
+    });
+    header.addEventListener("mouseenter", () => window.clearTimeout(closeTimer));
+
+    nav.querySelectorAll("a:not(.has-preview)").forEach((link) => {
+      link.addEventListener("mouseenter", closePreview);
+      link.addEventListener("focus", closePreview);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closePreview();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(max-width: 780px)").matches) closePreview();
     });
   }
 
@@ -51,68 +148,22 @@
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealElements.forEach((element) => element.classList.add("is-visible"));
   } else {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" });
 
     revealElements.forEach((element) => observer.observe(element));
   }
-
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("a");
-
-    if (
-      !link ||
-      event.defaultPrevented ||
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    ) {
-      return;
-    }
-
-    const href = link.getAttribute("href");
-    if (
-      !href ||
-      href.startsWith("#") ||
-      href.startsWith("mailto:") ||
-      href.startsWith("tel:") ||
-      link.hasAttribute("download") ||
-      link.target === "_blank"
-    ) {
-      return;
-    }
-
-    const target = new URL(link.href, window.location.href);
-    const samePageAnchor =
-      target.pathname === window.location.pathname && Boolean(target.hash);
-
-    if (target.origin !== window.location.origin || samePageAnchor || reduceMotion) {
-      return;
-    }
-
-    event.preventDefault();
-    body.classList.add("is-leaving");
-    window.setTimeout(() => {
-      window.location.href = target.href;
-    }, 500);
-  });
 
   const form = document.querySelector(".rfq-form");
 
   if (form) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-
       const button = form.querySelector('button[type="submit"]');
       const status = form.querySelector(".form-status");
 
@@ -132,14 +183,11 @@
           body: new FormData(form),
           headers: { Accept: "application/json" }
         });
-
         if (!response.ok) throw new Error("Submission failed");
-
         form.reset();
         status.textContent = "Thank you. Your enquiry has been submitted.";
       } catch (error) {
-        status.textContent =
-          "The form could not be submitted. Please email info@honvax.com with your documents.";
+        status.textContent = "The form could not be submitted. Please email info@honvax.com with your documents.";
       } finally {
         button.disabled = false;
         button.textContent = originalButtonText || "Submit RFQ";
