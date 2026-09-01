@@ -47,10 +47,10 @@
       title: "Support built around the RFQ",
       text: "HONVAX can support the sourcing process from the initial requirement review through supplier development, quality control and delivery coordination.",
       links: [
-        ["Requirement Review", "RFQs, BOQs, drawings and specifications", "services.html"],
-        ["China Supplier Sourcing", "RFQ-specific manufacturer identification", "services.html"],
-        ["Technical & Commercial Comparison", "Compliance, lead time, terms and landed cost", "services.html"],
-        ["Supply Execution", "Quality, documentation, export and delivery", "services.html"]
+        ["Requirement Review", "RFQs, BOQs, drawings and specifications", "requirement-review.html"],
+        ["China Supplier Sourcing", "RFQ-specific manufacturer identification", "china-supplier-sourcing.html"],
+        ["Technical & Commercial Comparison", "Compliance, lead time, terms and landed cost", "technical-commercial-comparison.html"],
+        ["Supply Execution", "Quality, documentation, export and delivery", "supply-execution.html"]
       ]
     },
     "how-we-work.html": {
