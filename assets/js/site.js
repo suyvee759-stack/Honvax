@@ -59,9 +59,9 @@
       text: "Explore selected equipment and engineering supply areas, then send the exact requirement for availability and technical confirmation.",
       links: [
         ["Used Equipment", "Available excavators and changing SANY inventory", "used-equipment.html"],
-        ["Infrastructure", "Steel, pipework, fasteners and fabricated items", "infrastructure-construction.html"],
-        ["Power & Energy", "Grid hardware, cable accessories and project materials", "power-energy.html"],
-        ["Mining & Industrial", "Wear, screening and maintenance products", "mining-industrial.html"]
+        ["Infrastructure Supplies", "Water, steel, pipework, valves and project materials", "infrastructure-supplies.html"],
+        ["Power & Generators", "Grid products and project backup-power packages", "generators.html"],
+        ["Product Catalogue", "Selected equipment, parts and engineering products", "product-catalogue.html"]
       ]
     }
   };
