@@ -139,6 +139,55 @@
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const pageContext = {
+    "industries.html": { section: "Industries", parent: "industries.html", links: [["Services", "services.html"], ["Products & Equipment", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "power-energy.html": { section: "Power & Energy", parent: "industries.html", parentLabel: "Industries", links: [["Related products", "generators.html"], ["How we work", "services.html#how-we-work"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "water-municipal.html": { section: "Water & Municipal", parent: "industries.html", parentLabel: "Industries", links: [["Related products", "infrastructure-supplies.html"], ["How we work", "services.html#how-we-work"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "mining-industrial.html": { section: "Mining & Industrial", parent: "industries.html", parentLabel: "Industries", links: [["Used equipment", "used-equipment.html"], ["Product catalogue", "product-catalogue.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "infrastructure-construction.html": { section: "Infrastructure & Construction", parent: "industries.html", parentLabel: "Industries", links: [["Infrastructure supplies", "infrastructure-supplies.html"], ["Product catalogue", "product-catalogue.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "services.html": { section: "Services & Process", parent: "services.html", links: [["Industries", "industries.html"], ["Products & Equipment", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "requirement-review.html": { section: "Requirement Review", parent: "services.html", parentLabel: "Services", links: [["Supplier sourcing", "china-supplier-sourcing.html"], ["Complete process", "services.html#how-we-work"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "china-supplier-sourcing.html": { section: "China Supplier Sourcing", parent: "services.html", parentLabel: "Services", links: [["Requirement review", "requirement-review.html"], ["Comparison", "technical-commercial-comparison.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "technical-commercial-comparison.html": { section: "Technical & Commercial Comparison", parent: "services.html", parentLabel: "Services", links: [["Supplier sourcing", "china-supplier-sourcing.html"], ["Supply execution", "supply-execution.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "supply-execution.html": { section: "Supply Execution", parent: "services.html", parentLabel: "Services", links: [["Complete process", "services.html#how-we-work"], ["Products & Equipment", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "products-equipment.html": { section: "Products & Equipment", parent: "products-equipment.html", links: [["Used equipment", "used-equipment.html"], ["Product catalogue", "product-catalogue.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "used-equipment.html": { section: "Used Equipment", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Mining & Industrial", "mining-industrial.html"], ["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html?subject=Used%20equipment%20request"]] },
+    "infrastructure-supplies.html": { section: "Infrastructure Supplies", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Infrastructure industry", "infrastructure-construction.html"], ["Water industry", "water-municipal.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "generators.html": { section: "Power & Generators", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Power & Energy", "power-energy.html"], ["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "product-catalogue.html": { section: "Product Catalogue", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Industries", "industries.html"], ["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "about.html": { section: "About HONVAX", parent: "about.html", links: [["Industries", "industries.html"], ["How we work", "services.html#how-we-work"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "send-your-rfq.html": { section: "Send Your RFQ", parent: "send-your-rfq.html", links: [["What we support", "industries.html"], ["Products & Equipment", "products-equipment.html"], ["How we work", "services.html#how-we-work"]] }
+  };
+
+  const activeParent = pageContext[currentPage]?.parent || currentPage;
+  document.querySelectorAll(".site-header nav a[href]").forEach((link) => {
+    const href = link.getAttribute("href").split("#")[0].split("?")[0].split("/").pop();
+    const active = href === activeParent;
+    link.classList.toggle("active", active);
+    if (active) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+
+  const contextData = pageContext[currentPage];
+  if (header && contextData && !document.querySelector(".page-context")) {
+    const context = document.createElement("div");
+    context.className = "page-context";
+    const parentCrumb = contextData.parentLabel
+      ? `<a href="${contextData.parent}">${contextData.parentLabel}</a><span aria-hidden="true">/</span>`
+      : "";
+    context.innerHTML = `
+      <div class="wrap page-context-inner">
+        <nav class="page-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span aria-hidden="true">/</span>${parentCrumb}<strong>${contextData.section}</strong>
+        </nav>
+        <nav class="page-context-links" aria-label="Related pages">
+          ${contextData.links.map(([label, href]) => `<a href="${href}">${label}<span aria-hidden="true">→</span></a>`).join("")}
+        </nav>
+      </div>`;
+    header.insertAdjacentElement("afterend", context);
+  }
+
   document.querySelectorAll("main > section:not(.network-hero)").forEach((section) => {
     if (!section.hasAttribute("data-reveal")) section.setAttribute("data-reveal", "");
   });
