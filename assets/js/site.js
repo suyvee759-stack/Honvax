@@ -53,15 +53,15 @@
         ["Supply Execution", "Quality, documentation, export and delivery", "supply-execution.html"]
       ]
     },
-    "how-we-work.html": {
-      eyebrow: "HOW WE WORK",
-      title: "A controlled procurement route",
-      text: "The process begins with the actual requirement. Technical and commercial risks are checked before supply execution begins.",
+    "products-equipment.html": {
+      eyebrow: "PRODUCTS & EQUIPMENT",
+      title: "Real supply categories",
+      text: "Explore selected equipment and engineering supply areas, then send the exact requirement for availability and technical confirmation.",
       links: [
-        ["01 — Review", "Clarify scope, specification and delivery needs", "requirement-review.html"],
-        ["02 — Source", "Develop the appropriate China supply route", "china-supplier-sourcing.html"],
-        ["03 — Compare", "Assess compliance, quality, terms and cost", "technical-commercial-comparison.html"],
-        ["04 — Execute", "Coordinate ordering, inspection and delivery", "supply-execution.html"]
+        ["Used Equipment", "Available excavators and changing SANY inventory", "used-equipment.html"],
+        ["Infrastructure", "Steel, pipework, fasteners and fabricated items", "infrastructure-construction.html"],
+        ["Power & Energy", "Grid hardware, cable accessories and project materials", "power-energy.html"],
+        ["Mining & Industrial", "Wear, screening and maintenance products", "mining-industrial.html"]
       ]
     }
   };
