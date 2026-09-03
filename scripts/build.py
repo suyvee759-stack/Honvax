@@ -6,6 +6,12 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Serve one complete stylesheet so layout does not depend on a second CSS request.
+(ROOT / 'assets/css/site-v5.css').write_text(
+    (ROOT / 'assets/css/site.css').read_text() + '\n' +
+    (ROOT / 'assets/css/revision.css').read_text()
+)
+
 class Page(HTMLParser):
     def __init__(self):
         super().__init__()
