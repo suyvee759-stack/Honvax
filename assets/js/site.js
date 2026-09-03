@@ -59,9 +59,11 @@
       text: "Explore selected equipment and engineering supply areas, then send the exact requirement for availability and technical confirmation.",
       links: [
         ["Used Equipment", "Available excavators and changing SANY inventory", "used-equipment.html"],
-        ["Infrastructure Supplies", "Water, steel, pipework, valves and project materials", "infrastructure-supplies.html"],
-        ["Power & Generators", "Grid products and project backup-power packages", "generators.html"],
-        ["Product Catalogue", "Selected equipment, parts and engineering products", "product-catalogue.html"]
+        ["Pumps & Water Equipment", "Split-case, vertical-turbine, slurry and dewatering pumps", "pumps-water-equipment.html"],
+        ["Industrial Generators", "Generator sets and project control packages", "generators.html"],
+        ["Pipes, Valves & Project Materials", "Pipework, valves and fabricated materials", "infrastructure-supplies.html"],
+        ["Wear Parts & Components", "Screening media, machine parts and attachments", "product-catalogue.html#wear-parts"],
+        ["Grid & Cable Accessories", "Line hardware, insulators and terminations", "product-catalogue.html#power-accessories"]
       ]
     }
   };
@@ -139,7 +141,8 @@
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const routeName = window.location.pathname.replace(/\/$/, "").split("/").pop() || "index.html";
+  const currentPage = routeName.includes(".") ? routeName : `${routeName}.html`;
   const pageContext = {
     "industries.html": { section: "Industries", parent: "industries.html", links: [["Services", "services.html"], ["Products & Equipment", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
     "power-energy.html": { section: "Power & Energy", parent: "industries.html", parentLabel: "Industries", links: [["Related products", "generators.html"], ["How we work", "services.html#how-we-work"], ["Send Your RFQ", "send-your-rfq.html"]] },
@@ -155,7 +158,8 @@
     "used-equipment.html": { section: "Used Equipment", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Mining & Industrial", "mining-industrial.html"], ["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html?subject=Used%20equipment%20request"]] },
     "infrastructure-supplies.html": { section: "Infrastructure Supplies", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Infrastructure industry", "infrastructure-construction.html"], ["Water industry", "water-municipal.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
     "generators.html": { section: "Power & Generators", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Power & Energy", "power-energy.html"], ["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
-    "product-catalogue.html": { section: "Product Catalogue", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Industries", "industries.html"], ["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "product-catalogue.html": { section: "Parts & Accessories", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["All products", "products-equipment.html"], ["Send Your RFQ", "send-your-rfq.html"]] },
+    "pumps-water-equipment.html": { section: "Pumps & Water Equipment", parent: "products-equipment.html", parentLabel: "Products & Equipment", links: [["Water & Municipal", "water-municipal.html"], ["Send Your RFQ", "send-your-rfq.html?subject=Pump%20enquiry"]] },
     "about.html": { section: "About HONVAX", parent: "about.html", links: [["Industries", "industries.html"], ["How we work", "services.html#how-we-work"], ["Send Your RFQ", "send-your-rfq.html"]] },
     "send-your-rfq.html": { section: "Send Your RFQ", parent: "send-your-rfq.html", links: [["What we support", "industries.html"], ["Products & Equipment", "products-equipment.html"], ["How we work", "services.html#how-we-work"]] }
   };
@@ -170,7 +174,7 @@
   });
 
   const contextData = pageContext[currentPage];
-  if (header && contextData && !document.querySelector(".page-context")) {
+  if (header && contextData && currentPage !== "send-your-rfq.html" && !document.querySelector(".page-context")) {
     const context = document.createElement("div");
     context.className = "page-context";
     const parentCrumb = contextData.parentLabel
@@ -211,6 +215,18 @@
   const form = document.querySelector(".rfq-form");
 
   if (form) {
+    const parameters = new URLSearchParams(window.location.search);
+    const requirement = form.elements.namedItem("requirement");
+    const sourcePage = form.elements.namedItem("source_page");
+    if (requirement && parameters.has("subject") && !requirement.value) {
+      requirement.value = parameters.get("subject").slice(0, 500);
+    }
+    if (sourcePage) {
+      try {
+        const referringPage = new URL(document.referrer);
+        if (referringPage.origin === window.location.origin) sourcePage.value = referringPage.pathname;
+      } catch (_) { /* Direct visits have no referring page. */ }
+    }
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const button = form.querySelector('button[type="submit"]');
@@ -223,23 +239,31 @@
 
       const originalButtonText = button.textContent;
       button.disabled = true;
+      form.setAttribute("aria-busy", "true");
       button.textContent = "Submitting…";
       status.textContent = "";
 
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 30000);
       try {
         const response = await fetch(form.action, {
           method: "POST",
           body: new FormData(form),
-          headers: { Accept: "application/json" }
+          headers: { Accept: "application/json" },
+          signal: controller.signal
         });
         if (!response.ok) throw new Error("Submission failed");
         form.reset();
-        status.textContent = "Thank you. Your enquiry has been submitted.";
+        status.textContent = "Thank you. Your enquiry has been submitted. HONVAX will review the information and contact you about the next step.";
       } catch (error) {
-        status.textContent = "The form could not be submitted. Please email info@honvax.com with your documents.";
+        status.textContent = error.name === "AbortError"
+          ? "We could not confirm submission. Your details are still here. Please email info@honvax.com if you need to confirm receipt."
+          : "Your enquiry could not be submitted. Your details are still here. Try again, submit without the attachment, or email info@honvax.com.";
       } finally {
+        window.clearTimeout(timeout);
+        form.removeAttribute("aria-busy");
         button.disabled = false;
-        button.textContent = originalButtonText || "Submit RFQ";
+        button.textContent = originalButtonText || "Send My Enquiry";
       }
     });
   }
