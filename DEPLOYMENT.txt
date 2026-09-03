@@ -1,0 +1,8 @@
+HONVAX GitHub Pages deployment
+
+1. Keep CNAME in the repository root.
+2. Upload the CONTENTS of this folder to the GitHub Pages repository root.
+3. Do not use .htaccess; GitHub Pages does not process it.
+4. Legacy URLs are retained as small HTML redirect pages.
+5. Test send-your-rfq.html after deployment. The form currently submits to Formspree endpoint https://formspree.io/f/xlgzqzzn.
+6. Check mobile navigation, Power hero image, internal links and RFQ submission after deployment.
