@@ -27,4 +27,18 @@
       <div><a class="brand footer-brand" href="index.html"><span>HONVAX</span></a><p>China sourcing, procurement and supply support for Southern African engineering and industrial buyers.</p></div>
       <div><h2>Explore</h2><a href="industries.html">Industries</a><a href="services.html">Services</a><a href="products-equipment.html">Products &amp; Equipment</a><a href="about.html">About</a></div>
       <div><h2>Start a conversation</h2><a href="send-your-rfq.html">Send Your RFQ</a><a href="mailto:info@honvax.com">info@honvax.com</a><p>China sourcing · Southern Africa market</p></div>
-    </div><div class="wrap footer-bottom"><span>© <span id="year"></span> HONVAX. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div></footer></body></html>
+    </div><div class="wrap footer-bottom"><span>© <span id="year"></span> HONVAX. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div></footer>
+<script>
+(function(){
+  const p=new URLSearchParams(window.location.search);
+  const product=p.get('product'), manufacturer=p.get('manufacturer'), series=p.get('series');
+  const requirement=document.querySelector('input[name="requirement"]');
+  const technical=document.querySelector('textarea[name="technical_requirements"]');
+  if(product && requirement && !requirement.value) requirement.value=product;
+  const context=[];
+  if(manufacturer) context.push('Manufacturer / source range: '+manufacturer);
+  if(series) context.push('Series / model family: '+series);
+  if(context.length && technical && !technical.value) technical.value=context.join('\n');
+})();
+</script>
+</body></html>
